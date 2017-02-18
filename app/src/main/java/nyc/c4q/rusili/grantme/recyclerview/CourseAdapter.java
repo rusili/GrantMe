@@ -13,7 +13,7 @@ import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 
 public class CourseAdapter extends RecyclerView.Adapter {
-    List<JSONCourses> listofCourses = new ArrayList<>();
+    List<JSONCourses> mListofCourses = new ArrayList<>();
     private int mViewId;
 
     public CourseAdapter(int viewId){
@@ -28,6 +28,7 @@ public class CourseAdapter extends RecyclerView.Adapter {
         CourseViewholder viewHolder = new CourseViewholder(mView);
 
         return viewHolder;
+
     }
 
     @Override
@@ -35,40 +36,20 @@ public class CourseAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder (RecyclerView.ViewHolder holder, final int position) {
 
         CourseViewholder CourseViewholder = (CourseViewholder) holder;
-        JSONCourses item = listofCourses.get(position);
+        JSONCourses item = mListofCourses.get(position);
+        CourseViewholder.bind(item);
 
-        if(item.getBorough()!=null){
-
-
-
-        switch (mViewId){
-            case R.id.brooklyn:
-                if(item.getBorough().equalsIgnoreCase("Queens")){
-                    CourseViewholder.bind(item);
-                }
-                break;
-            case R.id.queens:
-                if(item.getBorough().equalsIgnoreCase("Brooklyn")){
-                    CourseViewholder.bind(item);
-                }
-                break;
-            case R.id.bronx:
-                if(item.getBorough().equalsIgnoreCase("Bronx")){
-                    CourseViewholder.bind(item);
-                }
-        }
-        }
 
     }
 
     @Override
     @Nullable
     public int getItemCount () {
-        return listofCourses.size();
+        return mListofCourses.size();
     }
 
     public void setListofCourses(List<JSONCourses> listofCourses) {
-        this.listofCourses = listofCourses;
+        this.mListofCourses = listofCourses;
         this.notifyDataSetChanged();
     }
 

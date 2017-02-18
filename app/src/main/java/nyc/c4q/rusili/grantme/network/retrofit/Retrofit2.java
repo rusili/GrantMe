@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 import retrofit2.Call;
@@ -15,11 +16,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Retrofit2 {
 
-    CourseAdapter mCourseAdapter;
-    List<JSONCourses> mJSONCourses = new ArrayList<>();
+    private CourseAdapter mCourseAdapter;
+    private int mViewId;
 
-    public Retrofit2(CourseAdapter adapter){
-        mCourseAdapter = adapter;
+    public Retrofit2(CourseAdapter adapter, int viewId){
+        this.mCourseAdapter = adapter;
+        this.mViewId=viewId;
 
     }
 
@@ -38,8 +40,7 @@ public class Retrofit2 {
 
                     List<JSONCourses> jsonCourses= response.body();
 
-                    setmJSONCourses(jsonCourses);
-                    mCourseAdapter.setListofCourses(jsonCourses);
+                    mCourseAdapter.setListofCourses(borougthList(jsonCourses,mViewId));
                     Log.d("It's working", jsonCourses.get(2).getCourseName());
 
 
@@ -54,11 +55,36 @@ public class Retrofit2 {
         });
     }
 
-    public List<JSONCourses> getmJSONCourses() {
-        return mJSONCourses;
-    }
 
-    public void setmJSONCourses(List<JSONCourses> mJSONCourses) {
-        this.mJSONCourses = mJSONCourses;
+
+
+    public List<JSONCourses> borougthList(List<JSONCourses> inputList,int viewId ){
+
+        String borough = "";
+        List<JSONCourses> output = new ArrayList<>();
+
+
+        switch (viewId){
+            case R.id.brooklyn:
+                borough="Brooklyn";
+
+            break;
+            case R.id.queens:
+                borough="Queens";
+            break;
+            case R.id.bronx:
+                borough="Bronx";
+            break;
+        }
+
+
+        for(JSONCourses item:inputList){
+            if(item.getBorough()!=null) {
+                if (item.getBorough().equalsIgnoreCase(borough)) {
+                    output.add(item);
+                }
+            }
+        }
+      return output;
     }
 }

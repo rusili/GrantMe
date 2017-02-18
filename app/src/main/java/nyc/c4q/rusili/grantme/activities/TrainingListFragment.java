@@ -8,7 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.retrofit.Retrofit2;
 import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 
@@ -20,6 +24,7 @@ public class TrainingListFragment extends Fragment {
     private int mViewId;
     private RecyclerView mRecyclerView;
     private Retrofit2 mRetrofit;
+    List<JSONCourses> mListofCourses = new ArrayList<>();
 
 
 
@@ -37,8 +42,10 @@ public class TrainingListFragment extends Fragment {
         mRecyclerView=(RecyclerView) view.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         CourseAdapter courseAdapter = new CourseAdapter(mViewId);
-        mRetrofit = new Retrofit2(courseAdapter);
+        mRetrofit = new Retrofit2(courseAdapter,mViewId);
         mRetrofit.connect();
+        //mListofCourses=mRetrofit.getmJSONCourses();
+        courseAdapter.setListofCourses(mListofCourses);
         mRecyclerView.setAdapter(courseAdapter);
 
 

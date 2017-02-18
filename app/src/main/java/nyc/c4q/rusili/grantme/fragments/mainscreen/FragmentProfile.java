@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,9 @@ public class FragmentProfile extends Fragment{
     private ImageView imageViewPicture;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+    private StorageReference storageRef = firebaseStorage.getReference();
 
     private List<JSONCourses> jsonCoursesList = new ArrayList<>();
 
@@ -63,7 +67,7 @@ public class FragmentProfile extends Fragment{
 
     private void getFromDatabase(){
         String userUid = mAuth.getCurrentUser().getUid();
-        DatabaseReference mDatabase = database.getInstance().getReference("users");
+        DatabaseReference mDatabase = firebaseDatabase.getInstance().getReference("users");
 
         mDatabase.child(userUid).addValueEventListener(new ValueEventListener() {
             @Override

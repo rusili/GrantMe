@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GrantMe</string>
+    <string name="fragment_profile_navigation1">Favorites</string>
 </resources>

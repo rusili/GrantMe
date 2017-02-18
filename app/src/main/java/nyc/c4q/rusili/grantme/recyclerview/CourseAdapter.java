@@ -11,25 +11,37 @@ import java.util.List;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter {
+public class CourseAdapter extends RecyclerView.Adapter {
     List<JSONCourses> listofCourses = new ArrayList<>();
+
+    public CourseAdapter(){
+
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View mView = inflater.inflate(R.layout.recyclerview_viewholder, parent, false);
-        RecyclerViewViewholder viewHolder = new RecyclerViewViewholder(mView);
+        View mView = inflater.inflate(R.layout.course_item, parent, false);
+        CourseViewholder viewHolder = new CourseViewholder(mView);
+
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder (RecyclerView.ViewHolder holder, int position) {
-        RecyclerViewViewholder RecyclerViewViewholder = (RecyclerViewViewholder) holder;
-        RecyclerViewViewholder.bind(position);
+        CourseViewholder CourseViewholder = (CourseViewholder) holder;
+        CourseViewholder.bind(listofCourses.get(position));
     }
 
     @Override
     public int getItemCount () {
         return listofCourses.size();
     }
+
+    public void setListofCourses(List<JSONCourses> listofCourses) {
+        this.listofCourses = listofCourses;
+        this.notifyDataSetChanged();
+    }
+
+
 }

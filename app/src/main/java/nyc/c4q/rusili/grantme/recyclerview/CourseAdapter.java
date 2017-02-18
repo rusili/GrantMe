@@ -28,7 +28,6 @@ public class CourseAdapter extends RecyclerView.Adapter {
         CourseViewholder viewHolder = new CourseViewholder(mView);
 
         return viewHolder;
-
     }
 
     @Override

@@ -12,10 +12,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ActivityStart"/>
 
 
-        <activity android:name=".activities.HomePage"
+        <activity android:name=".activities.ActivityStart"
             android:theme="@style/HomePageTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,6 +23,8 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".activities.HomePage"/>
+
     </application>
 
 </manifest>

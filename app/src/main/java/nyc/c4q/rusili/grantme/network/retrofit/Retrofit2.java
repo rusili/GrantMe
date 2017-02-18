@@ -12,12 +12,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Retrofit2 {
+    //https://data.cityofnewyork.us/resource/5teq-yyit.json
 
     public Retrofit2(){}
 
     public void connect(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("https://data.cityofnewyork.us")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -27,6 +28,7 @@ public class Retrofit2 {
             @Override
             public void onResponse(Call<List<JSONCourses>> call, Response<List<JSONCourses>>response) {
                 if (response.isSuccessful()) {
+
                 }
             }
 

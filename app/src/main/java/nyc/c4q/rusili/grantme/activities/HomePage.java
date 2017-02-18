@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
 
 public class HomePage extends AppCompatActivity {
     TabLayout mTabLayout;
@@ -25,7 +26,6 @@ public class HomePage extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mTabLayout.addTab(mTabLayout.newTab().setText("Help for Homeless"));

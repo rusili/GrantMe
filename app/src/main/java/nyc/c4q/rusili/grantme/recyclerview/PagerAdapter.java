@@ -1,8 +1,12 @@
-package nyc.c4q.rusili.grantme.activities;
+package nyc.c4q.rusili.grantme.recyclerview;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import nyc.c4q.rusili.grantme.fragments.mainscreen.DurationFragment;
+import nyc.c4q.rusili.grantme.fragments.mainscreen.FieldFragment;
+import nyc.c4q.rusili.grantme.fragments.mainscreen.LocationFragment;
 
 /**
  * Created by Millochka on 2/18/17.

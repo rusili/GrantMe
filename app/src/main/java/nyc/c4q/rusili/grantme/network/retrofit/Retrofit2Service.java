@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 
 public interface Retrofit2Service {
 
-    @GET ("")
+    @GET ("/resource/5teq-yyit.json")
     Call<List<JSONCourses>> getCourses();
 }

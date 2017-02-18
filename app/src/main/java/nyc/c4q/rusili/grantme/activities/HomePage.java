@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
 
 public class HomePage extends AppCompatActivity {
     TabLayout mTabLayout;

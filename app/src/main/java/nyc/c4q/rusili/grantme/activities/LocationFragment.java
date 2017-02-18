@@ -1,11 +1,16 @@
 package nyc.c4q.rusili.grantme.activities;
 
+import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -28,7 +33,7 @@ public class LocationFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        this.setHasOptionsMenu(true);
         View itemView = inflater.inflate(R.layout.location_layout, container, false);
 
         recyclerView = (RecyclerView) itemView.findViewById(R.id.location_rv);
@@ -42,9 +47,10 @@ public class LocationFragment extends Fragment {
 
     }
 
-    /*@Override
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
         inflater.inflate(R.menu.menu_main, menu);
     }
 
@@ -55,10 +61,10 @@ public class LocationFragment extends Fragment {
         if (id == R.id.action_list_to_grid) {
             if (!((Animatable) item.getIcon()).isRunning()) {
                 if (gridLayoutManager.getSpanCount() == 1) {
-                    item.setIcon(AnimatedVectorDrawableCompat.create(MainActivity.this, R.drawable.avd_list_to_grid));
+                    item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.list_to_grid));
                     gridLayoutManager.setSpanCount(3);
                 } else {
-                    item.setIcon(AnimatedVectorDrawableCompat.create(MainActivity.this, R.drawable.avd_grid_to_list));
+                    item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.grid_to_list));
                     gridLayoutManager.setSpanCount(1);
                 }
                 ((Animatable) item.getIcon()).start();
@@ -68,7 +74,7 @@ public class LocationFragment extends Fragment {
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
 }
 

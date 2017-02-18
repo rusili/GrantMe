@@ -5,7 +5,7 @@ import android.animation.AnimatorSet;
 import android.content.Context;
 import android.view.View;
 
-import nyc.c4q.rusili.utilitytemplates.R;
+import nyc.c4q.rusili.grantme.R;
 
 // Custom animations using animator sets
 // Parameters:  1) Context

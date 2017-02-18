@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/testing"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:id="@+id/testing"
-    >
+    android:orientation="vertical">
 
 
     <android.support.v7.widget.SearchView
         android:id="@+id/search_shelter"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="#ffffffff"
-        />
+        android:background="#ffffffff" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -22,7 +21,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
 
     </android.support.v4.widget.SwipeRefreshLayout>

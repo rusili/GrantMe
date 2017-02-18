@@ -13,11 +13,13 @@ import nyc.c4q.rusili.grantme.R;
 public class LocationViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView boroughTV;
+    private final View cardView;
 
     private CardView mCardView;
 
     public LocationViewHolder(View itemView) {
         super(itemView);
+        cardView = itemView;
         boroughTV = (TextView) itemView.findViewById(R.id.card_tv);
         mCardView=(CardView) itemView.findViewById(R.id.location_card);
     }

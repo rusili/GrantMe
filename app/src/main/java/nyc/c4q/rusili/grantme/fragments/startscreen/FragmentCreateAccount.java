@@ -16,22 +16,30 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.User;
 import nyc.c4q.rusili.grantme.toasts.CustomToast;
 import nyc.c4q.rusili.grantme.utilities.FragmentBuilder;
 
 public class FragmentCreateAccount extends Fragment {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     private CustomToast customToast;
     private View mView;
     private EditText editTextEmail;
     private EditText editTextPassword;
+    private EditText editTextUsername;
     private Button buttonCreateAccount;
-    private String username;
+    private String email;
     private String password;
+    private String username;
+    private int userId;
 
     @Nullable
     @Override
@@ -44,9 +52,8 @@ public class FragmentCreateAccount extends Fragment {
 
     private void initializeViews () {
         editTextEmail = (EditText) mView.findViewById(R.id.fragment_createaccount_email);
-        username = editTextEmail.getText().toString();
+        editTextUsername = (EditText) mView.findViewById(R.id.fragment_createaccount_username);
         editTextPassword = (EditText) mView.findViewById(R.id.fragment_createaccount_password);
-        password = editTextPassword.getText().toString();
         buttonCreateAccount = (Button) mView.findViewById(R.id.fragment_createaccount_button);
         buttonCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +64,9 @@ public class FragmentCreateAccount extends Fragment {
     }
 
     private void createAccountFirebase(){
-        String createAccountEmail = editTextEmail.getText().toString().trim();
-        String createAccountPassword = editTextPassword.getText().toString().trim();
+        final String createAccountEmail = editTextEmail.getText().toString().trim();
+        final String createAccountUsername = editTextUsername.getText().toString().trim();
+        final String createAccountPassword = editTextPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(createAccountEmail) || TextUtils.isEmpty(createAccountPassword)) {
             customToast.show(mView, "Please enter an email and password");
@@ -69,6 +77,7 @@ public class FragmentCreateAccount extends Fragment {
                         public void onComplete (@NonNull Task <AuthResult> task) {
                             if (task.isSuccessful()) {
                                 customToast.show(mView, "Account Created!");
+                                createUserDatabase(createAccountUsername, createAccountEmail, createAccountPassword);
                                 backToLoginScreen();
                             } else {
                                 customToast.show(mView, "Failed to make account");
@@ -76,6 +85,11 @@ public class FragmentCreateAccount extends Fragment {
                         }
                     });
         }
+    }
+
+    private void createUserDatabase (String username, String email, String createAccountPassword) {
+        User user = new User(username, email, createAccountPassword);
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
     }
 
     private void backToLoginScreen(){

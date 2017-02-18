@@ -50,6 +50,31 @@
                 android:inputType="textEmailAddress" />
         </LinearLayout>
 
+        <!-- Username -->
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10sp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:scaleX=".5"
+                android:scaleY=".5"></ImageView>
+            <!--android:src="@drawable/logo_key" -->
+
+            <EditText
+                android:id="@+id/fragment_createaccount_username"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Enter a username"
+                />
+        </LinearLayout>
+
         <!-- Password -->
         <LinearLayout
             android:layout_width="240dp"

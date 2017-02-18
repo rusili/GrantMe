@@ -48,6 +48,12 @@ public class FragmentLogin extends Fragment{
     private void initializeViews () {
         buttonLogin = (Button) mView.findViewById(R.id.fragment_login_button);
         buttonCreateAccount = (TextView) mView.findViewById(R.id.fragment_login_createaccount);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                onClickLogin();
+            }
+        });
     }
 
     private void onClickLogin(){
@@ -55,6 +61,8 @@ public class FragmentLogin extends Fragment{
         email = editTextEmail.getText().toString();
         editTextPassword = (EditText) mView.findViewById(R.id.fragment_login_edittext_password);
         password = editTextPassword.getText().toString();
+
+        checkLogin();
     }
 
     private void checkLogin(){
@@ -63,9 +71,7 @@ public class FragmentLogin extends Fragment{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
                         if (task.isSuccessful()) {
-                            System.out.println("Sign in successful!");
                             fromStarttoMain();
                         } else {
                             customToast.show(mView, "Invalid credentials");

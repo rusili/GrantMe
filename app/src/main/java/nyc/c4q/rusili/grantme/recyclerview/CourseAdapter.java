@@ -14,10 +14,10 @@ import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 
 public class CourseAdapter extends RecyclerView.Adapter {
     List<JSONCourses> mListofCourses = new ArrayList<>();
-    private int mViewId;
 
-    public CourseAdapter(int viewId){
-        this.mViewId = viewId;
+
+    public CourseAdapter(){
+
 
     }
 

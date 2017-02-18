@@ -6,11 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
 /**
  * Created by huilin on 2/18/17.
  */
 public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
+
+
+    private Listener mListener;
+
+    public LocationAdapter(Listener listener){
+        this.mListener=listener;
+
+    }
 
     @Override
     public LocationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -19,8 +28,15 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(LocationViewHolder holder, int position) {
+    public void onBindViewHolder(LocationViewHolder holder, final int position) {
         holder.bind(position);
+        holder.getmCardView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.showTrainings(position,R.id.location_card);
+
+            }
+        });
 
     }
 

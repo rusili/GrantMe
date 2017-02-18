@@ -19,9 +19,10 @@ import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 /**
  * Created by Millochka on 2/18/17.
  */
-public class TrainingListFragment extends Fragment {
+public class TrainingListFragment extends Fragment{
 
     private int mViewId;
+    private int mPosition;
     private RecyclerView mRecyclerView;
     private Retrofit2 mRetrofit;
     List<JSONCourses> mListofCourses = new ArrayList<>();
@@ -41,11 +42,11 @@ public class TrainingListFragment extends Fragment {
         super.onViewCreated(view,savedInstanceState);
         mRecyclerView=(RecyclerView) view.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        CourseAdapter courseAdapter = new CourseAdapter(mViewId);
-        mRetrofit = new Retrofit2(courseAdapter,mViewId);
+        CourseAdapter courseAdapter = new CourseAdapter();
+        mRetrofit = new Retrofit2(courseAdapter,mViewId,mPosition);
         mRetrofit.connect();
         //mListofCourses=mRetrofit.getmJSONCourses();
-        courseAdapter.setListofCourses(mListofCourses);
+        //courseAdapter.setListofCourses(mListofCourses);
         mRecyclerView.setAdapter(courseAdapter);
 
 
@@ -54,4 +55,10 @@ public class TrainingListFragment extends Fragment {
     public void setmViewId(int mViewId) {
         this.mViewId = mViewId;
     }
+
+    public void setmPosition(final int mPosition) {
+        this.mPosition = mPosition;
+    }
+
+
 }

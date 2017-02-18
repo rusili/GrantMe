@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
 /**
  * Created by Millochka on 2/18/17.
@@ -19,6 +20,8 @@ public class LocationFragment extends Fragment {
     GridLayoutManager gridLayoutManager;
     LocationAdapter locationAdapter;
     private RecyclerView recyclerView;
+    private Listener mListener;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class LocationFragment extends Fragment {
 
         recyclerView = (RecyclerView) itemView.findViewById(R.id.location_rv);
         recyclerView.getItemAnimator().setChangeDuration(700);
-        locationAdapter = new LocationAdapter();
+        locationAdapter = new LocationAdapter(mListener);
         recyclerView.setAdapter(locationAdapter);
         gridLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -42,34 +45,9 @@ public class LocationFragment extends Fragment {
 
     }
 
-    /*@Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_main, menu);
+    public void setmListener(Listener listener) {
+        this.mListener = listener;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_list_to_grid) {
-            if (!((Animatable) item.getIcon()).isRunning()) {
-                if (gridLayoutManager.getSpanCount() == 1) {
-                    item.setIcon(AnimatedVectorDrawableCompat.create(MainActivity.this, R.drawable.avd_list_to_grid));
-                    gridLayoutManager.setSpanCount(3);
-                } else {
-                    item.setIcon(AnimatedVectorDrawableCompat.create(MainActivity.this, R.drawable.avd_grid_to_list));
-                    gridLayoutManager.setSpanCount(1);
-                }
-                ((Animatable) item.getIcon()).start();
-                locationAdapter.notifyItemRangeChanged(0, locationAdapter.getItemCount());
-            }
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
-
 }
 
 

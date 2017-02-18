@@ -3,6 +3,8 @@ package nyc.c4q.rusili.grantme.network.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
+import nyc.c4q.rusili.grantme.R;
+
 /**
  * Created by Millochka on 2/18/17.
  */
@@ -19,11 +21,11 @@ public class CourseFilter {
     }
 
 
-public List<JSONCourses> filterList(int position, int tabId){
+public List<JSONCourses> filterList(final int position, int tabId){
 
     switch (tabId){
 
-        case 1:
+        case R.id.location_card:
 
             return borougthList(position);
 
@@ -45,24 +47,31 @@ public List<JSONCourses> filterList(int position, int tabId){
 }
 
 
-    public List<JSONCourses> borougthList( int position ){
+    public List<JSONCourses> borougthList( final int position ){
 
         String borough = "";
         List<JSONCourses> output = new ArrayList<>();
 
 
         switch (position){
-            case 1:
+            case 0:
                 borough="Brooklyn";
-
                 break;
-            case 2:
-                borough="Queens";
-                break;
-            case 3:
+            case 1:
                 borough="Bronx";
                 break;
+            case 2:
+                borough="Manhattan";
+                break;
+            case 3:
+                borough="Queens";
+                break;
+            case 4:
+                borough="Staten Island";
+                break;
+
         }
+
 
 
         for(JSONCourses item:this.mCourseList){

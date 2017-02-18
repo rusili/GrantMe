@@ -1,5 +1,6 @@
 package nyc.c4q.rusili.grantme.activities;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -13,12 +14,16 @@ public class LocationViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView boroughTV;
 
+    private CardView mCardView;
+
     public LocationViewHolder(View itemView) {
         super(itemView);
         boroughTV = (TextView) itemView.findViewById(R.id.card_tv);
+        mCardView=(CardView) itemView.findViewById(R.id.location_card);
     }
 
     public void bind(int position) {
+
         switch (position) {
             case 0:
                 boroughTV.setText("Brooklyn");
@@ -36,5 +41,9 @@ public class LocationViewHolder extends RecyclerView.ViewHolder {
                 boroughTV.setText("Staten Island");
                 break;
         }
+    }
+
+    public CardView getmCardView() {
+        return mCardView;
     }
 }

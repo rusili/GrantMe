@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.CourseFilter;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 import retrofit2.Call;
@@ -18,10 +18,14 @@ public class Retrofit2 {
 
     private CourseAdapter mCourseAdapter;
     private int mViewId;
+    private int mPosition;
 
-    public Retrofit2(CourseAdapter adapter, int viewId){
+    public Retrofit2(CourseAdapter adapter, int viewId, final int position){
         this.mCourseAdapter = adapter;
         this.mViewId=viewId;
+        this.mPosition=position;
+
+
 
     }
 
@@ -40,7 +44,10 @@ public class Retrofit2 {
 
                     List<JSONCourses> jsonCourses= response.body();
 
-                    mCourseAdapter.setListofCourses(borougthList(jsonCourses,mViewId));
+                    CourseFilter courseFilter = new CourseFilter(jsonCourses);
+
+
+                    mCourseAdapter.setListofCourses(courseFilter.filterList(mPosition,mViewId));
                     Log.d("It's working", jsonCourses.get(2).getCourseName());
 
 
@@ -64,18 +71,18 @@ public class Retrofit2 {
         List<JSONCourses> output = new ArrayList<>();
 
 
-        switch (viewId){
-            case R.id.brooklyn:
-                borough="Brooklyn";
-
-            break;
-            case R.id.queens:
-                borough="Queens";
-            break;
-            case R.id.bronx:
-                borough="Bronx";
-            break;
-        }
+//        switch (viewId){
+//            case R.id.brooklyn:
+//                borough="Brooklyn";
+//
+//            break;
+//            case R.id.queens:
+//                borough="Queens";
+//            break;
+//            case R.id.bronx:
+//                borough="Bronx";
+//            break;
+//        }
 
 
         for(JSONCourses item:inputList){

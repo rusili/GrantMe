@@ -2,15 +2,14 @@ package nyc.c4q.rusili.grantme.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity implements Listener{
     TabLayout mTabLayout;
 
 
@@ -36,7 +35,7 @@ public class HomePage extends AppCompatActivity {
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setOffscreenPageLimit(2);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),mTabLayout.getTabCount());
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),mTabLayout.getTabCount(),this);
 
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
@@ -60,10 +59,13 @@ public class HomePage extends AppCompatActivity {
 
     }
 
-    public void showTrainings(View view){
 
+    @Override
+    public void showTrainings(final int position, int viewId) {
         TrainingListFragment trainingListFragment= new TrainingListFragment();
-        trainingListFragment.setmViewId(view.getId());
+        trainingListFragment.setmViewId(viewId);
+        trainingListFragment.setmPosition(position);
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_container, trainingListFragment)

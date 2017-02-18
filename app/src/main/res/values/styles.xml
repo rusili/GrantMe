@@ -3,13 +3,23 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--<item name="colorSecondary">@color/colorSecondary</item>-->
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="textPrimary">@color/textPrimary</item>-->
+        <!--<item name="textSecondary">@color/textSecondary</item>-->
+        <!--<item name="textHint">@color/textHint</item>-->
+        <!--<item name="whitePrimary">@color/whitePrimary</item>-->
     </style>
 
     <style name="HomePageTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--<item name="colorSecondary">@color/colorSecondary</item>-->
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="textPrimary">@color/textPrimary</item>-->
+        <!--<item name="textSecondary">@color/textSecondary</item>-->
+        <!--<item name="textHint">@color/textHint</item>-->
+        <!--<item name="whitePrimary">@color/whitePrimary</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">

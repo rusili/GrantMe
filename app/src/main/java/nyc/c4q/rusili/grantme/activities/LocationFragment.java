@@ -50,7 +50,6 @@ public class LocationFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        menu.clear();
         inflater.inflate(R.menu.menu_main, menu);
     }
 
@@ -61,10 +60,10 @@ public class LocationFragment extends Fragment {
         if (id == R.id.action_list_to_grid) {
             if (!((Animatable) item.getIcon()).isRunning()) {
                 if (gridLayoutManager.getSpanCount() == 1) {
-                    item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.list_to_grid));
+                    item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.grid_to_list));
                     gridLayoutManager.setSpanCount(3);
                 } else {
-                    item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.grid_to_list));
+                    item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.list_to_grid));
                     gridLayoutManager.setSpanCount(1);
                 }
                 ((Animatable) item.getIcon()).start();

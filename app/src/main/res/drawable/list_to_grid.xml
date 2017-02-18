@@ -2,120 +2,22 @@
 <animated-vector
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
-    android:drawable="@drawable/ic_grid_white_24dp">
+    android:drawable="@drawable/ic_list_white_24dp">
 
-    <target android:name="path_grid_1_2">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="0"
-                android:propertyName="fillAlpha"
-                android:valueFrom="1"
-                android:valueTo="0"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-    <target android:name="path_grid_2_4">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="0"
-                android:propertyName="fillAlpha"
-                android:valueFrom="1"
-                android:valueTo="0"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-    <target android:name="path_grid_3_4">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="0"
-                android:propertyName="fillAlpha"
-                android:valueFrom="1"
-                android:valueTo="0"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-    <target android:name="path_grid_4_2">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="0"
-                android:propertyName="fillAlpha"
-                android:valueFrom="1"
-                android:valueTo="0"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-
-    <target android:name="grid_1_3">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="200"
-                android:propertyName="scaleX"
-                android:valueFrom="1"
-                android:valueTo="0.214"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-    <target android:name="grid_2_3">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="200"
-                android:propertyName="scaleX"
-                android:valueFrom="1"
-                android:valueTo="0.214"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-    <target android:name="grid_3_1">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="200"
-                android:propertyName="scaleX"
-                android:valueFrom="1"
-                android:valueTo="0.214"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-    <target android:name="grid_4_1">
-        <aapt:attr name="android:animation" >
-            <objectAnimator
-                android:interpolator="@android:anim/linear_interpolator"
-                android:duration="200"
-                android:propertyName="scaleX"
-                android:valueFrom="1"
-                android:valueTo="0.214"
-                android:valueType="floatType"/>
-        </aapt:attr>
-    </target>
-
-
-    <target android:name="path_grid_1_3">
+    <target android:name="list_dot">
         <aapt:attr name="android:animation" >
             <set android:ordering="sequentially"
                 android:interpolator="@android:anim/linear_interpolator"
                 android:shareInterpolator="true">
                 <objectAnimator
                     android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
+                    android:propertyName="scaleX"
+                    android:valueFrom="1"
+                    android:valueTo="4.5"
                     android:valueType="floatType"/>
                 <objectAnimator
                     android:duration="0"
-                    android:propertyName="fillAlpha"
+                    android:propertyName="scaleX"
                     android:valueFrom="1"
                     android:valueTo="0"
                     android:valueType="floatType"/>
@@ -123,154 +25,26 @@
         </aapt:attr>
     </target>
 
-    <target android:name="path_grid_2_3">
+    <target android:name="list_line">
         <aapt:attr name="android:animation" >
             <set android:ordering="sequentially"
                 android:interpolator="@android:anim/linear_interpolator"
                 android:shareInterpolator="true">
                 <objectAnimator
                     android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
+                    android:propertyName="scaleX"
+                    android:valueFrom="1"
+                    android:valueTo="0.65"
                     android:valueType="floatType"/>
                 <objectAnimator
                     android:duration="0"
-                    android:propertyName="fillAlpha"
+                    android:propertyName="scaleX"
                     android:valueFrom="1"
                     android:valueTo="0"
                     android:valueType="floatType"/>
             </set>
         </aapt:attr>
     </target>
-
-    <target android:name="path_grid_3_1">
-        <aapt:attr name="android:animation" >
-            <set android:ordering="sequentially"
-                android:interpolator="@android:anim/linear_interpolator"
-                android:shareInterpolator="true">
-                <objectAnimator
-                    android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="0"
-                    android:propertyName="fillAlpha"
-                    android:valueFrom="1"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-            </set>
-        </aapt:attr>
-    </target>
-
-    <target android:name="path_grid_4_1">
-        <aapt:attr name="android:animation" >
-            <set android:ordering="sequentially"
-                android:interpolator="@android:anim/linear_interpolator"
-                android:shareInterpolator="true">
-                <objectAnimator
-                    android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="0"
-                    android:propertyName="fillAlpha"
-                    android:valueFrom="1"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-            </set>
-        </aapt:attr>
-    </target>
-
-
-    <target android:name="path_grid_1_4">
-        <aapt:attr name="android:animation" >
-            <set android:ordering="sequentially"
-                android:interpolator="@android:anim/linear_interpolator"
-                android:shareInterpolator="true">
-                <objectAnimator
-                    android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
-                    android:propertyName="fillAlpha"
-                    android:valueFrom="1"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-            </set>
-        </aapt:attr>
-    </target>
-
-    <target android:name="path_grid_2_2">
-        <aapt:attr name="android:animation" >
-            <set android:ordering="sequentially"
-                android:interpolator="@android:anim/linear_interpolator"
-                android:shareInterpolator="true">
-                <objectAnimator
-                    android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
-                    android:propertyName="fillAlpha"
-                    android:valueFrom="1"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-            </set>
-        </aapt:attr>
-    </target>
-
-    <target android:name="path_grid_3_2">
-        <aapt:attr name="android:animation" >
-            <set android:ordering="sequentially"
-                android:interpolator="@android:anim/linear_interpolator"
-                android:shareInterpolator="true">
-                <objectAnimator
-                    android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
-                    android:propertyName="fillAlpha"
-                    android:valueFrom="1"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-            </set>
-        </aapt:attr>
-    </target>
-
-    <target android:name="path_grid_4_4">
-        <aapt:attr name="android:animation" >
-            <set android:ordering="sequentially"
-                android:interpolator="@android:anim/linear_interpolator"
-                android:shareInterpolator="true">
-                <objectAnimator
-                    android:duration="200"
-                    android:propertyName="strokeAlpha"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
-                    android:propertyName="fillAlpha"
-                    android:valueFrom="1"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-            </set>
-        </aapt:attr>
-    </target>
-
 
     <target android:name="grid_1_1">
         <aapt:attr name="android:animation" >
@@ -279,15 +53,9 @@
                 android:shareInterpolator="true">
                 <objectAnimator
                     android:duration="200"
-                    android:propertyName="rotation"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1"
-                    android:valueTo="0.214"
+                    android:valueFrom="0.29"
+                    android:valueTo="1.29"
                     android:valueType="floatType"/>
                 <set
                     android:interpolator="@android:anim/linear_interpolator"
@@ -295,31 +63,30 @@
                     <objectAnimator
                         android:duration="140"
                         android:propertyName="scaleX"
-                        android:valueFrom="0.214"
-                        android:valueTo="1.29"
+                        android:valueFrom="1.29"
+                        android:valueTo="0.214"
                         android:valueType="floatType"/>
                     <objectAnimator
                         android:duration="140"
                         android:propertyName="scaleY"
-                        android:valueFrom="1"
-                        android:valueTo="1.33"
+                        android:valueFrom="1.33"
+                        android:valueTo="1"
                         android:valueType="floatType"/>
                     <objectAnimator
                         android:duration="140"
                         android:propertyName="translateX"
-                        android:valueTo="-1"
+                        android:valueTo="0"
                         android:valueType="floatType"/>
                     <objectAnimator
                         android:duration="140"
                         android:propertyName="translateY"
-                        android:valueTo="3"
+                        android:valueTo="0"
                         android:valueType="floatType"/>
                 </set>
                 <objectAnimator
-                    android:duration="200"
+                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1.29"
-                    android:valueTo="0.29"
+                    android:valueTo="1"
                     android:valueType="floatType"/>
             </set>
         </aapt:attr>
@@ -332,15 +99,9 @@
                 android:shareInterpolator="true">
                 <objectAnimator
                     android:duration="200"
-                    android:propertyName="rotation"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1"
-                    android:valueTo="0.214"
+                    android:valueFrom="2"
+                    android:valueTo="1.29"
                     android:valueType="floatType"/>
                 <set
                     android:interpolator="@android:anim/linear_interpolator"
@@ -348,31 +109,30 @@
                     <objectAnimator
                         android:duration="140"
                         android:propertyName="scaleX"
-                        android:valueFrom="0.214"
-                        android:valueTo="1.29"
+                        android:valueFrom="1.29"
+                        android:valueTo="0.214"
                         android:valueType="floatType"/>
                     <objectAnimator
                         android:duration="140"
                         android:propertyName="scaleY"
-                        android:valueFrom="1"
-                        android:valueTo="1.33"
-                        android:valueType="floatType"/>
-                    <objectAnimator
-                        android:duration="140"
-                        android:propertyName="translateX"
+                        android:valueFrom="1.33"
                         android:valueTo="1"
                         android:valueType="floatType"/>
                     <objectAnimator
                         android:duration="140"
+                        android:propertyName="translateX"
+                        android:valueTo="0"
+                        android:valueType="floatType"/>
+                    <objectAnimator
+                        android:duration="140"
                         android:propertyName="translateY"
-                        android:valueTo="3"
+                        android:valueTo="0"
                         android:valueType="floatType"/>
                 </set>
                 <objectAnimator
-                    android:duration="200"
+                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1.29"
-                    android:valueTo="2"
+                    android:valueTo="1"
                     android:valueType="floatType"/>
             </set>
         </aapt:attr>
@@ -385,38 +145,32 @@
                 android:shareInterpolator="true">
                 <objectAnimator
                     android:duration="200"
-                    android:propertyName="rotation"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1"
-                    android:valueTo="0.214"
+                    android:valueFrom="2"
+                    android:valueTo="1.29"
                     android:valueType="floatType"/>
                 <set
                     android:interpolator="@android:anim/linear_interpolator"
                     android:shareInterpolator="true">
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="scaleX"
-                        android:valueFrom="0.214"
+                        android:valueFrom="1.29"
                         android:valueTo="0.5"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="scaleY"
-                        android:valueFrom="1"
+                        android:valueFrom="1.33"
                         android:valueTo="1.20"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="translateX"
                         android:valueTo="-4.5"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="translateY"
                         android:valueTo="-1"
                         android:valueType="floatType"/>
@@ -425,33 +179,32 @@
                     android:interpolator="@android:anim/linear_interpolator"
                     android:shareInterpolator="true">
                     <objectAnimator
-                        android:duration="80"
+                        android:duration="60"
                         android:propertyName="scaleX"
                         android:valueFrom="0.5"
-                        android:valueTo="1.29"
+                        android:valueTo="0.214"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="80"
+                        android:duration="60"
                         android:propertyName="scaleY"
                         android:valueFrom="1.20"
-                        android:valueTo="1.33"
-                        android:valueType="floatType"/>
-                    <objectAnimator
-                        android:duration="80"
-                        android:propertyName="translateX"
                         android:valueTo="1"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="80"
+                        android:duration="60"
+                        android:propertyName="translateX"
+                        android:valueTo="0"
+                        android:valueType="floatType"/>
+                    <objectAnimator
+                        android:duration="60"
                         android:propertyName="translateY"
-                        android:valueTo="-3"
+                        android:valueTo="0"
                         android:valueType="floatType"/>
                 </set>
                 <objectAnimator
-                    android:duration="200"
+                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1.29"
-                    android:valueTo="2"
+                    android:valueTo="1"
                     android:valueType="floatType"/>
             </set>
         </aapt:attr>
@@ -464,38 +217,32 @@
                 android:shareInterpolator="true">
                 <objectAnimator
                     android:duration="200"
-                    android:propertyName="rotation"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1"
-                    android:valueTo="0.214"
+                    android:valueFrom="0.29"
+                    android:valueTo="1.29"
                     android:valueType="floatType"/>
                 <set
                     android:interpolator="@android:anim/linear_interpolator"
                     android:shareInterpolator="true">
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="scaleX"
-                        android:valueFrom="0.214"
+                        android:valueFrom="1.29"
                         android:valueTo="0.5"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="scaleY"
-                        android:valueFrom="1"
+                        android:valueFrom="1.33"
                         android:valueTo="1.20"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="translateX"
                         android:valueTo="4.5"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="60"
+                        android:duration="80"
                         android:propertyName="translateY"
                         android:valueTo="-1"
                         android:valueType="floatType"/>
@@ -504,91 +251,296 @@
                     android:interpolator="@android:anim/linear_interpolator"
                     android:shareInterpolator="true">
                     <objectAnimator
-                        android:duration="80"
+                        android:duration="60"
                         android:propertyName="scaleX"
                         android:valueFrom="0.5"
-                        android:valueTo="1.29"
+                        android:valueTo="0.214"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="80"
+                        android:duration="60"
                         android:propertyName="scaleY"
                         android:valueFrom="1.20"
-                        android:valueTo="1.33"
+                        android:valueTo="1"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="80"
+                        android:duration="60"
                         android:propertyName="translateX"
-                        android:valueTo="-1"
+                        android:valueTo="0"
                         android:valueType="floatType"/>
                     <objectAnimator
-                        android:duration="80"
+                        android:duration="60"
                         android:propertyName="translateY"
-                        android:valueTo="-3"
+                        android:valueTo="0"
                         android:valueType="floatType"/>
                 </set>
                 <objectAnimator
-                    android:duration="200"
+                    android:duration="160"
                     android:propertyName="scaleX"
-                    android:valueFrom="1.29"
-                    android:valueTo="0.29"
-                    android:valueType="floatType"/>
-            </set>
-        </aapt:attr>
-    </target>
-
-
-    <target android:name="list_dot">
-        <aapt:attr name="android:animation" >
-            <set android:ordering="sequentially"
-                android:interpolator="@android:anim/linear_interpolator"
-                android:shareInterpolator="true">
-                <objectAnimator
-                    android:duration="360"
-                    android:propertyName="rotation"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="0"
-                    android:propertyName="scaleX"
-                    android:valueFrom="0"
-                    android:valueTo="4.5"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="140"
-                    android:propertyName="rotation"
-                    android:valueFrom="0"
-                    android:valueTo="0"
-                    android:valueType="floatType"/>
-                <objectAnimator
-                    android:duration="200"
-                    android:propertyName="scaleX"
-                    android:valueFrom="4.5"
                     android:valueTo="1"
                     android:valueType="floatType"/>
             </set>
         </aapt:attr>
     </target>
 
-    <target android:name="list_line">
+    <target android:name="path_grid_1_4">
         <aapt:attr name="android:animation" >
             <set android:ordering="sequentially"
                 android:interpolator="@android:anim/linear_interpolator"
                 android:shareInterpolator="true">
                 <objectAnimator
-                    android:duration="360"
-                    android:propertyName="rotation"
+                    android:duration="340"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="160"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_2_2">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="340"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="160"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_3_2">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="340"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="160"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_4_4">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="340"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="160"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_1_2">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
                     android:valueFrom="0"
                     android:valueTo="0"
                     android:valueType="floatType"/>
                 <objectAnimator
                     android:duration="0"
-                    android:propertyName="scaleX"
+                    android:propertyName="fillAlpha"
                     android:valueFrom="0"
-                    android:valueTo="0.65"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_2_4">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
                     android:valueType="floatType"/>
                 <objectAnimator
-                    android:duration="140"
+                    android:duration="0"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_3_4">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="0"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_4_2">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="0"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_1_3">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="0"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_2_3">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="0"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_3_1">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="0"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="path_grid_4_1">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="strokeAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="0"
+                    android:propertyName="fillAlpha"
+                    android:valueFrom="0"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="grid_1_3">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
                     android:propertyName="rotation"
                     android:valueFrom="0"
                     android:valueTo="0"
@@ -596,7 +548,70 @@
                 <objectAnimator
                     android:duration="200"
                     android:propertyName="scaleX"
-                    android:valueFrom="0.65"
+                    android:valueFrom="0.214"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="grid_2_3">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="rotation"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="200"
+                    android:propertyName="scaleX"
+                    android:valueFrom="0.214"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="grid_3_1">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="rotation"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="200"
+                    android:propertyName="scaleX"
+                    android:valueFrom="0.214"
+                    android:valueTo="1"
+                    android:valueType="floatType"/>
+            </set>
+        </aapt:attr>
+    </target>
+
+    <target android:name="grid_4_1">
+        <aapt:attr name="android:animation" >
+            <set android:ordering="sequentially"
+                android:interpolator="@android:anim/linear_interpolator"
+                android:shareInterpolator="true">
+                <objectAnimator
+                    android:duration="500"
+                    android:propertyName="rotation"
+                    android:valueFrom="0"
+                    android:valueTo="0"
+                    android:valueType="floatType"/>
+                <objectAnimator
+                    android:duration="200"
+                    android:propertyName="scaleX"
+                    android:valueFrom="0.214"
                     android:valueTo="1"
                     android:valueType="floatType"/>
             </set>

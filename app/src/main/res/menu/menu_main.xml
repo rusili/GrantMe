@@ -5,7 +5,7 @@
         android:id="@+id/action_list_to_grid"
         android:title="@string/app_name"
         android:orderInCategory="1"
-        android:icon="@drawable/list_to_grid"
+        android:icon="@drawable/grid_to_list"
         app:showAsAction="always"
         />
 

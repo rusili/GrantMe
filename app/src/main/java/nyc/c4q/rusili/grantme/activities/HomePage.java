@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import nyc.c4q.rusili.grantme.R;
 
@@ -28,9 +29,9 @@ public class HomePage extends AppCompatActivity {
 
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mTabLayout.addTab(mTabLayout.newTab().setText("Help for Homeless"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("Tab 2"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("Donate"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Location"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Field"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Duration"));
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -55,6 +56,19 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    public void showTrainings(View view){
+
+        TrainingListFragment trainingListFragment= new TrainingListFragment();
+        trainingListFragment.setmViewId(view.getId());
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.content_container, trainingListFragment)
+                .addToBackStack(null)
+                .commit();
 
 
     }

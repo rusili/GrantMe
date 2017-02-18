@@ -41,22 +41,22 @@ public class CourseAdapter extends RecyclerView.Adapter {
 
 
 
-        switch (mViewId){
-            case R.id.brooklyn:
-                if(item.getBorough().equalsIgnoreCase("Queens")){
-                    CourseViewholder.bind(item);
-                }
-                break;
-            case R.id.queens:
-                if(item.getBorough().equalsIgnoreCase("Brooklyn")){
-                    CourseViewholder.bind(item);
-                }
-                break;
-            case R.id.bronx:
-                if(item.getBorough().equalsIgnoreCase("Bronx")){
-                    CourseViewholder.bind(item);
-                }
-        }
+//        switch (mViewId){
+//            case R.id.brooklyn:
+//                if(item.getBorough().equalsIgnoreCase("Queens")){
+//                    CourseViewholder.bind(item);
+//                }
+//                break;
+//            case R.id.queens:
+//                if(item.getBorough().equalsIgnoreCase("Brooklyn")){
+//                    CourseViewholder.bind(item);
+//                }
+//                break;
+//            case R.id.bronx:
+//                if(item.getBorough().equalsIgnoreCase("Bronx")){
+//                    CourseViewholder.bind(item);
+//                }
+//        }
         }
 
     }

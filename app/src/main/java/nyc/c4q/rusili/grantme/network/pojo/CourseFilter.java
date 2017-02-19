@@ -116,12 +116,10 @@ public class CourseFilter {
                     output.add(item);
                 }
             } else {
-                fieldOtherList.add(item);
+                output.add(item);
             }
         }
-        if (field.equals("Other")) {
-            return fieldOtherList;
-        }
+
         return output;
     }
 

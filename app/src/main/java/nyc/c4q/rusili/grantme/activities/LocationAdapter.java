@@ -15,9 +15,11 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
 
 
     private Listener mListener;
+    private String mFragId;
 
-    public LocationAdapter(Listener listener){
+    public LocationAdapter(Listener listener, String fragId){
         this.mListener=listener;
+        this.mFragId=fragId;
 
     }
 
@@ -33,7 +35,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
         holder.getmCardView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.showTrainings(position,R.id.location_card);
+                mListener.showTrainings(position,mFragId);
 
             }
         });

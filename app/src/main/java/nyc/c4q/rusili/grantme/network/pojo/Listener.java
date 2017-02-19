@@ -6,5 +6,5 @@ package nyc.c4q.rusili.grantme.network.pojo;
 
 public interface Listener {
 
-    void showTrainings(int position, int viewId);
+    void showTrainings(int position, String fragId);
 }

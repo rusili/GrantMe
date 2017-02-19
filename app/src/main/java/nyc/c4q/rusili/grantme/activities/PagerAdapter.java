@@ -31,6 +31,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 LocationFragment tab1 = new LocationFragment();
                 tab1.setmListener(mListener);
+                tab1.setmFragId("Location");
                 return tab1;
             case 1:
                 FieldFragment tab2 = new FieldFragment();

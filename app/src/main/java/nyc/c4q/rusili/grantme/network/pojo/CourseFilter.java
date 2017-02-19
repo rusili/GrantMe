@@ -1,9 +1,9 @@
 package nyc.c4q.rusili.grantme.network.pojo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
-import nyc.c4q.rusili.grantme.R;
+import java.util.Set;
 
 /**
  * Created by Millochka on 2/18/17.
@@ -21,21 +21,21 @@ public class CourseFilter {
     }
 
 
-public List<JSONCourses> filterList(final int position, int tabId){
+public List<JSONCourses> filterList(final int position, String fragId){
 
-    switch (tabId){
+    switch (fragId){
 
-        case R.id.location_card:
+        case "Location":
 
             return borougthList(position);
 
 
-        case 2:
+        case "Field":
 
              return fieldList(position);
 
 
-        case 3:
+        case "Duration":
 
         return durationList(position);
 
@@ -45,6 +45,18 @@ public List<JSONCourses> filterList(final int position, int tabId){
 
 
 }
+
+    public Set<String> getDuration(){
+
+        Set<String> durationList= new HashSet<>();
+
+        for(JSONCourses item:this.mCourseList){
+            durationList.add(item.getDuration());
+
+        }
+        return durationList;
+
+    }
 
 
     public List<JSONCourses> borougthList( final int position ){

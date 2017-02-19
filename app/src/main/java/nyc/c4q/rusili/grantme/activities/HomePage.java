@@ -61,9 +61,9 @@ public class HomePage extends AppCompatActivity implements Listener{
 
 
     @Override
-    public void showTrainings(final int position, int viewId) {
+    public void showTrainings(final int position, String fragID) {
         TrainingListFragment trainingListFragment= new TrainingListFragment();
-        trainingListFragment.setmViewId(viewId);
+        trainingListFragment.setmFragId(fragID);
         trainingListFragment.setmPosition(position);
 
         getSupportFragmentManager()

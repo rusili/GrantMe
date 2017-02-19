@@ -26,7 +26,11 @@ public class LocationFragment extends Fragment {
     LocationAdapter locationAdapter;
     private RecyclerView recyclerView;
     private Listener mListener;
+    private String mFragId;
 
+    public void setmFragId(String mFragId) {
+        this.mFragId = mFragId;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class LocationFragment extends Fragment {
 
         recyclerView = (RecyclerView) itemView.findViewById(R.id.location_rv);
         recyclerView.getItemAnimator().setChangeDuration(700);
-        locationAdapter = new LocationAdapter(mListener);
+        locationAdapter = new LocationAdapter(mListener,mFragId);
         recyclerView.setAdapter(locationAdapter);
         gridLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -51,7 +55,7 @@ public class LocationFragment extends Fragment {
     }
 
     public void setmListener(Listener listener) {
-        this.mListener = listener;
+        this.mListener = listener;}
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);

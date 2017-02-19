@@ -17,7 +17,8 @@ public class GrantInfoFragment extends Fragment {
         String url = "http://mtprawvwsbswtp.nyc.gov/popups/ITG.aspx";
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         CustomTabsIntent customTabsIntent = builder.build();
+        builder.setToolbarColor(getResources().getColor(R.color.colorPrimaryDark));
         customTabsIntent.launchUrl(getActivity(), Uri.parse(url));
-        builder.setToolbarColor(getResources().getColor(R.color.colorPrimary));
+
     }
 }

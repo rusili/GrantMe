@@ -136,7 +136,7 @@ public class HomePage extends AppCompatActivity implements Listener {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content_container, trainingListFragment)
+                .replace(R.id.content_container, trainingListFragment)
                 .addToBackStack(null)
                 .commit();
     }

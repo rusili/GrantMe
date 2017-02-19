@@ -23,7 +23,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/genielogofull"
-            android:tint="@color/colorSecondary"
             />
 
         <!-- Email -->

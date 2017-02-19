@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "nyc.c4q.rusili.grantme"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -40,6 +40,7 @@ dependencies {
 
     //recyclerview
     compile 'com.android.support:recyclerview-v7:25.1.1'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.5'
 
     //firebase
     compile "com.google.firebase:firebase-core:10.2.0"

@@ -35,7 +35,6 @@ import java.util.List;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.pojo.User;
-import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -92,13 +91,13 @@ public class FragmentProfile extends Fragment {
                 textViewUsername.setText(user.getUsername());
                 textViewEmail.setText(user.getEmail());
 
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    JSONCourses jsonCourses = snapshot.getValue(JSONCourses.class);
-                    jsonCoursesList.add(jsonCourses);
-                }
-                CourseAdapter profileFavoritesAdapter = new CourseAdapter();
-                profileFavoritesAdapter.setListofCourses(jsonCoursesList);
-                recyclerView.setAdapter(profileFavoritesAdapter);
+//                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+//                    JSONCourses jsonCourses = snapshot.getValue(JSONCourses.class);
+//                    jsonCoursesList.add(jsonCourses);
+//                }
+//                CourseAdapter profileFavoritesAdapter = new CourseAdapter();
+//                profileFavoritesAdapter.setListofCourses(jsonCoursesList);
+//                recyclerView.setAdapter(new AlphaInAnimationAdapter(profileFavoritesAdapter));
             }
 
             @Override
@@ -113,7 +112,6 @@ public class FragmentProfile extends Fragment {
 
         StorageReference imagesRef = storageRef.child("profile_images");
         String filename = userUid + ".jpg";
-        //String filename = "swiprlogotop.png";
         StorageReference getRef = imagesRef.child(filename);
 
         getRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener <Uri>() {

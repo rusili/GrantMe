@@ -1,11 +1,8 @@
 package nyc.c4q.rusili.grantme.activities;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
@@ -19,8 +16,7 @@ public class ActivityTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+        overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
 
         createProfileFragment();
     }
@@ -34,9 +30,5 @@ public class ActivityTest extends AppCompatActivity {
                 .backstack(false)
                 .build();
         fragmentBuilder.inflateFragment();
-    }
-
-    public void onClickProfilePic (View view) {
-
     }
 }

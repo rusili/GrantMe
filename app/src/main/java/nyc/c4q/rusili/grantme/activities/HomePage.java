@@ -6,7 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
+import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
 
 public class HomePage extends AppCompatActivity implements Listener {
     TabLayout mTabLayout;
@@ -26,9 +28,9 @@ public class HomePage extends AppCompatActivity implements Listener {
         setSupportActionBar(toolbar);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mTabLayout.addTab(mTabLayout.newTab().setText("Help for Homeless"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("Tab 2"));
-        mTabLayout.addTab(mTabLayout.newTab().setText("Donate"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Location"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Field"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Duration"));
         mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

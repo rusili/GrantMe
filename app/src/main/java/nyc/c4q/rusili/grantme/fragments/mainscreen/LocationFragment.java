@@ -32,9 +32,6 @@ public class LocationFragment extends Fragment {
     private Listener mListener;
     private String mFragId;
 
-    public String getmFragId() {
-        return mFragId;
-    }
 
     public void setmFragId(String mFragId) {
         this.mFragId = mFragId;

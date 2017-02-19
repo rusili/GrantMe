@@ -59,7 +59,7 @@ public class HomePage extends AppCompatActivity implements Listener {
 
 
     @Override
-    public void showTrainings(final int position, String fragId) {
+    public void showTrainings(final int position, final String fragId) {
         TrainingListFragment trainingListFragment = new TrainingListFragment();
         trainingListFragment.setmFragId(fragId);
         trainingListFragment.setmPosition(position);

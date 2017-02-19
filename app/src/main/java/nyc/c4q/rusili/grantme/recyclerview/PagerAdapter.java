@@ -16,7 +16,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     List<String> boroughs = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",
             "Queens", "Staten Island"));
     List<String> fields = new ArrayList<>(Arrays.asList("Medical", "Information Technology",
-            "Legal", "Finance", "Carpenter", "Other"));
+            "Legal", "Finance", "Building Services", "Other"));
     List<String> duration = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",
             "Queens", "Staten Island"));
 

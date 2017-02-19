@@ -24,7 +24,7 @@ public class CourseFilter {
     }
 
 
-    public List<JSONCourses> filterList(final int position, String fragId) {
+    public List<JSONCourses> filterList(final int position, final String fragId) {
 
         switch (fragId) {
 
@@ -84,7 +84,7 @@ public class CourseFilter {
         return output;
     }
 
-    public List<JSONCourses> fieldList(int position) {
+    public List<JSONCourses> fieldList(final int position) {
         String field = "";
         List<JSONCourses> output = new ArrayList<>();
 
@@ -102,7 +102,7 @@ public class CourseFilter {
                 field = "Finance";
                 break;
             case 4:
-                field = "Carpenter";
+                field = "Building Services";
                 break;
             case 5:
                 field = "Other";
@@ -111,13 +111,17 @@ public class CourseFilter {
         }
 
         for (JSONCourses item : this.mCourseList) {
-            if (item.getKeywords() != null && field.equals("Other")) {
-                if (item.getKeywords().contains(fieldKeys.get(field))) {
+            if (item.getKeywords() != null &&!field.equals("Other")) {
+                if (item.getKeywords().equalsIgnoreCase(fieldKeys.get(field))) {
                     output.add(item);
                 }
             } else {
-                output.add(item);
+                fieldOtherList.add(item);
             }
+        }
+
+        if(field.equalsIgnoreCase("Other")){
+            return fieldOtherList;
         }
 
         return output;
@@ -149,8 +153,8 @@ public class CourseFilter {
         fieldKeys.put("Designer", "Design  designers  Pro  graphic designer  adobe  autocad  CS5  indesign  website  web  art  animation  flash  artist  media  fashion");
         fieldKeys.put("Restaurant", "chef  cook  restaurant  diner  food  dishwash  servsafe  serve  wait  counter  bartend  hospitality  host  dine");
         fieldKeys.put("Property", "project manager  management  facilities  real estate  residential  property");
-        fieldKeys.put("Finance", "  account  bookkeep  bookkeeper  bookkeeping  financial  tax  audit  loan  peachtree  quickbook  irs  budget  credit  finance\n");
-        fieldKeys.put("Buildings", "Construct  boiler  carpenter  Electrician  Plumber  Roofer  helper  building  construction  removal  electronic  electrical  inspector  hazardous  solar  asbestos  EHMT");
+        fieldKeys.put("Finance", "account  bookkeep  bookkeeper  bookkeeping  financial  tax  audit  loan  peachtree  quickbook  irs  budget  credit  finance");
+        fieldKeys.put("Building Services", "Construct  boiler  carpenter  Electrician  Plumber  Roofer  helper  building  construction  removal  electronic  electrical  inspector  hazardous  solar  asbestos  EHMT");
         fieldKeys.put("Industrial", "Install  Maintenance  Repair  Mechanic  Equipment  Electrical  electronic  electric  Industrial  Security Fire Alarm  Service technicians  Auto  Glass  Service  Engine  building  boiler  Heat  Air condition  Refrigerator  Appliance  plumber  weather");
         fieldKeys.put("Insurance", "Health  EMR  ehR  Pharmacy  Medical Biller  NCLEX  RN  Billing  Coding  Insurance  Emergency  EMS  EMT  clinical  clinic  transcription  Nurse  phlebotomy  EKG  Dentist  doctor  practitioner  physician  hygien  Can  LPN  HHA  PCA  Care");
         fieldKeys.put("Information Technology", "network  help desk  helpdesk  administrator   support  system  Cisco  Oracle  Windows  Server  SQL  architect   TIA  program  programmer  database  db  visual basic  vba  WAN  Microsoft  MCSE");

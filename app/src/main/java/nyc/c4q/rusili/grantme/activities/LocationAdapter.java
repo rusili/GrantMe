@@ -20,7 +20,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
     private String mFragId;
     private List<String> mCourseList;
 
-    public LocationAdapter(Listener listener, List<String> courseList, String fragId) {
+    public LocationAdapter(Listener listener, List<String> courseList, final String fragId) {
         this.mListener = listener;
         this.mFragId = fragId;
         this.mCourseList = courseList;

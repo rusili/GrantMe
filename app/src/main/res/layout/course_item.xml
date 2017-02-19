@@ -7,10 +7,6 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="100dp"
-              android:background="#ffffffff">
     <TextView
         android:id="@+id/course_name"
         android:layout_width="wrap_content"

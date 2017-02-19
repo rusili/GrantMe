@@ -76,7 +76,7 @@ public class FragmentCreateAccount extends Fragment {
                         @Override
                         public void onComplete (@NonNull Task <AuthResult> task) {
                             if (task.isSuccessful()) {
-                                customToast.show(mView, "Account Created!");
+                                customToast.show(mView, "Account Created");
                                 createUserDatabase(createAccountUsername, createAccountEmail, createAccountPassword);
                                 backToLoginScreen();
                             } else {

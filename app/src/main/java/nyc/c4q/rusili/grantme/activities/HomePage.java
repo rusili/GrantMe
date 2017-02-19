@@ -6,7 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
+import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
 
 public class HomePage extends AppCompatActivity implements Listener {
     TabLayout mTabLayout;

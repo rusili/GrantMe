@@ -22,7 +22,8 @@
             android:layout_gravity="center"
             android:gravity="center_horizontal"
             android:text="Brooklyn"
-            android:textColor="@color/whitePrimary"/>
+            android:textSize="20sp"
+            android:textColor="#f9f9f9"/>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

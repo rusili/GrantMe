@@ -19,15 +19,22 @@
         >
 
         <!-- Logo -->
-        <ImageView
-            android:id="@+id/fragment_login_image_logo"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/genielogofull"
-            android:tint="@color/colorSecondary"
-            />
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/fragment_login_image_logo_shimmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/fragment_login_image_logo"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/genielogofull"
+                />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
 
         <!-- Email -->
         <LinearLayout

@@ -10,7 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="45"
+        android:background="@color/colorSecondary"
         >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/genielogofull"
+            android:scaleY="2"
+            android:scaleX="2"
+            android:tint="@color/colorPrimary"
+            />
 
         <ImageView
             android:layout_width="match_parent"
@@ -32,7 +42,6 @@
                 android:id="@+id/fragment_profile_picture"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@color/colorAccent"
                 android:layout_marginBottom="10dp"
                 android:onClick="onClickProfilePic"
                 />
@@ -42,18 +51,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
                 android:elevation="10dp"
-                android:text="rusili56@gmail.com"
                 android:textStyle="bold"
                 android:textSize="15sp"
+                android:textColor="#f9f9f9"
                 />
 
             <TextView
                 android:id="@+id/fragment_profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:text="Rusi Li"
                 android:textSize="13sp"
                 android:layout_marginBottom="10dp"
+                android:textColor="#f9f9f9"
                 />
 
             <LinearLayout
@@ -77,6 +86,7 @@
                     android:layout_weight="33"
                     android:gravity="center"
                     android:text="@string/fragment_profile_navigation1"
+                    android:textColor="#f9f9f9"
                     />
                 <TextView
                     android:id="@+id/fragment_profile_navigation2"
@@ -136,7 +146,7 @@
                             android:layout_width="50dp"
                             android:layout_height="5dp"
                             card_view:cardElevation="5dp"
-                            app:cardBackgroundColor="@color/colorAccent"
+                            app:cardBackgroundColor="@color/colorSecondary"
                             android:visibility="invisible"
                             />
 
@@ -154,7 +164,7 @@
                             android:layout_width="50dp"
                             android:layout_height="5dp"
                             card_view:cardElevation="5dp"
-                            app:cardBackgroundColor="@color/colorAccent"
+                            app:cardBackgroundColor="@color/colorSecondary"
                             android:visibility="invisible"
                             />
 

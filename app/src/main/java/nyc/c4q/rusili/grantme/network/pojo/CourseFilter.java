@@ -25,34 +25,21 @@ public class CourseFilter {
 
 
     public List<JSONCourses> filterList(final int position, final String fragId) {
-
         switch (fragId) {
-
             case LOCATION_TAB:
-
                 return boroughList(position);
-
             case FIELD_TAB:
-
                 return fieldList(position);
-
             case DURATION_TAB:
-
                 return durationList(position);
-
         }
-
         return mCourseList;
-
-
     }
 
 
     public List<JSONCourses> boroughList(final int position) {
-
         String borough = "";
         List<JSONCourses> output = new ArrayList<>();
-
 
         switch (position) {
             case 0:
@@ -73,10 +60,7 @@ public class CourseFilter {
             case 5:
                 borough = "All";
                 break;
-
         }
-
-
         for (JSONCourses item : this.mCourseList) {
             if (item.getBorough() != null&&!borough.equalsIgnoreCase("All")) {
                 if (item.getBorough().equalsIgnoreCase(borough)) {
@@ -111,9 +95,7 @@ public class CourseFilter {
             case 5:
                 field = "Other";
                 break;
-
         }
-
         for (JSONCourses item : this.mCourseList) {
             if (item.getKeywords() != null &&!field.equals("Other")) {
                 if (item.getKeywords().equalsIgnoreCase(fieldKeys.get(field))) {
@@ -123,11 +105,9 @@ public class CourseFilter {
                 fieldOtherList.add(item);
             }
         }
-
         if(field.equalsIgnoreCase("Other")){
             return fieldOtherList;
         }
-
         return output;
     }
 

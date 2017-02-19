@@ -4,9 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class JSONCourses {
     private String address1;
-
     private String borough;
-
     private String city;
     @SerializedName("contact_firstname")
     private String contactFirstname;
@@ -18,15 +16,12 @@ public class JSONCourses {
     private String costTotal;
     @SerializedName("course_name")
     private String courseName;
-
     private String coursedescription;
     @SerializedName("delivery_method")
     private String deliveryMethod;
-
     private String duration;
     @SerializedName("duration_unit")
     private String durationUnit;
-
     private String fax;
     @SerializedName("financial_aid_services")
     private String financialAidServices;
@@ -38,25 +33,17 @@ public class JSONCourses {
     private String isSbs;
     @SerializedName("job_placement_services")
     private String jobPlacementServices;
-
     private String keywords;
     @SerializedName("max_class_size")
     private String maxClassSize;
-
     private String neighborhood;
-
     private String numhours;
     @SerializedName("organization_name")
     private String organizationName;
-
     private String phone1;
-
     private String prerequisites;
-
     private String schedule;
-
     private String state;
-
     private String website;
     @SerializedName("zip_code")
     private String zipCode;

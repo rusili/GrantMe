@@ -19,18 +19,17 @@ import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 /**
  * Created by Millochka on 2/18/17.
  */
-public class TrainingListFragment extends Fragment{
+public class TrainingListFragment extends Fragment {
 
-    private int mViewId;
+    private String mFragId;
     private int mPosition;
     private RecyclerView mRecyclerView;
     private Retrofit2 mRetrofit;
     List<JSONCourses> mListofCourses = new ArrayList<>();
 
 
-
     @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View itemView = inflater.inflate(R.layout.courses_list, container, false);
 
@@ -39,21 +38,19 @@ public class TrainingListFragment extends Fragment{
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view,savedInstanceState);
-        mRecyclerView=(RecyclerView) view.findViewById(R.id.recyclerview);
+        super.onViewCreated(view, savedInstanceState);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         CourseAdapter courseAdapter = new CourseAdapter();
-        mRetrofit = new Retrofit2(courseAdapter,mViewId,mPosition);
+        mRetrofit = new Retrofit2(courseAdapter, mFragId, mPosition);
         mRetrofit.connect();
-        //mListofCourses=mRetrofit.getmJSONCourses();
-        //courseAdapter.setListofCourses(mListofCourses);
         mRecyclerView.setAdapter(courseAdapter);
 
 
     }
 
-    public void setmViewId(int mViewId) {
-        this.mViewId = mViewId;
+    public void setmFragId(String fragId) {
+        this.mFragId = fragId;
     }
 
     public void setmPosition(final int mPosition) {

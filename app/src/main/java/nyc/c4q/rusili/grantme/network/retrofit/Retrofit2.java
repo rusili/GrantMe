@@ -8,6 +8,7 @@ import java.util.List;
 import nyc.c4q.rusili.grantme.network.pojo.CourseFilter;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
+import nyc.c4q.rusili.grantme.utilities.DataLists;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,17 +20,18 @@ public class Retrofit2 {
     private CourseAdapter mCourseAdapter;
     private int mViewId;
     private int mPosition;
+    private DataLists dataLists;
+    private String mFragId;
 
-    public Retrofit2(CourseAdapter adapter, int viewId, final int position){
+    public Retrofit2(CourseAdapter adapter, String fragId, final int position) {
         this.mCourseAdapter = adapter;
-        this.mViewId=viewId;
-        this.mPosition=position;
-
+        this.mFragId = fragId;
+        this.mPosition = position;
 
 
     }
 
-    public void connect(){
+    public void connect() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://data.cityofnewyork.us/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -39,17 +41,15 @@ public class Retrofit2 {
         Call<List<JSONCourses>> getStuff = service.getCourses();
         getStuff.enqueue(new Callback<List<JSONCourses>>() {
             @Override
-            public void onResponse(Call<List<JSONCourses>> call, Response<List<JSONCourses>>response) {
+            public void onResponse(Call<List<JSONCourses>> call, Response<List<JSONCourses>> response) {
                 if (response.isSuccessful()) {
 
-                    List<JSONCourses> jsonCourses= response.body();
+                    List<JSONCourses> jsonCourses = response.body();
 
                     CourseFilter courseFilter = new CourseFilter(jsonCourses);
 
-
-                    mCourseAdapter.setListofCourses(courseFilter.filterList(mPosition,mViewId));
+                    mCourseAdapter.setListofCourses(courseFilter.filterList(mPosition, mFragId));
                     Log.d("It's working", jsonCourses.get(2).getCourseName());
-
 
                 }
             }
@@ -63,9 +63,7 @@ public class Retrofit2 {
     }
 
 
-
-
-    public List<JSONCourses> borougthList(List<JSONCourses> inputList,int viewId ){
+    public List<JSONCourses> borougthList(List<JSONCourses> inputList, int viewId) {
 
         String borough = "";
         List<JSONCourses> output = new ArrayList<>();
@@ -85,13 +83,13 @@ public class Retrofit2 {
 //        }
 
 
-        for(JSONCourses item:inputList){
-            if(item.getBorough()!=null) {
+        for (JSONCourses item : inputList) {
+            if (item.getBorough() != null) {
                 if (item.getBorough().equalsIgnoreCase(borough)) {
                     output.add(item);
                 }
             }
         }
-      return output;
+        return output;
     }
 }

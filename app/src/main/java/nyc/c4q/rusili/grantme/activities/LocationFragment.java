@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
@@ -22,17 +24,32 @@ import nyc.c4q.rusili.grantme.network.pojo.Listener;
  */
 public class LocationFragment extends Fragment {
 
+    private List<String> mCoursesList;
     GridLayoutManager gridLayoutManager;
     LocationAdapter locationAdapter;
     private RecyclerView recyclerView;
     private Listener mListener;
+    private String mFragId;
 
+    public String getmFragId() {
+        return mFragId;
+    }
+
+    public void setmFragId(String mFragId) {
+        this.mFragId = mFragId;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    public LocationFragment() {
+    }
+
+    public void setmCoursesList(List<String> mCoursesList) {
+        this.mCoursesList = mCoursesList;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +58,7 @@ public class LocationFragment extends Fragment {
 
         recyclerView = (RecyclerView) itemView.findViewById(R.id.location_rv);
         recyclerView.getItemAnimator().setChangeDuration(700);
-        locationAdapter = new LocationAdapter(mListener);
+        locationAdapter = new LocationAdapter(mListener, mCoursesList, mFragId);
         recyclerView.setAdapter(locationAdapter);
         gridLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -50,8 +67,11 @@ public class LocationFragment extends Fragment {
 
     }
 
+
     public void setmListener(Listener listener) {
         this.mListener = listener;
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);

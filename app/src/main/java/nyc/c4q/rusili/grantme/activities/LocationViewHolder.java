@@ -12,7 +12,7 @@ import nyc.c4q.rusili.grantme.R;
  */
 public class LocationViewHolder extends RecyclerView.ViewHolder {
 
-    private final TextView boroughTV;
+    private final TextView cardTV;
     private final View cardView;
 
     private CardView mCardView;
@@ -20,29 +20,13 @@ public class LocationViewHolder extends RecyclerView.ViewHolder {
     public LocationViewHolder(View itemView) {
         super(itemView);
         cardView = itemView;
-        boroughTV = (TextView) itemView.findViewById(R.id.card_tv);
-        mCardView=(CardView) itemView.findViewById(R.id.location_card);
+        cardTV = (TextView) itemView.findViewById(R.id.card_tv);
+        mCardView = (CardView) itemView.findViewById(R.id.location_card);
     }
 
-    public void bind(int position) {
+    public void bind(String cardIdentifier ) {
+        cardTV.setText(cardIdentifier);
 
-        switch (position) {
-            case 0:
-                boroughTV.setText("Brooklyn");
-                break;
-            case 1:
-                boroughTV.setText("Bronx");
-                break;
-            case 2:
-                boroughTV.setText("Manhattan");
-                break;
-            case 3:
-                boroughTV.setText("Queens");
-                break;
-            case 4:
-                boroughTV.setText("Staten Island");
-                break;
-        }
     }
 
     public CardView getmCardView() {

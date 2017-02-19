@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
@@ -15,9 +17,13 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
 
 
     private Listener mListener;
+    private String mFragId;
+    private List<String> mCourseList;
 
-    public LocationAdapter(Listener listener){
-        this.mListener=listener;
+    public LocationAdapter(Listener listener, List<String> courseList, String fragId) {
+        this.mListener = listener;
+        this.mFragId = fragId;
+        this.mCourseList = courseList;
 
     }
 
@@ -29,11 +35,11 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
 
     @Override
     public void onBindViewHolder(LocationViewHolder holder, final int position) {
-        holder.bind(position);
+        holder.bind(mCourseList.get(position));
         holder.getmCardView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.showTrainings(position,R.id.location_card);
+                mListener.showTrainings(position, mFragId);
 
             }
         });
@@ -42,7 +48,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 5;
+        return mCourseList.size();
     }
 
 }

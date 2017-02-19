@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "358371566259",
+    "firebase_url": "https://grantme-81306.firebaseio.com",
+    "project_id": "grantme-81306",
+    "storage_bucket": "grantme-81306.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358371566259:android:ed992fb27f9eedb1",
+        "android_client_info": {
+          "package_name": "nyc.c4q.rusili.grantme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358371566259-0916tutm9n13gne4u176s6rd39gm29qc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM17PXqqwHa0y0PvgbcF3murEXZmGz1gE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

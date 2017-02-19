@@ -1,43 +1,67 @@
 package nyc.c4q.rusili.grantme.network.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
 public class JSONCourses {
 
-    String address1;
-    String borough;
-    String city;
-    String contact_firstname;
 
-    String contact_lastname;
+    private String address1;
 
-    String cost_includes;
-    String cost_total;
+    private String borough;
 
-    String course_name;
+    private String city;
+    @SerializedName("contact_firstname")
+    private String contactFirstname;
+    @SerializedName("contact_lastname")
+    private String contactLastname;
+    @SerializedName("cost_includes")
+    private String costIncludes;
+    @SerializedName("cost_total")
+    private String costTotal;
+    @SerializedName("course_name")
+    private String courseName;
 
-    String coursedescription;
-    String delivery_method;
-    String duration;
+    private String coursedescription;
+    @SerializedName("delivery_method")
+    private String deliveryMethod;
 
-    String duration_unit;
-    String fax;
-    String financial_aid_services;
-    String instructor_credentials;
-    String is_hra;
-    String is_sbs;
-    String job_placement_services;
-    String keywords;
-    String max_class_size;
+    private String duration;
+    @SerializedName("duration_unit")
+    private String durationUnit;
 
-    String neighborhood;
-    String numhours;
-    String organization_name;
+    private String fax;
+    @SerializedName("financial_aid_services")
+    private String financialAidServices;
+    @SerializedName("instructor_credentials")
+    private String instructorCredentials;
+    @SerializedName("is_hra")
+    private String isHra;
+    @SerializedName("is_sbs")
+    private String isSbs;
+    @SerializedName("job_placement_services")
+    private String jobPlacementServices;
 
-    String phone1;
-    String prerequisites;
-    String schedule;
-    String state;
-            String website;
-    String zip_code;
+    private String keywords;
+    @SerializedName("max_class_size")
+    private String maxClassSize;
+
+    private String neighborhood;
+
+    private String numhours;
+    @SerializedName("organization_name")
+    private String organizationName;
+
+    private String phone1;
+
+    private String prerequisites;
+
+    private String schedule;
+
+    private String state;
+
+    private String website;
+    @SerializedName("zip_code")
+    private String zipCode;
 
     public String getAddress1() {
         return address1;
@@ -51,72 +75,72 @@ public class JSONCourses {
         return city;
     }
 
-    public String getContact_firstname() {
-        return contact_firstname;
+    public String getContactFirstname() {
+        return contactFirstname;
     }
 
-    public String getContact_lastname() {
-        return contact_lastname;
+    public String getContactLastname() {
+        return contactLastname;
     }
 
-    public String getCost_includes() {
-        return cost_includes;
+    public String getCostIncludes() {
+        return costIncludes;
     }
 
-    public String getCost_total() {
-        return cost_total;
+    public String getCostTotal() {
+        return costTotal;
     }
 
-    public String getCourse_name() {
-        return course_name;
+    public String getCourseName() {
+        return courseName;
     }
 
     public String getCoursedescription() {
         return coursedescription;
     }
 
-    public String getDelivery_method() {
-        return delivery_method;
+    public String getDeliveryMethod() {
+        return deliveryMethod;
     }
 
     public String getDuration() {
         return duration;
     }
 
-    public String getDuration_unit() {
-        return duration_unit;
+    public String getDurationUnit() {
+        return durationUnit;
     }
 
     public String getFax() {
         return fax;
     }
 
-    public String getFinancial_aid_services() {
-        return financial_aid_services;
+    public String getFinancialAidServices() {
+        return financialAidServices;
     }
 
-    public String getInstructor_credentials() {
-        return instructor_credentials;
+    public String getInstructorCredentials() {
+        return instructorCredentials;
     }
 
-    public String getIs_hra() {
-        return is_hra;
+    public String getIsHra() {
+        return isHra;
     }
 
-    public String getIs_sbs() {
-        return is_sbs;
+    public String getIsSbs() {
+        return isSbs;
     }
 
-    public String getJob_placement_services() {
-        return job_placement_services;
+    public String getJobPlacementServices() {
+        return jobPlacementServices;
     }
 
     public String getKeywords() {
         return keywords;
     }
 
-    public String getMax_class_size() {
-        return max_class_size;
+    public String getMaxClassSize() {
+        return maxClassSize;
     }
 
     public String getNeighborhood() {
@@ -127,8 +151,8 @@ public class JSONCourses {
         return numhours;
     }
 
-    public String getOrganization_name() {
-        return organization_name;
+    public String getOrganizationName() {
+        return organizationName;
     }
 
     public String getPhone1() {
@@ -151,7 +175,7 @@ public class JSONCourses {
         return website;
     }
 
-    public String getZip_code() {
-        return zip_code;
+    public String getZipCode() {
+        return zipCode;
     }
 }

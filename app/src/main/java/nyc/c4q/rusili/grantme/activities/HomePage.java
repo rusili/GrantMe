@@ -12,15 +12,17 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.Listener;
+import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity implements Listener {
     TabLayout mTabLayout;
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
         mDrawerList = (ListView) findViewById(R.id.navList);
@@ -45,7 +47,7 @@ public class HomePage extends AppCompatActivity {
 
     @Override
 
-    protected void onPostCreate(Bundle savedInstanceState) {
+    protected void onPostCreate(Bundle savedInstanceState){
         super.onPostCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -83,5 +85,19 @@ public class HomePage extends AppCompatActivity {
         });
 
 
+    }
+
+
+    @Override
+    public void showTrainings(final int position, String fragId) {
+        TrainingListFragment trainingListFragment = new TrainingListFragment();
+        trainingListFragment.setmFragId(fragId);
+        trainingListFragment.setmPosition(position);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.content_container, trainingListFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

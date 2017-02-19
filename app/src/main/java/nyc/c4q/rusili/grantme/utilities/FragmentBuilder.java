@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 
+import nyc.c4q.rusili.grantme.R;
+
 // A fragment builder with in/out animations & backstack optional
 // Parameters:  1) Parent Activity
 //              2) Instance of Fragment
@@ -33,8 +35,8 @@ public class FragmentBuilder {
         private Activity activityParam;
         private Fragment fragmentParam;
         private int containerIDParam;
-        private int inAnimationParam = 0;
-        private int outAnimationParam = 0;
+        private int inAnimationParam = R.animator.animator_slide_in_left;
+        private int outAnimationParam = R.animator.animator_slide_in_right;
         private boolean backstackParam = true;
 
         public Builder activity (Activity activityP) {
@@ -76,7 +78,7 @@ public class FragmentBuilder {
                     .commit();
         } else {
             fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
-            fragmentTransaction.setCustomAnimations(inAnimationParam, outAnimationParam)
+            fragmentTransaction.setCustomAnimations(inAnimationParam, outAnimationParam, R.animator.animator_slide_in_right, R.animator.animator_slide_out_right)
                     .replace(containerIDParam, fragmentParam)
                     .addToBackStack(null)
                     .commit();

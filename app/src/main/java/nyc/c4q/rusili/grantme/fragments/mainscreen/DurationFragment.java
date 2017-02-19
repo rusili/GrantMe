@@ -1,4 +1,4 @@
-package nyc.c4q.rusili.grantme.activities;
+package nyc.c4q.rusili.grantme.fragments.mainscreen;
 
 import android.support.v4.app.Fragment;
 

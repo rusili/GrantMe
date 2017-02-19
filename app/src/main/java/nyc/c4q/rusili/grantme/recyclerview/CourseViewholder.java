@@ -31,7 +31,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mWebSite = (TextView) itemView.findViewById(R.id.web_site);
         mBorough = (TextView) itemView.findViewById(R.id.borough);
         expandBtn = (ImageButton) itemView.findViewById(R.id.expand_btn);
-        //imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
+        imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
 
     }
 

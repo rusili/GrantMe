@@ -31,6 +31,13 @@
             android:id="@+id/web_site"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <ImageButton
+            android:id="@+id/savefavorite"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/btn_radio"
+            android:background="#00FFFFFF"
+            />
 
         <ImageButton
             android:id="@+id/expand_btn"

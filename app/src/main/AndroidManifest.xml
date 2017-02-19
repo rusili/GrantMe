@@ -16,15 +16,16 @@
 
         <activity android:name=".activities.HomePage"
             android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
-        <activity android:name=".activities.ActivityStart"
-            android:theme="@style/HomePageTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.ActivityStart"
+            android:theme="@style/HomePageTheme">
+
 
         </activity>
         <activity android:name=".activities.ActivityTest"/>

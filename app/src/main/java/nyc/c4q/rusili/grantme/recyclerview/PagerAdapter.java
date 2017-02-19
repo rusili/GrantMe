@@ -24,11 +24,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
     Listener mListener;
 
-    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
+    public PagerAdapter(FragmentManager fm, int NumOfTabs, Listener listener) {
         super(fm);
 
         this.mNumOfTabs = NumOfTabs;
-        //this.mListener = listener;
+        this.mListener = listener;
     }
 
 

@@ -71,6 +71,14 @@ public class TrainingListFragment extends Fragment {
                 return true;
             }
         });
+        mSearch.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                refreshItems();
+
+                return true;
+            }
+        });
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

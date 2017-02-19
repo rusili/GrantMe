@@ -1,4 +1,4 @@
-package nyc.c4q.rusili.grantme.activities;
+package nyc.c4q.rusili.grantme.recyclerview;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import nyc.c4q.rusili.grantme.fragments.mainscreen.LocationFragment;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
-/**
- * Created by Millochka on 2/18/17.
- */
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     List<String> boroughs = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",
@@ -26,11 +24,11 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
     Listener mListener;
 
-    public PagerAdapter(FragmentManager fm, int NumOfTabs, Listener listener) {
+    public PagerAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
 
         this.mNumOfTabs = NumOfTabs;
-        this.mListener = listener;
+        //this.mListener = listener;
     }
 
 

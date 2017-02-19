@@ -16,6 +16,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Retrofit2 {
+    //https://data.cityofnewyork.us/resource/5teq-yyit.json
 
     private CourseAdapter mCourseAdapter;
     private int mViewId;

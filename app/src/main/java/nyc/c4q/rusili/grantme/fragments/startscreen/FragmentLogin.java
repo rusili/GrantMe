@@ -22,7 +22,7 @@ import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.activities.ActivityTest;
 import nyc.c4q.rusili.grantme.toasts.CustomToast;
 
-public class FragmentLogin extends Fragment{
+public class FragmentLogin extends Fragment {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseAuth.AuthStateListener mAuthListener;
     private CustomToast customToast;
@@ -56,7 +56,7 @@ public class FragmentLogin extends Fragment{
         });
     }
 
-    private void onClickLogin(){
+    private void onClickLogin () {
         editTextEmail = (EditText) mView.findViewById(R.id.fragment_login_edittext_username);
         email = editTextEmail.getText().toString().trim();
         editTextPassword = (EditText) mView.findViewById(R.id.fragment_login_edittext_password);
@@ -66,11 +66,11 @@ public class FragmentLogin extends Fragment{
         checkLogin();
     }
 
-    private void checkLogin(){
+    private void checkLogin () {
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(new OnCompleteListener <AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                    public void onComplete (@NonNull Task <AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (task.isSuccessful()) {
                             fromStarttoMain();

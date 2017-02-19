@@ -13,7 +13,7 @@ import nyc.c4q.rusili.grantme.R;
 
 public class CustomAnimators {
 
-    public void setUp(Context contextParam, View viewParam){
+    public void setUp (Context contextParam, View viewParam) {
         final AnimatorSet animator = (AnimatorSet) AnimatorInflater.loadAnimator(contextParam,
                 R.animator.animator_card_flip_left_in);
         animator.setTarget(viewParam);

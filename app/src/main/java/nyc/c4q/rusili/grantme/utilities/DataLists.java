@@ -7,9 +7,9 @@ import java.util.List;
  */
 
 public class DataLists {
-    private List<String> locationList;
-    private List<String> fieldList;
-    private List<String> durationList;
+    private List <String> locationList;
+    private List <String> fieldList;
+    private List <String> durationList;
 
     public List<String> getLocationList() {
         return locationList;

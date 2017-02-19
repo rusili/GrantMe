@@ -36,7 +36,7 @@ public class FragmentBuilder {
         private Fragment fragmentParam;
         private int containerIDParam;
         private int inAnimationParam = R.animator.animator_slide_in_left;
-        private int outAnimationParam = R.animator.animator_slide_in_right;
+        private int outAnimationParam = R.animator.animator_slide_out_right;
         private boolean backstackParam = true;
 
         public Builder activity (Activity activityP) {
@@ -73,7 +73,7 @@ public class FragmentBuilder {
     public void inflateFragment () {
         if (!backstackParam) {
             fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
-            fragmentTransaction.setCustomAnimations(inAnimationParam, outAnimationParam)
+            fragmentTransaction.setCustomAnimations(inAnimationParam, outAnimationParam, R.animator.animator_null, R.animator.animator_null)
                     .replace(containerIDParam, fragmentParam)
                     .commit();
         } else {
@@ -85,7 +85,7 @@ public class FragmentBuilder {
         }
     }
 
-    public void destroyFragment(Fragment fragmentParam){
+    public void destroyFragment (Fragment fragmentParam) {
         fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
         fragmentTransaction.remove(fragmentParam).commit();
     }

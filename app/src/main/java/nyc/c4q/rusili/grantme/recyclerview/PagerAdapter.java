@@ -33,7 +33,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem (int position) {
 
         switch (position) {
             case 0:
@@ -68,7 +68,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public int getCount() {
+    public int getCount () {
         return mNumOfTabs;
     }
 

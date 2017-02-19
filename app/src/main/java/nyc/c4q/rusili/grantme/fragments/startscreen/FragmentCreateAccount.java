@@ -63,7 +63,7 @@ public class FragmentCreateAccount extends Fragment {
         });
     }
 
-    private void createAccountFirebase(){
+    private void createAccountFirebase () {
         final String createAccountEmail = editTextEmail.getText().toString().trim();
         final String createAccountUsername = editTextUsername.getText().toString().trim();
         final String createAccountPassword = editTextPassword.getText().toString().trim();
@@ -92,7 +92,7 @@ public class FragmentCreateAccount extends Fragment {
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
     }
 
-    private void backToLoginScreen(){
+    private void backToLoginScreen () {
         FragmentLogin fragmentLogin = new FragmentLogin();
         FragmentBuilder fragmentBuilder = new FragmentBuilder.Builder()
                 .activity((Activity) mView.getContext())

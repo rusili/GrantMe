@@ -2,8 +2,10 @@ package nyc.c4q.rusili.grantme.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,9 @@ public class TrainingListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private Retrofit2 mRetrofit;
     List<JSONCourses> mListofCourses = new ArrayList<>();
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private SearchView mSearch;
+    private  CourseAdapter mCourseAdapter;
 
 
     @Override
@@ -39,14 +44,74 @@ public class TrainingListFragment extends Fragment {
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        CourseAdapter courseAdapter = new CourseAdapter();
-        mRetrofit = new Retrofit2(courseAdapter, mFragId, mPosition);
+        mCourseAdapter = new CourseAdapter();
+        mRetrofit = new Retrofit2(mCourseAdapter, mFragId, mPosition);
         mRetrofit.connect();
-        mRecyclerView.setAdapter(courseAdapter);
+        mRecyclerView.setAdapter(mCourseAdapter);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        mSearch=(SearchView) view.findViewById(R.id.search_course);
+        mSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            List<JSONCourses> temp = new ArrayList<JSONCourses>();
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                temp =mCourseAdapter.getmListofCourses();
+                filter(query, temp);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                temp =mCourseAdapter.getmListofCourses();
+                filter(newText, temp);
+                return true;
+            }
+        });
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                refreshItems();
+            }
+        });
 
 
+
+
+
+    }
+
+    public void filter(String text, List<JSONCourses> list){
+         final List<JSONCourses> temp = new ArrayList<>();
+        for(JSONCourses d: list){
+            if(d.getCourseName().toLowerCase().contains(text.toLowerCase())){
+                temp.add(d);
+            }
+        }
+        //update recyclerview
+        mCourseAdapter.setListofCourses(temp);
+        mCourseAdapter.notifyDataSetChanged();
+        //adapter.updateList(temp);
+    }
+
+    public void refreshItems() {
+        mRetrofit.connect();
+        mCourseAdapter.notifyDataSetChanged();
+        onItemsLoadComplete();
+
+    }
+
+    public void onItemsLoadComplete() {
+        // Update the adapter and notify data set changed
+        // ...
+
+        // Stop refresh animation
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     public void setmFragId(String fragId) {

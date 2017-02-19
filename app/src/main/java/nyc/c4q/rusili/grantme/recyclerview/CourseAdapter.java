@@ -52,5 +52,7 @@ public class CourseAdapter extends RecyclerView.Adapter {
         this.notifyDataSetChanged();
     }
 
-
+    public List<JSONCourses> getmListofCourses() {
+        return mListofCourses;
+    }
 }

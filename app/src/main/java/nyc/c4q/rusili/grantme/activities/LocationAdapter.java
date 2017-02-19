@@ -29,14 +29,14 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationViewHolder> {
 
     @Override
     public LocationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pager_list_items, parent, false);
         return new LocationViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(LocationViewHolder holder, final int position) {
         holder.bind(mCourseList.get(position));
-        holder.getmCardView().setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mListener.showTrainings(position, mFragId);

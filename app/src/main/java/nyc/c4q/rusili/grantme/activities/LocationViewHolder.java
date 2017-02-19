@@ -1,6 +1,5 @@
 package nyc.c4q.rusili.grantme.activities;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,13 +18,13 @@ public class LocationViewHolder extends RecyclerView.ViewHolder {
     private final View cardView;
     private final ImageView cardImgV;
 
-    private CardView mCardView;
+//    private CardView mCardView;
 
     public LocationViewHolder(View itemView) {
         super(itemView);
         cardView = itemView;
         cardTV = (TextView) itemView.findViewById(R.id.card_tv);
-        mCardView = (CardView) itemView.findViewById(R.id.location_card);
+//        mCardView = (CardView) itemView.findViewById(R.id.location_card);
         cardImgV = (ImageView) itemView.findViewById(R.id.card_background);
     }
 
@@ -54,7 +53,7 @@ public class LocationViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public CardView getmCardView() {
-        return mCardView;
-    }
+//    public CardView getmCardView() {
+//        return mCardView;
+//}
 }

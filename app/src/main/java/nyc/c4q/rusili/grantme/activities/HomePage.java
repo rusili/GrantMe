@@ -27,7 +27,6 @@ public class HomePage extends AppCompatActivity implements Listener {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mTabLayout.addTab(mTabLayout.newTab().setText("Help for Homeless"));
         mTabLayout.addTab(mTabLayout.newTab().setText("Tab 2"));

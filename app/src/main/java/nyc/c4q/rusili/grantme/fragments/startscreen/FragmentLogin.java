@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import nyc.c4q.rusili.grantme.R;
-import nyc.c4q.rusili.grantme.activities.HomePage;
+import nyc.c4q.rusili.grantme.activities.ActivityTest;
 import nyc.c4q.rusili.grantme.toasts.CustomToast;
 
 public class FragmentLogin extends Fragment{
@@ -48,13 +48,22 @@ public class FragmentLogin extends Fragment{
     private void initializeViews () {
         buttonLogin = (Button) mView.findViewById(R.id.fragment_login_button);
         buttonCreateAccount = (TextView) mView.findViewById(R.id.fragment_login_createaccount);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                onClickLogin();
+            }
+        });
     }
 
     private void onClickLogin(){
         editTextEmail = (EditText) mView.findViewById(R.id.fragment_login_edittext_username);
-        email = editTextEmail.getText().toString();
+        email = editTextEmail.getText().toString().trim();
         editTextPassword = (EditText) mView.findViewById(R.id.fragment_login_edittext_password);
-        password = editTextPassword.getText().toString();
+        password = editTextPassword.getText().toString().trim();
+
+        mAuth = FirebaseAuth.getInstance();
+        checkLogin();
     }
 
     private void checkLogin(){
@@ -63,9 +72,7 @@ public class FragmentLogin extends Fragment{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
                         if (task.isSuccessful()) {
-                            System.out.println("Sign in successful!");
                             fromStarttoMain();
                         } else {
                             customToast.show(mView, "Invalid credentials");
@@ -75,7 +82,7 @@ public class FragmentLogin extends Fragment{
     }
 
     private void fromStarttoMain () {
-        Intent intentStarttoMain = new Intent(mView.getContext(), HomePage.class);
+        Intent intentStarttoMain = new Intent(mView.getContext(), ActivityTest.class);
         startActivity(intentStarttoMain);
     }
 }

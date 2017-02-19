@@ -8,9 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.network.pojo.Listener;
 import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity implements Listener {
     TabLayout mTabLayout;
 
 
@@ -21,7 +22,6 @@ public class HomePage extends AppCompatActivity {
     }
 
     @Override
-
     protected void onPostCreate(Bundle savedInstanceState){
         super.onPostCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -35,7 +35,7 @@ public class HomePage extends AppCompatActivity {
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setOffscreenPageLimit(2);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),mTabLayout.getTabCount());
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
 
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
@@ -47,15 +47,27 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
 
 
+    }
+
+
+    @Override
+    public void showTrainings(final int position, String fragId) {
+        TrainingListFragment trainingListFragment = new TrainingListFragment();
+        trainingListFragment.setmFragId(fragId);
+        trainingListFragment.setmPosition(position);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.content_container, trainingListFragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

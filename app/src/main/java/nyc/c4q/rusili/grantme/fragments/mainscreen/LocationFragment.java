@@ -1,4 +1,4 @@
-package nyc.c4q.rusili.grantme.activities;
+package nyc.c4q.rusili.grantme.fragments.mainscreen;
 
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.activities.LocationAdapter;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
 /**

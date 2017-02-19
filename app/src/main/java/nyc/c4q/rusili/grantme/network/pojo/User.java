@@ -1,6 +1,5 @@
 package nyc.c4q.rusili.grantme.network.pojo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -9,18 +8,18 @@ public class User {
     public String email;
     public String password;
     public String urlPicture;
+    public List <JSONCourses> jsonCourses;
 
-    public List<JSONCourses> jsonCourses = new ArrayList<>();
-
-    public User() {
+    public User () {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public User(String username, String email, String password) {
+    public User (String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
+
     public String getUsername () {
         return username;
     }
@@ -33,8 +32,7 @@ public class User {
         return password;
     }
 
-    public String getUrlPicture () {
-        return urlPicture;
-    }
+    public String getUrlPicture () { return urlPicture;}
 
+    public List <JSONCourses> getJsonCourses () { return jsonCourses; }
 }

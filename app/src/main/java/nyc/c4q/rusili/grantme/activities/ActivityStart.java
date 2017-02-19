@@ -13,7 +13,7 @@ import nyc.c4q.rusili.grantme.fragments.startscreen.FragmentSplash;
 import nyc.c4q.rusili.grantme.utilities.FragmentBuilder;
 import nyc.c4q.rusili.grantme.utilities.SoundEffects;
 
-public class ActivityStart extends AppCompatActivity{
+public class ActivityStart extends AppCompatActivity {
     private FragmentBuilder fragmentBuilder;
     private SoundEffects soundEffects;
 
@@ -26,19 +26,19 @@ public class ActivityStart extends AppCompatActivity{
         createSplashFragment();
     }
 
-    private void createSplashFragment(){
+    private void createSplashFragment () {
         FragmentSplash fragmentSplash = new FragmentSplash();
         fragmentBuilder = new FragmentBuilder.Builder()
                 .activity(this)
                 .fragment(fragmentSplash)
                 .containerID(R.id.activity_start_layout_parent)
-                .animations(R.animator.animator_null, R.animator.animator_null)
+                .animations(R.animator.animator_null, R.animator.animator_fade_out_down)
                 .backstack(false)
                 .build();
         fragmentBuilder.inflateFragment();
     }
 
-    private void createLoginFragment(){
+    private void createLoginFragment () {
         FragmentLogin fragmentLogin = new FragmentLogin();
         fragmentBuilder = new FragmentBuilder.Builder()
                 .activity(this)
@@ -83,7 +83,7 @@ public class ActivityStart extends AppCompatActivity{
         }
     }
 
-    private void setExitDialog(){
+    private void setExitDialog () {
         CustomAlertDialog customAlertDialog = new CustomAlertDialog();
         customAlertDialog.setUp(this);
     }

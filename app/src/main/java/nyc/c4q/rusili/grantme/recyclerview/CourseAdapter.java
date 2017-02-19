@@ -15,11 +15,7 @@ import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 public class CourseAdapter extends RecyclerView.Adapter {
     List<JSONCourses> mListofCourses = new ArrayList<>();
 
-
-    public CourseAdapter(){
-
-
-    }
+    public CourseAdapter () {}
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {

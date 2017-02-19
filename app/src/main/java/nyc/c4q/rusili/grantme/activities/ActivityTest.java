@@ -11,7 +11,7 @@ import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
 import nyc.c4q.rusili.grantme.utilities.FragmentBuilder;
 
-public class ActivityTest extends AppCompatActivity{
+public class ActivityTest extends AppCompatActivity {
     private FragmentBuilder fragmentBuilder;
 
     @Override
@@ -25,7 +25,7 @@ public class ActivityTest extends AppCompatActivity{
         createProfileFragment();
     }
 
-    private void createProfileFragment(){
+    private void createProfileFragment () {
         FragmentProfile fragmentProfile = new FragmentProfile();
         fragmentBuilder = new FragmentBuilder.Builder()
                 .activity(this)

@@ -2,44 +2,37 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <!-- Background image -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    android:orientation="vertical"
+    >
 
     <!-- Main layout -->
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="340dp"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corner_background"
+        android:elevation="5dp"
+        >
 
         <!-- Logo -->
         <ImageView
             android:id="@+id/fragment_login_image_logo"
             android:layout_width="300dp"
             android:layout_height="100dp"
-            android:layout_marginBottom="10dp"></ImageView>
-            <!--android:src="@drawable/swiprlogooutline" />-->
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/genielogofull"
+            android:tint="@color/colorSecondary"
+            />
 
         <!-- Email -->
         <LinearLayout
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="10sp"
+            android:layout_marginBottom="5sp"
             android:gravity="center">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="5dp"
-                android:scaleX=".5"
-                android:scaleY=".5"></ImageView>
-                <!--android:src="@drawable/logo_user" />-->
-
 
             <EditText
                 android:id="@+id/fragment_createaccount_email"
@@ -47,7 +40,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="Enter your email"
-                android:inputType="textEmailAddress" />
+                android:textColorHint="#999999"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/rounded_corner"
+                />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:src="@drawable/emailicon"
+                android:tint="#999999"
+                />
         </LinearLayout>
 
         <!-- Username -->
@@ -55,16 +60,9 @@
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="10sp"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="5dp"
-                android:scaleX=".5"
-                android:scaleY=".5"></ImageView>
-            <!--android:src="@drawable/logo_key" -->
+            android:layout_marginBottom="5sp"
+            android:gravity="center"
+            >
 
             <EditText
                 android:id="@+id/fragment_createaccount_username"
@@ -72,7 +70,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="Enter a username"
+                android:background="@drawable/rounded_corner"
+                android:textColorHint="#999999"
                 />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:src="@drawable/userlogo"
+                android:tint="#999999"
+                android:id="@+id/imageView2">
+            </ImageView>
         </LinearLayout>
 
         <!-- Password -->
@@ -80,17 +91,8 @@
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="10sp"
+            android:layout_marginBottom="15sp"
             android:gravity="center">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="5dp"
-                android:scaleX=".5"
-                android:scaleY=".5"></ImageView>
-                <!--android:src="@drawable/logo_key" -->
-
 
             <EditText
                 android:id="@+id/fragment_createaccount_password"
@@ -98,7 +100,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:hint="Enter a password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColorHint="#999999"
+                android:background="@drawable/rounded_corner"
+                />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:src="@drawable/keylogo"
+                android:tint="#999999"
+                >
+            </ImageView>
         </LinearLayout>
 
         <!-- Create account -->
@@ -106,9 +121,10 @@
             android:id="@+id/fragment_createaccount_button"
             android:layout_width="200dp"
             android:layout_height="40dp"
-            android:layout_gravity="center"></Button>
-            <!--android:background="@drawable/button"-->
-            <!--android:textColor="@color/paletteGrayBlue" />-->
+            android:layout_gravity="center"
+            android:background="@color/colorSecondary"
+            android:text="Create Account"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 

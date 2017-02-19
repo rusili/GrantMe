@@ -5,29 +5,42 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 
-public class CourseViewholder extends RecyclerView.ViewHolder{
+public class CourseViewholder extends RecyclerView.ViewHolder {
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private JSONCourses course;
 
     private final ImageButton expandBtn;
     private TextView mDescription;
     private TextView mCourseName;
     private TextView mWebSite;
     private TextView mBorough;
+    private ImageButton imageButtonSaveFavorite;
 
-
-    public CourseViewholder(View itemView) {
+    public CourseViewholder (View itemView) {
         super(itemView);
         mCourseName = (TextView) itemView.findViewById(R.id.course_name);
         mDescription = (TextView) itemView.findViewById(R.id.description);
         mWebSite = (TextView) itemView.findViewById(R.id.web_site);
         mBorough = (TextView) itemView.findViewById(R.id.borough);
         expandBtn = (ImageButton) itemView.findViewById(R.id.expand_btn);
+        imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
+        imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                saveToFavorites();
+            }
+        });
     }
 
-    public void bind (JSONCourses course) {
-
+    public void bind (JSONCourses courseParam) {
         mCourseName.setText(course.getCourseName());
         mWebSite.setText(course.getWebsite());
         mBorough.setText(course.getBorough());
@@ -44,8 +57,12 @@ public class CourseViewholder extends RecyclerView.ViewHolder{
                 }
             }
         });
+    }
 
-
-
+    private void saveToFavorites () {
+        DatabaseReference ref = mDatabase.child("users")
+                .child(mAuth.getCurrentUser().getUid())
+                .child("favorites");
+        ref.push().setValue(course);
     }
 }

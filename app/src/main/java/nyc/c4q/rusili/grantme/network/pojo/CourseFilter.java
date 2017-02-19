@@ -15,8 +15,8 @@ public class CourseFilter {
     private final String LOCATION_TAB = "Location";
     private final String FIELD_TAB = "Field";
     private final String DURATION_TAB = "Duration";
-    private Map<String, String> fieldKeys = new HashMap<>();
-    private List<JSONCourses> fieldOtherList = new ArrayList<>();
+    private Map <String, String> fieldKeys = new HashMap <>();
+    private List <JSONCourses> fieldOtherList = new ArrayList <>();
 
     public CourseFilter(List<JSONCourses> courseList) {
         this.mCourseList = courseList;
@@ -87,9 +87,9 @@ public class CourseFilter {
         return output;
     }
 
-    public List<JSONCourses> fieldList(final int position) {
+    public List <JSONCourses> fieldList (int position) {
         String field = "";
-        List<JSONCourses> output = new ArrayList<>();
+        List <JSONCourses> output = new ArrayList <>();
 
         switch (position) {
             case 0:
@@ -106,6 +106,7 @@ public class CourseFilter {
                 break;
             case 4:
                 field = "Building Services";
+                field = "Carpenter";
                 break;
             case 5:
                 field = "Other";

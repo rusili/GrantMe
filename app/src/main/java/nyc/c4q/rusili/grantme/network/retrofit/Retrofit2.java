@@ -24,7 +24,7 @@ public class Retrofit2 {
     private DataLists dataLists;
     private String mFragId;
 
-    public Retrofit2(CourseAdapter adapter, String fragId, final int position) {
+    public Retrofit2(CourseAdapter adapter, final String fragId, final int position) {
         this.mCourseAdapter = adapter;
         this.mFragId = fragId;
         this.mPosition = position;

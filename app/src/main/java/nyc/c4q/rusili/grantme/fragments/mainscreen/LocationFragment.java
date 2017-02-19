@@ -32,9 +32,6 @@ public class LocationFragment extends Fragment {
     private Listener mListener;
     private String mFragId;
 
-    public String getmFragId() {
-        return mFragId;
-    }
 
     public void setmFragId(String mFragId) {
         this.mFragId = mFragId;
@@ -87,7 +84,7 @@ public class LocationFragment extends Fragment {
             if (!((Animatable) item.getIcon()).isRunning()) {
                 if (gridLayoutManager.getSpanCount() == 1) {
                     item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.grid_to_list));
-                    gridLayoutManager.setSpanCount(3);
+                    gridLayoutManager.setSpanCount(2);
                 } else {
                     item.setIcon(AnimatedVectorDrawableCompat.create(getContext(), R.drawable.list_to_grid));
                     gridLayoutManager.setSpanCount(1);

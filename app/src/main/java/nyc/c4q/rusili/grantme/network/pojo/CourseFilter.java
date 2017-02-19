@@ -70,12 +70,15 @@ public class CourseFilter {
             case 4:
                 borough = "Staten Island";
                 break;
+            case 5:
+                borough = "All";
+                break;
 
         }
 
 
         for (JSONCourses item : this.mCourseList) {
-            if (item.getBorough() != null) {
+            if (item.getBorough() != null&&!borough.equalsIgnoreCase("All")) {
                 if (item.getBorough().equalsIgnoreCase(borough)) {
                     output.add(item);
                 }

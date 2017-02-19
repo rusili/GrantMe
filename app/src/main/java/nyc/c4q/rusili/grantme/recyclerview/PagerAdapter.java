@@ -14,7 +14,7 @@ import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     List<String> boroughs = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",
-            "Queens", "Staten Island"));
+            "Queens", "Staten Island","All"));
     List<String> fields = new ArrayList<>(Arrays.asList("Medical", "Information Technology",
             "Legal", "Finance", "Building Services", "Other"));
     List<String> duration = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",

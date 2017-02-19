@@ -81,22 +81,39 @@ public class TrainingListFragment extends Fragment {
         });
 
 
-
-
-
     }
 
     public void filter(String text, List<JSONCourses> list){
          final List<JSONCourses> temp = new ArrayList<>();
-        for(JSONCourses d: list){
-            if(d.getCourseName().toLowerCase().contains(text.toLowerCase())){
-                temp.add(d);
+        for(JSONCourses d: list) {
+
+            switch (mFragId){
+
+                case"Location":
+                    if (d.getKeywords() != null) {
+                        if (d.getKeywords().toLowerCase().contains(text.toLowerCase())) {
+                            temp.add(d);
+                        }
+                    }
+
+                break;
+                case"Field":
+
+                    if (d.getBorough() != null) {
+                        if (d.getBorough().toLowerCase().contains(text.toLowerCase())) {
+                            temp.add(d);
+                        }
+                    }
+
+                break;
+
             }
+
+
         }
-        //update recyclerview
+
         mCourseAdapter.setListofCourses(temp);
         mCourseAdapter.notifyDataSetChanged();
-        //adapter.updateList(temp);
     }
 
     public void refreshItems() {
@@ -107,10 +124,7 @@ public class TrainingListFragment extends Fragment {
     }
 
     public void onItemsLoadComplete() {
-        // Update the adapter and notify data set changed
-        // ...
 
-        // Stop refresh animation
         mSwipeRefreshLayout.setRefreshing(false);
     }
 

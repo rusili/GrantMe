@@ -25,7 +25,6 @@ public class ActivityStart extends AppCompatActivity {
 
         createSplashFragment();
     }
-
     private void createSplashFragment () {
         FragmentSplash fragmentSplash = new FragmentSplash();
         fragmentBuilder = new FragmentBuilder.Builder()

@@ -98,7 +98,7 @@ public class FragmentProfile extends Fragment {
                 CourseAdapter profileFavoritesAdapter = new CourseAdapter(false);
                 profileFavoritesAdapter.setListofCourses(jsonCoursesList);
                 ScaleInAnimationAdapter alphaAdapter = new ScaleInAnimationAdapter(profileFavoritesAdapter);
-                alphaAdapter.setDuration(500);
+                alphaAdapter.setDuration(250);
                 recyclerView.setAdapter(new AlphaInAnimationAdapter(alphaAdapter));
             }
 

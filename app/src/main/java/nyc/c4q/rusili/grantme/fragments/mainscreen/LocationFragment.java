@@ -32,7 +32,6 @@ public class LocationFragment extends Fragment {
     private Listener mListener;
     private String mFragId;
 
-
     public void setmFragId(String mFragId) {
         this.mFragId = mFragId;
     }
@@ -62,7 +61,6 @@ public class LocationFragment extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
 
         return itemView;
-
     }
 
 

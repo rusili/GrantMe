@@ -8,7 +8,6 @@ import java.util.List;
 import nyc.c4q.rusili.grantme.network.pojo.CourseFilter;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
-import nyc.c4q.rusili.grantme.utilities.DataLists;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +20,6 @@ public class Retrofit2 {
     private CourseAdapter mCourseAdapter;
     private int mViewId;
     private int mPosition;
-    private DataLists dataLists;
     private String mFragId;
 
     public Retrofit2(CourseAdapter adapter, final String fragId, final int position) {
@@ -32,13 +30,13 @@ public class Retrofit2 {
 
     }
 
-    public void connect() {
+    public void connect(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://data.cityofnewyork.us/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        final Retrofit2Service service = retrofit.create(Retrofit2Service.class);
+        Retrofit2Service service = retrofit.create(Retrofit2Service.class);
         Call<List<JSONCourses>> getStuff = service.getCourses();
         getStuff.enqueue(new Callback<List<JSONCourses>>() {
             @Override
@@ -56,7 +54,7 @@ public class Retrofit2 {
             }
 
             @Override
-            public void onFailure(Call<List<JSONCourses>> call, Throwable t) {
+            public void onFailure (Call <List <JSONCourses>> call, Throwable t) {
                 Log.d("onFailure: ", t.toString());
                 Log.d("It's not working", "It's not working");
             }

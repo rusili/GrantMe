@@ -11,6 +11,7 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_start_frag_height"
+        android:foregroundGravity="center"
         />
 
 </FrameLayout>

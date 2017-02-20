@@ -1,11 +1,11 @@
 package nyc.c4q.rusili.grantme.fragments.mainscreen;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -32,14 +32,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.pojo.User;
-import nyc.c4q.rusili.grantme.recyclerview.RecyclerViewProfileAdapter;
+import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentProfile extends Fragment{
+public class FragmentProfile extends Fragment {
     private View mView;
     private RecyclerView recyclerView;
     private TextView textViewUsername;
@@ -51,7 +53,7 @@ public class FragmentProfile extends Fragment{
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
     private StorageReference storageRef = firebaseStorage.getReference();
 
-    private List<JSONCourses> jsonCoursesList = new ArrayList<>();
+    private List <JSONCourses> jsonCoursesList = new ArrayList <>();
 
     private String TAG = "Fragment Profile: ";
     private String userUid;
@@ -75,52 +77,58 @@ public class FragmentProfile extends Fragment{
                 setProfilePic();
             }
         });
-        RecyclerViewProfileAdapter recyclerViewProfileAdapter = new RecyclerViewProfileAdapter();
 
         recyclerView = (RecyclerView) mView.findViewById(R.id.fragment_profile_recyclerview_favorites);
         recyclerView.setLayoutManager(new LinearLayoutManager(mView.getContext()));
-        recyclerView.setAdapter(recyclerViewProfileAdapter);
     }
 
-    private void getFromDatabase(){
+    private void getFromDatabase () {
         userUid = mAuth.getCurrentUser().getUid();
         DatabaseReference mDatabase = firebaseDatabase.getInstance().getReference("users");
         getProfilePic(userUid);
 
         mDatabase.child(userUid).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange (DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 textViewUsername.setText(user.getUsername());
                 textViewEmail.setText(user.getEmail());
+                jsonCoursesList = new ArrayList<JSONCourses>(user.getJsonCourses().values());
+
+                CourseAdapter profileFavoritesAdapter = new CourseAdapter(false);
+                profileFavoritesAdapter.setListofCourses(jsonCoursesList);
+                ScaleInAnimationAdapter alphaAdapter = new ScaleInAnimationAdapter(profileFavoritesAdapter);
+                alphaAdapter.setDuration(250);
+                recyclerView.setAdapter(new AlphaInAnimationAdapter(alphaAdapter));
             }
+
             @Override
-            public void onCancelled(DatabaseError error) {
+            public void onCancelled (DatabaseError error) {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
     }
 
-    private void getProfilePic (String userUid){
+    private void getProfilePic (String userUid) {
         // gs://grantme-81306.appspot.com/profile_images/swiprlogotop.png
 
         StorageReference imagesRef = storageRef.child("profile_images");
         String filename = userUid + ".jpg";
-        //String filename = "swiprlogotop.png";
         StorageReference getRef = imagesRef.child(filename);
 
-        getRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        getRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener <Uri>() {
             @Override
-            public void onSuccess(Uri uri) {
+            public void onSuccess (Uri uri) {
                 Picasso.with(mView.getContext()).load(uri.toString()).into(imageViewPicture);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onFailure(@NonNull Exception exception) {}
+            public void onFailure (@NonNull Exception exception) {
+            }
         });
     }
 
-    private void setProfilePic(){
+    private void setProfilePic () {
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
         galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
@@ -140,10 +148,10 @@ public class FragmentProfile extends Fragment{
                     .fit()
                     .into(imageViewPicture);
         }
-        loadProfilePic(uri);
+        uploadProfilePic(uri);
     }
 
-    private void loadProfilePic (Uri uri) {
+    private void uploadProfilePic (Uri uri) {
         StorageReference storageRef = firebaseStorage.getReferenceFromUrl("gs://grantme-81306.appspot.com");
         StorageReference pictureImagesRef = storageRef.child("profile_images/" + userUid + ".jpg");
         UploadTask uploadTask = pictureImagesRef.putFile(uri);
@@ -151,10 +159,11 @@ public class FragmentProfile extends Fragment{
         // Register observers to listen for when the download is done or if it fails
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onFailure(@NonNull Exception exception) {}
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            public void onFailure (@NonNull Exception exception) {
+            }
+        }).addOnSuccessListener(new OnSuccessListener <UploadTask.TaskSnapshot>() {
             @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            public void onSuccess (UploadTask.TaskSnapshot taskSnapshot) {
                 Uri downloadUrl = taskSnapshot.getDownloadUrl();
             }
         });

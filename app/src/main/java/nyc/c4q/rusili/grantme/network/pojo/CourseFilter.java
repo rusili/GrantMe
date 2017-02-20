@@ -15,8 +15,8 @@ public class CourseFilter {
     private final String LOCATION_TAB = "Location";
     private final String FIELD_TAB = "Field";
     private final String DURATION_TAB = "Duration";
-    private Map<String, String> fieldKeys = new HashMap<>();
-    private List<JSONCourses> fieldOtherList = new ArrayList<>();
+    private Map <String, String> fieldKeys = new HashMap <>();
+    private List <JSONCourses> fieldOtherList = new ArrayList <>();
 
     public CourseFilter(List<JSONCourses> courseList) {
         this.mCourseList = courseList;
@@ -25,34 +25,21 @@ public class CourseFilter {
 
 
     public List<JSONCourses> filterList(final int position, final String fragId) {
-
         switch (fragId) {
-
             case LOCATION_TAB:
-
                 return boroughList(position);
-
             case FIELD_TAB:
-
                 return fieldList(position);
-
             case DURATION_TAB:
-
                 return durationList(position);
-
         }
-
         return mCourseList;
-
-
     }
 
 
     public List<JSONCourses> boroughList(final int position) {
-
         String borough = "";
         List<JSONCourses> output = new ArrayList<>();
-
 
         switch (position) {
             case 0:
@@ -73,10 +60,7 @@ public class CourseFilter {
             case 5:
                 borough = "All";
                 break;
-
         }
-
-
         for (JSONCourses item : this.mCourseList) {
             if (item.getBorough() != null&&!borough.equalsIgnoreCase("All")) {
                 if (item.getBorough().equalsIgnoreCase(borough)) {
@@ -87,9 +71,9 @@ public class CourseFilter {
         return output;
     }
 
-    public List<JSONCourses> fieldList(final int position) {
+    public List <JSONCourses> fieldList (int position) {
         String field = "";
-        List<JSONCourses> output = new ArrayList<>();
+        List <JSONCourses> output = new ArrayList <>();
 
         switch (position) {
             case 0:
@@ -106,13 +90,12 @@ public class CourseFilter {
                 break;
             case 4:
                 field = "Building Services";
+                field = "Carpenter";
                 break;
             case 5:
                 field = "Other";
                 break;
-
         }
-
         for (JSONCourses item : this.mCourseList) {
             if (item.getKeywords() != null &&!field.equals("Other")) {
                 if (item.getKeywords().equalsIgnoreCase(fieldKeys.get(field))) {
@@ -122,11 +105,9 @@ public class CourseFilter {
                 fieldOtherList.add(item);
             }
         }
-
         if(field.equalsIgnoreCase("Other")){
             return fieldOtherList;
         }
-
         return output;
     }
 

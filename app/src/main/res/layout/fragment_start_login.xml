@@ -2,28 +2,39 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_login_layout_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <!-- Background image -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <!-- Main layout -->
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="340dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corner_background"
+        android:elevation="5dp"
+        >
 
         <!-- Logo -->
-        <ImageView
-            android:id="@+id/fragment_login_image_logo"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="10dp"></ImageView>
-            <!--android:src="@drawable/swiprlogooutline" />-->
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/fragment_login_image_logo_shimmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/fragment_login_image_logo"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/genielogofull"
+                />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
 
         <!-- Email -->
         <LinearLayout
@@ -34,21 +45,25 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="5sp"
-                android:scaleX=".5"
-                android:scaleY=".5"></ImageView>
-                <!--android:src="@drawable/logo_user" />-->
-
             <EditText
                 android:id="@+id/fragment_login_edittext_username"
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:hint="Email"
-                android:inputType="none"></EditText>
-                <!--android:textColorHint="@color/" />-->
+                android:inputType="none"
+                android:textColorHint="#999999"
+                android:background="@drawable/rounded_corner"
+                />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5sp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:src="@drawable/userlogo"
+                android:tint="#999999"
+                />
         </LinearLayout>
 
         <!-- Password -->
@@ -60,22 +75,26 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="5dp"
-                android:scaleX=".5"
-                android:scaleY=".5"></ImageView>
-                <!--android:src="@drawable/logo_key" />-->
-
             <EditText
                 android:id="@+id/fragment_login_edittext_password"
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:hint="Password"
-                android:inputType="textPassword"></EditText>
-                <!--android:textColorHint="@color/colorPrimaryDark" />-->
+                android:inputType="textPassword"
+                android:textColorHint="#999999"
+                android:background="@drawable/rounded_corner"
+                />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:src="@drawable/keylogo"
+                android:tint="#999999"
+                />
         </LinearLayout>
 
         <!-- Login button -->
@@ -84,9 +103,11 @@
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="25dp"></Button>
-            <!--android:background="@drawable/button"-->
-            <!--android:textColor="@color/paletteGrayBlue" />-->
+            android:layout_marginBottom="15dp"
+            android:text="Log In"
+            android:textColor="#ffffff"
+            android:background="@color/colorSecondary"
+            />
 
         <!-- Create new account -->
         <TextView
@@ -95,9 +116,16 @@
             android:layout_height="25dp"
             android:onClick="onClickCreateNewAccountScreen"
             android:text="Create a new account"
-            android:textAlignment="center"></TextView>
-            <!--android:textColor="@color/DarkGrey" />-->
+            android:textAlignment="center"
+            android:textColor="#999999"
+            android:layout_marginBottom="10dp"
+            />
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"/>
 
 </FrameLayout>

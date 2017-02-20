@@ -3,12 +3,8 @@ package nyc.c4q.rusili.grantme.network.pojo;
 import com.google.gson.annotations.SerializedName;
 
 public class JSONCourses {
-
-
     private String address1;
-
     private String borough;
-
     private String city;
     @SerializedName("contact_firstname")
     private String contactFirstname;
@@ -20,15 +16,12 @@ public class JSONCourses {
     private String costTotal;
     @SerializedName("course_name")
     private String courseName;
-
     private String coursedescription;
     @SerializedName("delivery_method")
     private String deliveryMethod;
-
     private String duration;
     @SerializedName("duration_unit")
     private String durationUnit;
-
     private String fax;
     @SerializedName("financial_aid_services")
     private String financialAidServices;
@@ -40,38 +33,30 @@ public class JSONCourses {
     private String isSbs;
     @SerializedName("job_placement_services")
     private String jobPlacementServices;
-
     private String keywords;
     @SerializedName("max_class_size")
     private String maxClassSize;
-
     private String neighborhood;
-
     private String numhours;
     @SerializedName("organization_name")
     private String organizationName;
-
     private String phone1;
-
     private String prerequisites;
-
     private String schedule;
-
     private String state;
-
     private String website;
     @SerializedName("zip_code")
     private String zipCode;
 
-    public String getAddress1() {
+    public String getAddress1 () {
         return address1;
     }
 
-    public String getBorough() {
+    public String getBorough () {
         return borough;
     }
 
-    public String getCity() {
+    public String getCity () {
         return city;
     }
 
@@ -95,7 +80,7 @@ public class JSONCourses {
         return courseName;
     }
 
-    public String getCoursedescription() {
+    public String getCoursedescription () {
         return coursedescription;
     }
 
@@ -103,7 +88,7 @@ public class JSONCourses {
         return deliveryMethod;
     }
 
-    public String getDuration() {
+    public String getDuration () {
         return duration;
     }
 
@@ -111,7 +96,7 @@ public class JSONCourses {
         return durationUnit;
     }
 
-    public String getFax() {
+    public String getFax () {
         return fax;
     }
 
@@ -135,7 +120,7 @@ public class JSONCourses {
         return jobPlacementServices;
     }
 
-    public String getKeywords() {
+    public String getKeywords () {
         return keywords;
     }
 
@@ -143,11 +128,11 @@ public class JSONCourses {
         return maxClassSize;
     }
 
-    public String getNeighborhood() {
+    public String getNeighborhood () {
         return neighborhood;
     }
 
-    public String getNumhours() {
+    public String getNumhours () {
         return numhours;
     }
 
@@ -155,23 +140,23 @@ public class JSONCourses {
         return organizationName;
     }
 
-    public String getPhone1() {
+    public String getPhone1 () {
         return phone1;
     }
 
-    public String getPrerequisites() {
+    public String getPrerequisites () {
         return prerequisites;
     }
 
-    public String getSchedule() {
+    public String getSchedule () {
         return schedule;
     }
 
-    public String getState() {
+    public String getState () {
         return state;
     }
 
-    public String getWebsite() {
+    public String getWebsite () {
         return website;
     }
 

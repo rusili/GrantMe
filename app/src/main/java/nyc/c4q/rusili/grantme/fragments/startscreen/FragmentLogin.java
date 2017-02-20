@@ -88,5 +88,6 @@ public class FragmentLogin extends Fragment {
         Intent intentStarttoMain = new Intent(mView.getContext(), HomePage.class);
         startActivity(intentStarttoMain);
         getActivity().overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+        getActivity().finish();
     }
 }

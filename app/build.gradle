@@ -58,6 +58,8 @@ dependencies {
     //custom tabs
     compile 'com.android.support:customtabs:25.1.1'
 
+    //round imageview
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

@@ -81,8 +81,15 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     }
 
 
-
     public LinearLayout getmLinearLayout() {
         return mLinearLayout;
+    }
+
+    public TextView getmDescription() {
+        return mDescription;
+    }
+
+    public TextView getmPhoneNumber() {
+        return mPhoneNumber;
     }
 }

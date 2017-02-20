@@ -1,5 +1,7 @@
 package nyc.c4q.rusili.grantme.utilities;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,9 +13,9 @@ import nyc.c4q.rusili.grantme.R;
  */
 
 public class DataSets {
-    private List <String> locationList;
-    private List <String> fieldList;
-    private List <String> durationList;
+    private List<String> locationList;
+    private List<String> fieldList;
+    private List<String> durationList;
     private Map<String, Integer> pictureMap = new HashMap<>();
 
     public void initPictureMap() {
@@ -29,6 +31,15 @@ public class DataSets {
         pictureMap.put("Finance", R.drawable.finance);
         pictureMap.put("Building Services", R.drawable.buildingservices);
         pictureMap.put("Other", R.drawable.otherindustries);
+    }
+
+    public void initMainLists() {
+        locationList = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",
+                "Queens", "Staten Island", "All"));
+        fieldList = new ArrayList<>(Arrays.asList("Medical", "Information Technology",
+                "Legal", "Finance", "Building Services", "Other"));
+        durationList = new ArrayList<>(Arrays.asList("Less than 500", "501 - 1000 hours", "1001 - 1500 hours",
+                "1501 - 2000 hours", "2000+ hours"));
     }
 
     public Map<String, Integer> getPictureMap() {

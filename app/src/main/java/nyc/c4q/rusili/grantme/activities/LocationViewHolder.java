@@ -33,7 +33,9 @@ public class LocationViewHolder extends RecyclerView.ViewHolder {
         DataSets pictures = new DataSets();
         pictures.initPictureMap();
         Map<String, Integer> pictureMap = pictures.getPictureMap();
-        Picasso.with(itemView.getContext()).load(pictureMap.get(cardIdentifier)).into(tileBg);
+        if (pictureMap.containsKey(cardIdentifier)) {
+            Picasso.with(itemView.getContext()).load(pictureMap.get(cardIdentifier)).into(tileBg);
+        }
 
     }
 

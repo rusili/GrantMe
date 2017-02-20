@@ -44,7 +44,6 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mContactPerson=(TextView) itemView.findViewById(R.id.contact_person);
 
 
-
     }
 
     public void bind (final JSONCourses course) {

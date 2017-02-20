@@ -1,5 +1,6 @@
 package nyc.c4q.rusili.grantme.recyclerview;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.PhoneNumberUtils;
 import android.view.View;
@@ -12,12 +13,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
+import nyc.c4q.rusili.grantme.toasts.CustomToast;
 
 public class CourseViewholder extends RecyclerView.ViewHolder {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
+    private CustomToast customToast;
     private final ImageButton expandBtn;
     private TextView mDescription;
     private TextView mCourseName;
@@ -65,6 +67,8 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
             @Override
             public void onClick (View v) {
                 saveToFavorites(course);
+                imageButtonSaveFavorite.setColorFilter(ContextCompat.getColor(itemView.getContext(),R.color.colorAccent));
+                customToast.show(itemView, "Saved as favorite");
             }
         });
 

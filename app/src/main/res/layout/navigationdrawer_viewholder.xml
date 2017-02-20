@@ -7,16 +7,19 @@
               android:background="#f9f9f9"
     >
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
-        android:src="@android:drawable/btn_radio"
-        />
+    <TextView
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_marginLeft="20dp"
+    android:background="@drawable/toast_background"
+    android:backgroundTint="@color/colorPrimaryDark"
+    />
+
     <TextView
         android:id="@+id/navigationdrawer_viewholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:text="Grant Information"
         android:textSize="15sp"
         />

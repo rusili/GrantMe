@@ -15,7 +15,7 @@ import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 public class CourseViewholder extends RecyclerView.ViewHolder {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-    private JSONCourses course;
+
 
     private final ImageButton expandBtn;
     private TextView mDescription;
@@ -32,19 +32,20 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mBorough = (TextView) itemView.findViewById(R.id.borough);
         expandBtn = (ImageButton) itemView.findViewById(R.id.expand_btn);
         imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
-        imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                saveToFavorites();
-            }
-        });
+
     }
 
-    public void bind (JSONCourses courseParam) {
+    public void bind (final JSONCourses course) {
         mCourseName.setText(course.getCourseName());
         mWebSite.setText(course.getWebsite());
         mBorough.setText(course.getBorough());
         mDescription.setText(course.getCoursedescription());
+        imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                saveToFavorites(course);
+            }
+        });
         expandBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,9 +58,10 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
                 }
             }
         });
+
     }
 
-    private void saveToFavorites () {
+    private void saveToFavorites (JSONCourses course ) {
         DatabaseReference ref = mDatabase.child("users")
                 .child(mAuth.getCurrentUser().getUid())
                 .child("favorites");

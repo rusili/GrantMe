@@ -1,11 +1,11 @@
 package nyc.c4q.rusili.grantme.fragments.mainscreen;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -32,6 +32,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.pojo.User;
@@ -98,7 +99,7 @@ public class FragmentProfile extends Fragment {
                 }
                 CourseAdapter profileFavoritesAdapter = new CourseAdapter();
                 profileFavoritesAdapter.setListofCourses(jsonCoursesList);
-                recyclerView.setAdapter(profileFavoritesAdapter);
+                recyclerView.setAdapter(new AlphaInAnimationAdapter(profileFavoritesAdapter));
             }
 
             @Override
@@ -113,7 +114,6 @@ public class FragmentProfile extends Fragment {
 
         StorageReference imagesRef = storageRef.child("profile_images");
         String filename = userUid + ".jpg";
-        //String filename = "swiprlogotop.png";
         StorageReference getRef = imagesRef.child(filename);
 
         getRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener <Uri>() {

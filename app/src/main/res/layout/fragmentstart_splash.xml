@@ -13,7 +13,6 @@
         android:src="@drawable/genielogofull"
         android:scaleX=".5"
         android:scaleY=".5"
-        android:tint="@color/colorSecondary"
         />
 
 </LinearLayout>

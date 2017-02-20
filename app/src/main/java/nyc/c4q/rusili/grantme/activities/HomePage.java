@@ -5,8 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.TabLayout;
-
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,14 +16,17 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
+import nyc.c4q.rusili.grantme.utilities.FragmentBuilder;
 
 public class HomePage extends AppCompatActivity implements Listener {
-    TabLayout mTabLayout;
+    private FragmentBuilder fragmentBuilder;
+    private TabLayout mTabLayout;
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
-
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -31,8 +34,6 @@ public class HomePage extends AppCompatActivity implements Listener {
         setContentView(R.layout.home_page);
         mDrawerList = (ListView) findViewById(R.id.navList);
         addDrawerItems();
-
-
     }
 
     private void addDrawerItems() {
@@ -43,7 +44,10 @@ public class HomePage extends AppCompatActivity implements Listener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0: //code for profile click
+                    case 0:
+                        createProfileFragment();
+                        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+                        mDrawerLayout.closeDrawers();
                         break;
                     case 1:
                         grantInfo();
@@ -136,7 +140,7 @@ public class HomePage extends AppCompatActivity implements Listener {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content_container, trainingListFragment)
+                .replace(R.id.content_container, trainingListFragment)
                 .addToBackStack(null)
                 .commit();
     }
@@ -149,6 +153,25 @@ public class HomePage extends AppCompatActivity implements Listener {
         builder.setExitAnimations(this, R.anim.slide_in_left, R.anim.slide_out_right);
         builder.setToolbarColor(getResources().getColor(R.color.colorPrimaryDark));
         customTabsIntent.launchUrl(this, Uri.parse(url));
+    }
 
+    private void createProfileFragment () {
+        FragmentProfile fragmentProfile = new FragmentProfile();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_left)
+                .replace(R.id.content_frame, fragmentProfile)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void onBackPressed () {
+        android.support.v4.app.Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.activity_start_layout_parent);
+        if (currentFragment instanceof FragmentProfile) {
+            super.onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

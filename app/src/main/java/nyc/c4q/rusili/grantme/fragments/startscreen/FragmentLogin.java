@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import nyc.c4q.rusili.grantme.R;
-import nyc.c4q.rusili.grantme.activities.ActivityTest;
+import nyc.c4q.rusili.grantme.activities.HomePage;
 import nyc.c4q.rusili.grantme.toasts.CustomToast;
 
 public class FragmentLogin extends Fragment {
@@ -85,8 +85,9 @@ public class FragmentLogin extends Fragment {
     }
 
     private void fromStarttoMain () {
-        Intent intentStarttoMain = new Intent(mView.getContext(), ActivityTest.class);
+        Intent intentStarttoMain = new Intent(mView.getContext(), HomePage.class);
         startActivity(intentStarttoMain);
         getActivity().overridePendingTransition(R.anim.push_up_in, R.anim.push_up_out);
+        getActivity().finish();
     }
 }

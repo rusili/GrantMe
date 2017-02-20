@@ -5,64 +5,56 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.TabLayout;
-
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
+import nyc.c4q.rusili.grantme.recyclerview.NavDrawerAdapter;
 import nyc.c4q.rusili.grantme.recyclerview.PagerAdapter;
+import nyc.c4q.rusili.grantme.utilities.FragmentBuilder;
 
 public class HomePage extends AppCompatActivity implements Listener {
-    TabLayout mTabLayout;
-    private ListView mDrawerList;
+    private FragmentBuilder fragmentBuilder;
+    private TabLayout mTabLayout;
+    private RecyclerView mDrawerRecyclerView;
     private ArrayAdapter<String> mAdapter;
-
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-        mDrawerList = (ListView) findViewById(R.id.navList);
-        addDrawerItems();
-
-
+        setUpRecyclerView();
+        initializeViews();
     }
 
-    private void addDrawerItems() {
-        String[] osArray = {"Profile", "Grant Information", "FAQ", "Email", "Random"};
-        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
-        mDrawerList.setAdapter(mAdapter);
-        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private void initializeViews () {
+        CircleImageView circleImageView = (CircleImageView) findViewById(R.id.profile_pic);
+        circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0: //code for profile click
-                        break;
-                    case 1:
-                        grantInfo();
-                        break;
-                    case 2:
-                        faqInfo();
-                        break;
-                    case 3:
-                        emailInfo();
-                        break;
-                    case 4:
-                        break;
-
-                }
-                Toast.makeText(HomePage.this, "Time for an upgrade!", Toast.LENGTH_SHORT).show();
-                //grantInfo();
+            public void onClick (View v) {
+                createProfileFragment();
+                mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+                mDrawerLayout.closeDrawers();
             }
         });
+    }
 
+    private void setUpRecyclerView () {
+        mDrawerRecyclerView = (RecyclerView) findViewById(R.id.navRecyclerView);
+        mDrawerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        NavDrawerAdapter navDrawerAdapter = new NavDrawerAdapter();
+        mDrawerRecyclerView.setAdapter(navDrawerAdapter);
     }
 
     private void emailInfo() {
@@ -149,6 +141,15 @@ public class HomePage extends AppCompatActivity implements Listener {
         builder.setExitAnimations(this, R.anim.slide_in_left, R.anim.slide_out_right);
         builder.setToolbarColor(getResources().getColor(R.color.colorPrimaryDark));
         customTabsIntent.launchUrl(this, Uri.parse(url));
+    }
 
+    private void createProfileFragment () {
+        FragmentProfile fragmentProfile = new FragmentProfile();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_left)
+                .replace(R.id.content_frame, fragmentProfile)
+                .addToBackStack(null)
+                .commit();
     }
 }

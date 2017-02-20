@@ -64,6 +64,7 @@ public class TrainingListFragment extends Fragment {
                 return true;
             }
 
+
             @Override
             public boolean onQueryTextChange(String newText) {
                 temp =mCourseAdapter.getmListofCourses();

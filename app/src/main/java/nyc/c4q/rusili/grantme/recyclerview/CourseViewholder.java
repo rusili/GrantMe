@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.telephony.PhoneNumberUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +26,9 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     private TextView mBorough;
     private ImageButton imageButtonSaveFavorite;
     private TextView mPhoneNumber;
+    private LinearLayout mLinearLayout;
+    private TextView mAddress;
+    private TextView mContactPerson;
 
     public CourseViewholder (View itemView) {
         super(itemView);
@@ -35,6 +39,11 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         expandBtn = (ImageButton) itemView.findViewById(R.id.expand_btn);
         imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
         mPhoneNumber=(TextView) itemView.findViewById(R.id.phone_number);
+        mLinearLayout= (LinearLayout) itemView.findViewById(R.id.expanding_layout);
+        mAddress=(TextView) itemView.findViewById(R.id.address);
+        mContactPerson=(TextView) itemView.findViewById(R.id.contact_person);
+
+
 
     }
 
@@ -42,25 +51,13 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mCourseName.setText(course.getCourseName());
         mWebSite.setText(course.getWebsite());
         mBorough.setText(course.getBorough());
-
         String formattedNumber = PhoneNumberUtils.formatNumber(course.getPhone1());
         mPhoneNumber.setText("Phone Number: "+ formattedNumber);
         mDescription.setText(course.getCoursedescription());
+        mAddress.setText(course.getAddress1()+","+course.getCity()+",NY");
+        mContactPerson.setText("Contact Person: " + course.getContactFirstname() +" "+course.getContactLastname());
 
-        expandBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mDescription.getVisibility() == View.GONE&&mPhoneNumber.getVisibility()==View.GONE) {
-                    mDescription.setVisibility(View.VISIBLE);
-                    mPhoneNumber.setVisibility(View.VISIBLE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
-                } else {
-                    mDescription.setVisibility(View.GONE);
-                    mPhoneNumber.setVisibility(View.GONE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
-                }
-            }
-        });
+
         imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
@@ -77,15 +74,15 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         ref.push().setValue(course);
     }
 
-    public TextView getmDescription() {
-        return mDescription;
-    }
+
 
     public ImageButton getExpandBtn() {
         return expandBtn;
     }
 
-    public TextView getmPhoneNumber() {
-        return mPhoneNumber;
+
+
+    public LinearLayout getmLinearLayout() {
+        return mLinearLayout;
     }
 }

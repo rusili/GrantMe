@@ -41,9 +41,9 @@ public class CourseAdapter extends RecyclerView.Adapter {
         courseViewholder.bind(item);
 
         final boolean isExpanded = position == mExpandedPostion;
-        courseViewholder.mDescription.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        courseViewholder.getmDescription().setVisibility(isExpanded?View.VISIBLE:View.GONE);
         courseViewholder.itemView.setActivated(isExpanded);
-        courseViewholder.expandBtn.setOnClickListener(new View.OnClickListener() {
+        courseViewholder.getExpandBtn().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mExpandedPostion = isExpanded ? -1:position;
@@ -71,4 +71,9 @@ public class CourseAdapter extends RecyclerView.Adapter {
         this.mRecyclerView = recyclerView;
 
     }
+
+    public List<JSONCourses> getmListofCourses() {
+        return mListofCourses;
+    }
+
 }

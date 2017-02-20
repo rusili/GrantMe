@@ -67,4 +67,12 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
                 .child("favorites");
         ref.push().setValue(course);
     }
+
+    public TextView getmDescription() {
+        return mDescription;
+    }
+
+    public ImageButton getExpandBtn() {
+        return expandBtn;
+    }
 }

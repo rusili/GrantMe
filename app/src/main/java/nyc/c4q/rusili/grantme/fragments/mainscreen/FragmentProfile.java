@@ -32,9 +32,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.pojo.User;
+import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -91,13 +93,13 @@ public class FragmentProfile extends Fragment {
                 textViewUsername.setText(user.getUsername());
                 textViewEmail.setText(user.getEmail());
 
-//                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-//                    JSONCourses jsonCourses = snapshot.getValue(JSONCourses.class);
-//                    jsonCoursesList.add(jsonCourses);
-//                }
-//                CourseAdapter profileFavoritesAdapter = new CourseAdapter();
-//                profileFavoritesAdapter.setListofCourses(jsonCoursesList);
-//                recyclerView.setAdapter(new AlphaInAnimationAdapter(profileFavoritesAdapter));
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    JSONCourses jsonCourses = snapshot.getValue(JSONCourses.class);
+                    jsonCoursesList.add(jsonCourses);
+                }
+                CourseAdapter profileFavoritesAdapter = new CourseAdapter();
+                profileFavoritesAdapter.setListofCourses(jsonCoursesList);
+                recyclerView.setAdapter(new AlphaInAnimationAdapter(profileFavoritesAdapter));
             }
 
             @Override

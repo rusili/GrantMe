@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.eftimoff.viewpagertransformers.TabletTransformer;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
@@ -79,7 +81,6 @@ public class HomePage extends AppCompatActivity implements Listener {
         builder.setExitAnimations(this, R.anim.slide_in_left, R.anim.slide_out_right);
         builder.setToolbarColor(getResources().getColor(R.color.colorPrimaryDark));
         customTabsIntent.launchUrl(this, Uri.parse(url));
-
     }
 
 
@@ -100,6 +101,7 @@ public class HomePage extends AppCompatActivity implements Listener {
         final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount(), this);
 
         viewPager.setAdapter(adapter);
+        viewPager.setPageTransformer(true, new TabletTransformer());
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -128,6 +130,7 @@ public class HomePage extends AppCompatActivity implements Listener {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_left)
                 .replace(R.id.content_container, trainingListFragment)
                 .addToBackStack(null)
                 .commit();

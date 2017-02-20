@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.pojo.User;
@@ -92,14 +93,13 @@ public class FragmentProfile extends Fragment {
                 User user = dataSnapshot.getValue(User.class);
                 textViewUsername.setText(user.getUsername());
                 textViewEmail.setText(user.getEmail());
+                jsonCoursesList = new ArrayList<JSONCourses>(user.getJsonCourses().values());
 
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    JSONCourses jsonCourses = snapshot.getValue(JSONCourses.class);
-                    jsonCoursesList.add(jsonCourses);
-                }
-                CourseAdapter profileFavoritesAdapter = new CourseAdapter();
+                CourseAdapter profileFavoritesAdapter = new CourseAdapter(false);
                 profileFavoritesAdapter.setListofCourses(jsonCoursesList);
-                recyclerView.setAdapter(new AlphaInAnimationAdapter(profileFavoritesAdapter));
+                ScaleInAnimationAdapter alphaAdapter = new ScaleInAnimationAdapter(profileFavoritesAdapter);
+                alphaAdapter.setDuration(250);
+                recyclerView.setAdapter(new AlphaInAnimationAdapter(alphaAdapter));
             }
 
             @Override

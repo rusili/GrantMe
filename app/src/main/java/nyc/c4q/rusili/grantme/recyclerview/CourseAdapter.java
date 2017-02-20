@@ -17,11 +17,11 @@ public class CourseAdapter extends RecyclerView.Adapter {
     List<JSONCourses> mListofCourses = new ArrayList<>();
     private int mExpandedPostion = -1;
     private RecyclerView mRecyclerView;
+    private boolean showFavorites;
 
 
-    public CourseAdapter(){
-
-
+    public CourseAdapter (boolean b){
+        showFavorites = b;
     }
 
     @Override
@@ -29,7 +29,9 @@ public class CourseAdapter extends RecyclerView.Adapter {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View mView = inflater.inflate(R.layout.course_item, parent, false);
         CourseViewholder viewHolder = new CourseViewholder(mView);
-
+        if (!showFavorites){
+            mView.findViewById(R.id.savefavorite).setVisibility(View.GONE);
+        }
         return viewHolder;
     }
 

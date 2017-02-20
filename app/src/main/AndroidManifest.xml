@@ -14,12 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.ActivityStart"
+        <activity android:name=".activities.HomePage"
             android:theme="@style/AppTheme.NoActionBar"
                   android:screenOrientation="portrait" />
 
 
-        <activity android:name=".activities.HomePage"
+        <activity android:name=".activities.ActivityStart"
             android:theme="@style/HomePageTheme"
                   android:screenOrientation="portrait" >
             <intent-filter>

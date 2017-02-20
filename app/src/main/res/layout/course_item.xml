@@ -36,9 +36,11 @@
         <ImageButton
             android:id="@+id/savefavorite"
             android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/staricon"
+            android:tint="@color/colorSecondary"
             android:background="#00FFFFFF"
-            android:src="@android:drawable/btn_radio" />
+            />
 
         <ImageButton
             android:id="@+id/expand_btn"

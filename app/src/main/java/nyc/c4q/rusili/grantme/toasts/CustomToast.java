@@ -3,6 +3,7 @@ package nyc.c4q.rusili.grantme.toasts;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,9 @@ public class CustomToast {
         View view = inflater.inflate(R.layout.toast_layout, null);
         TextView textView = (TextView) view.findViewById(R.id.toast_textview);
         textView.setText(messageParam);
+        ImageView imageView = (ImageView) view.findViewById(R.id.toast_imageview);
+        imageView.setVisibility(View.GONE);
+        //imageView.setImageResource(srcParam);
         toastInflater.setView(view);
         toastInflater.show();
     }

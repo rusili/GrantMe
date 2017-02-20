@@ -1,6 +1,7 @@
 package nyc.c4q.rusili.grantme.recyclerview;
 
 import android.support.annotation.Nullable;
+import android.support.transition.TransitionManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,14 @@ import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 
 public class CourseAdapter extends RecyclerView.Adapter {
     List<JSONCourses> mListofCourses = new ArrayList<>();
+    private int mExpandedPostion = -1;
+    private RecyclerView mRecyclerView;
 
-    public CourseAdapter () {}
+
+    public CourseAdapter(){
+
+
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
@@ -29,10 +36,21 @@ public class CourseAdapter extends RecyclerView.Adapter {
     @Override
     @Nullable
     public void onBindViewHolder (RecyclerView.ViewHolder holder, final int position) {
-
-        CourseViewholder CourseViewholder = (CourseViewholder) holder;
+        CourseViewholder courseViewholder = (CourseViewholder) holder;
         JSONCourses item = mListofCourses.get(position);
-        CourseViewholder.bind(item);
+        courseViewholder.bind(item);
+
+        final boolean isExpanded = position == mExpandedPostion;
+        courseViewholder.mDescription.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        courseViewholder.itemView.setActivated(isExpanded);
+        courseViewholder.expandBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mExpandedPostion = isExpanded ? -1:position;
+                TransitionManager.beginDelayedTransition(mRecyclerView);
+                notifyDataSetChanged();
+            }
+        });
 
 
     }
@@ -48,7 +66,9 @@ public class CourseAdapter extends RecyclerView.Adapter {
         this.notifyDataSetChanged();
     }
 
-    public List<JSONCourses> getmListofCourses() {
-        return mListofCourses;
+
+    public void setRV(RecyclerView recyclerView) {
+        this.mRecyclerView = recyclerView;
+
     }
 }

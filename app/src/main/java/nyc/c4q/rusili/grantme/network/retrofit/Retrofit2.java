@@ -8,7 +8,6 @@ import java.util.List;
 import nyc.c4q.rusili.grantme.network.pojo.CourseFilter;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
-import nyc.c4q.rusili.grantme.utilities.DataLists;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +20,6 @@ public class Retrofit2 {
     private CourseAdapter mCourseAdapter;
     private int mViewId;
     private int mPosition;
-    private DataLists dataLists;
     private String mFragId;
 
     public Retrofit2(CourseAdapter adapter, final String fragId, final int position) {

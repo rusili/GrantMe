@@ -49,20 +49,20 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mPhoneNumber.setText("Phone Number: "+ formattedNumber);
         mDescription.setText(course.getCoursedescription());
 
-        expandBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mDescription.getVisibility() == View.GONE&&mPhoneNumber.getVisibility()==View.GONE) {
-                    mDescription.setVisibility(View.VISIBLE);
-                    mPhoneNumber.setVisibility(View.VISIBLE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
-                } else {
-                    mDescription.setVisibility(View.GONE);
-                    mPhoneNumber.setVisibility(View.GONE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
-                }
-            }
-        });
+//        expandBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (mDescription.getVisibility() == View.GONE&&mPhoneNumber.getVisibility()==View.GONE) {
+//                    mDescription.setVisibility(View.VISIBLE);
+//                    mPhoneNumber.setVisibility(View.VISIBLE);
+//                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+//                } else {
+//                    mDescription.setVisibility(View.GONE);
+//                    mPhoneNumber.setVisibility(View.GONE);
+//                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+//                }
+//            }
+//        });
         imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {

@@ -128,6 +128,7 @@ public class HomePage extends AppCompatActivity implements Listener {
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_left)
                 .replace(R.id.content_container, trainingListFragment)
                 .addToBackStack(null)
                 .commit();

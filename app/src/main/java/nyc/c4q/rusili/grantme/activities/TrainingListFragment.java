@@ -30,7 +30,7 @@ public class TrainingListFragment extends Fragment {
     List<JSONCourses> mListofCourses = new ArrayList<>();
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private SearchView mSearch;
-    private  CourseAdapter mCourseAdapter;
+    private CourseAdapter mCourseAdapter;
 
 
     @Override
@@ -46,7 +46,7 @@ public class TrainingListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-         mCourseAdapter = new CourseAdapter();
+        mCourseAdapter = new CourseAdapter(true);
         mCourseAdapter.setRV(mRecyclerView);
         mRetrofit = new Retrofit2(mCourseAdapter, mFragId, mPosition);
         mRetrofit.connect();

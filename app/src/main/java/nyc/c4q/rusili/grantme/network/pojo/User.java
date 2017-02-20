@@ -1,14 +1,14 @@
 package nyc.c4q.rusili.grantme.network.pojo;
 
-import java.util.List;
+import java.util.HashMap;
 
 public class User {
 
-    public String username;
     public String email;
+    public HashMap<String, JSONCourses> favorites = new HashMap <>();
     public String password;
-    public String urlPicture;
-    public List <JSONCourses> jsonCourses;
+    public String username;
+
 
     public User () {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -32,7 +32,5 @@ public class User {
         return password;
     }
 
-    public String getUrlPicture () { return urlPicture;}
-
-    public List <JSONCourses> getJsonCourses () { return jsonCourses; }
+    public HashMap <String, JSONCourses> getJsonCourses () { return favorites; }
 }

@@ -32,7 +32,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     private TextView mAddress;
     private TextView mContactPerson;
 
-    public CourseViewholder (View itemView) {
+    public CourseViewholder(View itemView) {
         super(itemView);
         mCourseName = (TextView) itemView.findViewById(R.id.course_name);
         mDescription = (TextView) itemView.findViewById(R.id.description);
@@ -44,33 +44,30 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mLinearLayout= (LinearLayout) itemView.findViewById(R.id.expanding_layout);
         mAddress=(TextView) itemView.findViewById(R.id.address);
         mContactPerson=(TextView) itemView.findViewById(R.id.contact_person);
-
-
     }
 
-    public void bind (final JSONCourses course) {
+    public void bind(final JSONCourses course) {
         mCourseName.setText(course.getCourseName());
         mWebSite.setText(course.getWebsite());
         mBorough.setText(course.getBorough());
         String formattedNumber = PhoneNumberUtils.formatNumber(course.getPhone1());
-        mPhoneNumber.setText("Phone Number: "+ formattedNumber);
+        mPhoneNumber.setText("Phone Number: " + formattedNumber);
         mDescription.setText(course.getCoursedescription());
+
         mAddress.setText(course.getAddress1()+","+course.getCity()+",NY");
         mContactPerson.setText("Contact Person: " + course.getContactFirstname() +" "+course.getContactLastname());
-
-
         imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v) {
+            public void onClick(View v) {
                 saveToFavorites(course);
-                imageButtonSaveFavorite.setColorFilter(ContextCompat.getColor(itemView.getContext(),R.color.colorAccent));
+                imageButtonSaveFavorite.setColorFilter(ContextCompat.getColor(itemView.getContext(), R.color.colorAccent));
                 customToast.show(itemView, "Saved as favorite");
             }
         });
 
     }
 
-    private void saveToFavorites (JSONCourses course ) {
+    private void saveToFavorites(JSONCourses course) {
         DatabaseReference ref = mDatabase.child("users")
                 .child(mAuth.getCurrentUser().getUid())
                 .child("favorites");

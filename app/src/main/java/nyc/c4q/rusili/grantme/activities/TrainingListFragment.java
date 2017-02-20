@@ -47,7 +47,7 @@ public class TrainingListFragment extends Fragment {
         mRetrofit = new Retrofit2(mCourseAdapter, mFragId, mPosition);
         mRetrofit.connect();
         AlphaInAnimationAdapter scaleInAnimationAdapter = new AlphaInAnimationAdapter(mCourseAdapter);
-        scaleInAnimationAdapter.setDuration(250);
+        scaleInAnimationAdapter.setDuration(350);
         mRecyclerView.setAdapter(scaleInAnimationAdapter);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);

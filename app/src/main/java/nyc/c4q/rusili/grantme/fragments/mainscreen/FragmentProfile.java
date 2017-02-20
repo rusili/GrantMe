@@ -33,7 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.pojo.User;
@@ -97,8 +96,8 @@ public class FragmentProfile extends Fragment {
 
                 CourseAdapter profileFavoritesAdapter = new CourseAdapter(false);
                 profileFavoritesAdapter.setListofCourses(jsonCoursesList);
-                ScaleInAnimationAdapter alphaAdapter = new ScaleInAnimationAdapter(profileFavoritesAdapter);
-                alphaAdapter.setDuration(250);
+                AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(profileFavoritesAdapter);
+                alphaAdapter.setDuration(350);
                 recyclerView.setAdapter(new AlphaInAnimationAdapter(alphaAdapter));
             }
 

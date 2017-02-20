@@ -1,9 +1,9 @@
 package nyc.c4q.rusili.grantme.activities;
 
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -125,7 +125,6 @@ public class HomePage extends AppCompatActivity implements Listener {
     }
 
 
-
     private void createProfileFragment () {
         FragmentProfile fragmentProfile = new FragmentProfile();
         getSupportFragmentManager()
@@ -138,7 +137,7 @@ public class HomePage extends AppCompatActivity implements Listener {
 
     @Override
     public void onBackPressed () {
-        Fragment currentFragment = getFragmentManager().findFragmentById(R.id.activity_start_layout_parent);
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         if (currentFragment == null) {
             setExitDialog();
         } else {

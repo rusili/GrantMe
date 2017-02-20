@@ -30,6 +30,7 @@
         <TextView
             android:id="@+id/web_site"
             android:layout_width="wrap_content"
+            android:autoLink="web"
             android:layout_height="wrap_content" />
         <ImageButton
             android:id="@+id/savefavorite"
@@ -52,6 +53,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            android:background="@drawable/description_bg"
+            android:stateListAnimator="@animator/desc_selection"/>
+        <TextView
+            android:id="@+id/phone_number"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:autoLink = "phone"
+            android:background="@drawable/description_bg"
+            android:stateListAnimator="@animator/desc_selection"/>
+        <TextView
+            android:id="@+id/adress"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:autoLink = "map"
             android:background="@drawable/description_bg"
             android:stateListAnimator="@animator/desc_selection"/>
     </LinearLayout>

@@ -42,6 +42,7 @@ public class CourseAdapter extends RecyclerView.Adapter {
 
         final boolean isExpanded = position == mExpandedPostion;
         courseViewholder.getmDescription().setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        courseViewholder.getmPhoneNumber().setVisibility(isExpanded?View.VISIBLE:View.GONE);
         courseViewholder.itemView.setActivated(isExpanded);
         courseViewholder.getExpandBtn().setOnClickListener(new View.OnClickListener() {
             @Override

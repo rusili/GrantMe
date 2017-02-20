@@ -1,6 +1,7 @@
 package nyc.c4q.rusili.grantme.recyclerview;
 
 import android.support.v7.widget.RecyclerView;
+import android.telephony.PhoneNumberUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     private TextView mWebSite;
     private TextView mBorough;
     private ImageButton imageButtonSaveFavorite;
+    private TextView mPhoneNumber;
 
     public CourseViewholder (View itemView) {
         super(itemView);
@@ -32,6 +34,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mBorough = (TextView) itemView.findViewById(R.id.borough);
         expandBtn = (ImageButton) itemView.findViewById(R.id.expand_btn);
         imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
+        mPhoneNumber=(TextView) itemView.findViewById(R.id.phone_number);
 
     }
 
@@ -39,23 +42,29 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mCourseName.setText(course.getCourseName());
         mWebSite.setText(course.getWebsite());
         mBorough.setText(course.getBorough());
+
+        String formattedNumber = PhoneNumberUtils.formatNumber(course.getPhone1());
+        mPhoneNumber.setText("Phone Number: "+ formattedNumber);
         mDescription.setText(course.getCoursedescription());
+
+        expandBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mDescription.getVisibility() == View.GONE&&mPhoneNumber.getVisibility()==View.GONE) {
+                    mDescription.setVisibility(View.VISIBLE);
+                    mPhoneNumber.setVisibility(View.VISIBLE);
+                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+                } else {
+                    mDescription.setVisibility(View.GONE);
+                    mPhoneNumber.setVisibility(View.GONE);
+                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+                }
+            }
+        });
         imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 saveToFavorites(course);
-            }
-        });
-        expandBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mDescription.getVisibility() == View.GONE) {
-                    mDescription.setVisibility(View.VISIBLE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
-                } else {
-                    mDescription.setVisibility(View.GONE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
-                }
             }
         });
 
@@ -74,5 +83,9 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
 
     public ImageButton getExpandBtn() {
         return expandBtn;
+    }
+
+    public TextView getmPhoneNumber() {
+        return mPhoneNumber;
     }
 }

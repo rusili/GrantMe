@@ -42,6 +42,7 @@ public class TrainingListFragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         CourseAdapter courseAdapter = new CourseAdapter();
+        courseAdapter.setRV(mRecyclerView);
         mRetrofit = new Retrofit2(courseAdapter, mFragId, mPosition);
         mRetrofit.connect();
         mRecyclerView.setAdapter(courseAdapter);

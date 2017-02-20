@@ -10,8 +10,8 @@ import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 
 public class CourseViewholder extends RecyclerView.ViewHolder{
 
-    private final ImageButton expandBtn;
-    private TextView mDescription;
+    ImageButton expandBtn;
+    TextView mDescription;
     private TextView mCourseName;
     private TextView mWebSite;
     private TextView mBorough;
@@ -32,20 +32,6 @@ public class CourseViewholder extends RecyclerView.ViewHolder{
         mWebSite.setText(course.getWebsite());
         mBorough.setText(course.getBorough());
         mDescription.setText(course.getCoursedescription());
-        expandBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mDescription.getVisibility() == View.GONE) {
-                    mDescription.setVisibility(View.VISIBLE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
-                } else {
-                    mDescription.setVisibility(View.GONE);
-                    expandBtn.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
-                }
-            }
-        });
-
-
 
     }
 }

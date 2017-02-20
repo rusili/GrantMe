@@ -1,5 +1,6 @@
 package nyc.c4q.rusili.grantme.recyclerview;
 
+import android.app.ProgressDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,13 +9,18 @@ import android.view.ViewGroup;
 import nyc.c4q.rusili.grantme.R;
 
 public class NavDrawerAdapter extends RecyclerView.Adapter {
+    private View mView;
+    private ProgressDialog progressDialog;
 
+    public NavDrawerAdapter (ProgressDialog progressDialogParam) {
+        this.progressDialog = progressDialogParam;
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View mView = inflater.inflate(R.layout.navigationdrawer_viewholder, parent, false);
-        NavDrawerViewholder viewHolder = new NavDrawerViewholder(mView);
+        mView = inflater.inflate(R.layout.navigationdrawer_viewholder, parent, false);
+        NavDrawerViewholder viewHolder = new NavDrawerViewholder(mView, progressDialog);
         return viewHolder;
     }
 

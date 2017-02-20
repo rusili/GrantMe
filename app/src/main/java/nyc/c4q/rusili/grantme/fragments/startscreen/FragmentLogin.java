@@ -1,6 +1,7 @@
 package nyc.c4q.rusili.grantme.fragments.startscreen;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -77,6 +78,11 @@ public class FragmentLogin extends Fragment {
                         if (task.isSuccessful()) {
                             customToast.show(mView, "Signed In");
                             fromStarttoMain();
+                            ProgressDialog progressDialog = new ProgressDialog(mView.getContext());
+                            progressDialog.setMessage("Loading..");
+                            progressDialog.setIndeterminate(false);
+                            progressDialog.setCancelable(true);
+                            progressDialog.show();
                         } else {
                             customToast.show(mView, "Invalid credentials");
                         }

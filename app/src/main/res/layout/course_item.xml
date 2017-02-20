@@ -37,9 +37,15 @@
             android:id="@+id/savefavorite"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/staricon"
+            android:scaleType="centerInside"
+            android:src="@drawable/genielamp"
             android:tint="@color/colorSecondary"
             android:background="#00FFFFFF"
+            />
+        <RatingBar
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="?android:attr/ratingBarStyleSmall"
             />
 
         <ImageButton

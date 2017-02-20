@@ -31,6 +31,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginBottom="5sp"
+            android:background="#FFFFFF"
             android:gravity="center">
 
             <EditText
@@ -43,6 +44,7 @@
                 android:inputType="textEmailAddress"
                 android:background="@drawable/rounded_corner"
                 />
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -52,6 +54,7 @@
                 android:src="@drawable/emailicon"
                 android:tint="#999999"
                 />
+
         </LinearLayout>
 
         <!-- Username -->
@@ -61,6 +64,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="5sp"
             android:gravity="center"
+            android:background="#FFFFFF"
             >
 
             <EditText
@@ -91,7 +95,9 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginBottom="15sp"
-            android:gravity="center">
+            android:gravity="center"
+            android:background="#FFFFFF"
+            >
 
             <EditText
                 android:id="@+id/fragment_createaccount_password"

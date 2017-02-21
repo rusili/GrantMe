@@ -92,16 +92,23 @@
                 android:tint="#212121"
                 />
 
-            <ImageButton
-                android:id="@+id/savefavorite"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/genielamp"
-                android:tint="@color/colorSecondary"
-                android:background="#00FFFFFF"
-                android:layout_marginLeft="10dp"
-                />
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/cardview_shimmer_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/savefavorite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/genielamp"
+                    android:tint="@color/colorSecondary"
+                    android:background="#00FFFFFF"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
 
         </LinearLayout>

@@ -84,7 +84,7 @@ public class FragmentProfile extends Fragment {
     private void getFromDatabase () {
         userUid = mAuth.getCurrentUser().getUid();
         DatabaseReference mDatabase = firebaseDatabase.getInstance().getReference("users");
-        getProfilePic(userUid);
+        //getProfilePic(userUid);
 
         mDatabase.child(userUid).addValueEventListener(new ValueEventListener() {
             @Override

@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -70,6 +71,12 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
             public void onClick (View v) {
                 saveToFavorites(course);
                 imageButtonSaveFavorite.setColorFilter(ContextCompat.getColor(itemView.getContext(), R.color.colorAccent));
+                ShimmerFrameLayout container =
+                        (ShimmerFrameLayout) itemView.findViewById(R.id.cardview_shimmer_container);
+                container.setBaseAlpha(0.8f);
+                container.setDuration(1500);
+                container.setRepeatCount(1);
+                container.startShimmerAnimation();
                 customToast.show(itemView, "Saved as favorite");
             }
         });

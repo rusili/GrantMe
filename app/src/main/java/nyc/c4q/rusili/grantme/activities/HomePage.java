@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -51,12 +52,12 @@ public class HomePage extends AppCompatActivity implements Listener {
     }
 
     private void initializeViews () {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         CircleImageView circleImageView = (CircleImageView) findViewById(R.id.profile_pic);
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 createProfileFragment();
-                mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
                 mDrawerLayout.closeDrawers();
             }
         });
@@ -143,7 +144,9 @@ public class HomePage extends AppCompatActivity implements Listener {
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         Fragment currentFragment2 = getSupportFragmentManager().findFragmentById(R.id.content_container);
 
-        if (currentFragment == null && currentFragment2 == null) {
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            mDrawerLayout.closeDrawers();
+        } else if (currentFragment == null && currentFragment2 == null) {
             setExitDialog();
         } else {
             super.onBackPressed();

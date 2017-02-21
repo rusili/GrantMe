@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -47,6 +48,12 @@ public class FragmentLogin extends Fragment {
     }
 
     private void initializeViews () {
+        ShimmerFrameLayout container =
+                (ShimmerFrameLayout) mView.findViewById(R.id.fragment_login_image_logo_shimmer);
+        container.setBaseAlpha(0.8f);
+        container.setDuration(1500);
+        container.setRepeatDelay(3000);
+        container.startShimmerAnimation();
         buttonLogin = (Button) mView.findViewById(R.id.fragment_login_button);
         buttonCreateAccount = (TextView) mView.findViewById(R.id.fragment_login_createaccount);
         buttonLogin.setOnClickListener(new View.OnClickListener() {

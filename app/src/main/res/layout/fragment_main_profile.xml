@@ -9,15 +9,14 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="45"
+        android:layout_height="220dp"
         android:background="@color/colorSecondary"
         >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/genielamp"
+            android:src="@drawable/genielamp2"
             android:scaleY="2"
             android:scaleX="2"
             android:tint="@color/colorPrimaryDark"
@@ -180,8 +179,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragment_profile_recyclerview_favorites"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="55"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
         >
     </android.support.v7.widget.RecyclerView>

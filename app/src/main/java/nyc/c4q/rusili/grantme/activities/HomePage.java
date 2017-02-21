@@ -18,6 +18,7 @@ import com.eftimoff.viewpagertransformers.TabletTransformer;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.alertdialog.CustomAlertDialog;
+import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentEnding;
 import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 import nyc.c4q.rusili.grantme.recyclerview.NavDrawerAdapter;
@@ -71,8 +72,16 @@ public class HomePage extends AppCompatActivity implements Listener {
     @Override
     protected void onPostCreate (Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        setTitle("");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.genielampcopy); // your drawable
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createEnding();
+            }
+        });
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mTabLayout.addTab(mTabLayout.newTab().setText("Location"));
@@ -101,8 +110,6 @@ public class HomePage extends AppCompatActivity implements Listener {
             public void onTabReselected (TabLayout.Tab tab) {
             }
         });
-
-
     }
 
 
@@ -141,6 +148,16 @@ public class HomePage extends AppCompatActivity implements Listener {
         } else {
             super.onBackPressed();
         }
+    }
+
+    private void createEnding(){
+        FragmentEnding fragmentEnding = new FragmentEnding();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_left)
+                .replace(R.id.content_container, fragmentEnding)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void setExitDialog () {

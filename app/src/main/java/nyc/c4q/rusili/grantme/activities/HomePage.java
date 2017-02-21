@@ -138,7 +138,9 @@ public class HomePage extends AppCompatActivity implements Listener {
     @Override
     public void onBackPressed () {
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
-        if (currentFragment == null) {
+        Fragment currentFragment2 = getSupportFragmentManager().findFragmentById(R.id.content_container);
+
+        if (currentFragment == null && currentFragment2 == null) {
             setExitDialog();
         } else {
             super.onBackPressed();

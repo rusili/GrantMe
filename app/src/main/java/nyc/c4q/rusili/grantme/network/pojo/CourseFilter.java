@@ -86,7 +86,7 @@ public class CourseFilter {
                 field = "Legal";
                 break;
             case 3:
-                field = "Finance";
+                field = "finance";
                 break;
             case 4:
                 field = "Building Services";

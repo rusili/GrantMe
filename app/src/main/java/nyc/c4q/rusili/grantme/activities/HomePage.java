@@ -1,10 +1,9 @@
 package nyc.c4q.rusili.grantme.activities;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +12,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
+
+import com.eftimoff.viewpagertransformers.TabletTransformer;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nyc.c4q.rusili.grantme.R;
+import nyc.c4q.rusili.grantme.alertdialog.CustomAlertDialog;
 import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 import nyc.c4q.rusili.grantme.recyclerview.NavDrawerAdapter;
@@ -29,11 +30,21 @@ public class HomePage extends AppCompatActivity implements Listener {
     private RecyclerView mDrawerRecyclerView;
     private ArrayAdapter<String> mAdapter;
     private DrawerLayout mDrawerLayout;
+    public ProgressDialog progressDialog;
+
+    @Override
+    protected void onResume () {
+        super.onResume();
+        if (progressDialog!=null) {
+            progressDialog.dismiss();
+        }
+    }
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
+        progressDialog = new ProgressDialog(this);
         setUpRecyclerView();
         initializeViews();
     }
@@ -53,34 +64,12 @@ public class HomePage extends AppCompatActivity implements Listener {
     private void setUpRecyclerView () {
         mDrawerRecyclerView = (RecyclerView) findViewById(R.id.navRecyclerView);
         mDrawerRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        NavDrawerAdapter navDrawerAdapter = new NavDrawerAdapter();
+        NavDrawerAdapter navDrawerAdapter = new NavDrawerAdapter(progressDialog);
         mDrawerRecyclerView.setAdapter(navDrawerAdapter);
     }
 
-    private void emailInfo() {
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
-        i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-        i.putExtra(Intent.EXTRA_TEXT, "body of email");
-        try {
-            startActivity(Intent.createChooser(i, "Send mail..."));
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-        }
 
-    }
 
-    private void faqInfo() {
-        String url = "http://www.nyc.gov/html/sbs/wf1/downloads/pdf/WhatIsAnITG_FAQ2.pdf";
-        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-        CustomTabsIntent customTabsIntent = builder.build();
-        builder.setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left);
-        builder.setExitAnimations(this, R.anim.slide_in_left, R.anim.slide_out_right);
-        builder.setToolbarColor(getResources().getColor(R.color.colorPrimaryDark));
-        customTabsIntent.launchUrl(this, Uri.parse(url));
-
-    }
 
 
     @Override
@@ -100,6 +89,7 @@ public class HomePage extends AppCompatActivity implements Listener {
         final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount(), this);
 
         viewPager.setAdapter(adapter);
+        viewPager.setPageTransformer(true, new TabletTransformer());
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -134,15 +124,6 @@ public class HomePage extends AppCompatActivity implements Listener {
                 .commit();
     }
 
-    public void grantInfo() {
-        String url = "http://mtprawvwsbswtp.nyc.gov/popups/ITG.aspx";
-        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-        CustomTabsIntent customTabsIntent = builder.build();
-        builder.setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left);
-        builder.setExitAnimations(this, R.anim.slide_in_left, R.anim.slide_out_right);
-        builder.setToolbarColor(getResources().getColor(R.color.colorPrimaryDark));
-        customTabsIntent.launchUrl(this, Uri.parse(url));
-    }
 
     private void createProfileFragment () {
         FragmentProfile fragmentProfile = new FragmentProfile();
@@ -152,5 +133,22 @@ public class HomePage extends AppCompatActivity implements Listener {
                 .replace(R.id.content_frame, fragmentProfile)
                 .addToBackStack(null)
                 .commit();
+    }
+
+    @Override
+    public void onBackPressed () {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        Fragment currentFragment2 = getSupportFragmentManager().findFragmentById(R.id.content_container);
+
+        if (currentFragment == null && currentFragment2 == null) {
+            setExitDialog();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private void setExitDialog () {
+        CustomAlertDialog customAlertDialog = new CustomAlertDialog();
+        customAlertDialog.setUp(this);
     }
 }

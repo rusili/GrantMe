@@ -4,36 +4,35 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import nyc.c4q.rusili.grantme.fragments.mainscreen.LocationFragment;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
+import nyc.c4q.rusili.grantme.utilities.DataSets;
 
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
-    List<String> boroughs = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",
-            "Queens", "Staten Island","All"));
-    List<String> fields = new ArrayList<>(Arrays.asList("Medical", "Information Technology",
-            "Legal", "Finance", "Building Services", "Other"));
-    List<String> duration = new ArrayList<>(Arrays.asList("Brooklyn", "Bronx", "Manhattan",
-            "Queens", "Staten Island"));
-
-
+    DataSets dataLists = new DataSets();
+    private final List<String> boroughs;
+    private final List<String> fields;
+    private final List<String> duration;
     int mNumOfTabs;
     Listener mListener;
 
     public PagerAdapter(FragmentManager fm, int NumOfTabs, Listener listener) {
         super(fm);
-
         this.mNumOfTabs = NumOfTabs;
         this.mListener = listener;
+        dataLists.initMainLists();
+        this.boroughs = dataLists.getLocationList();
+        this.fields = dataLists.getFieldList();
+        this.duration = dataLists.getDurationList();
     }
 
 
     @Override
-    public Fragment getItem (int position) {
+    public Fragment getItem(int position) {
+
 
         switch (position) {
             case 0:
@@ -55,12 +54,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 tab3.setmFragId("Duration");
                 return tab3;
 
-//            case 1:
-//                FieldFragment tab2 = new FieldFragment();
-//                return tab2;
-//            case 2:
-//                DurationFragment tab3 = new DurationFragment();
-//                return tab3;
             default:
                 return null;
         }
@@ -68,7 +61,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public int getCount () {
+    public int getCount() {
         return mNumOfTabs;
     }
 

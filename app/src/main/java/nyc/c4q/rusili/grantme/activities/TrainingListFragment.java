@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.network.retrofit.Retrofit2;
@@ -22,7 +23,6 @@ import nyc.c4q.rusili.grantme.recyclerview.CourseAdapter;
  * Created by Millochka on 2/18/17.
  */
 public class TrainingListFragment extends Fragment {
-
     private String mFragId;
     private int mPosition;
     private RecyclerView mRecyclerView;
@@ -32,14 +32,10 @@ public class TrainingListFragment extends Fragment {
     private SearchView mSearch;
     private CourseAdapter mCourseAdapter;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View itemView = inflater.inflate(R.layout.courses_list, container, false);
-
         return itemView;
-
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -50,7 +46,9 @@ public class TrainingListFragment extends Fragment {
         mCourseAdapter.setRV(mRecyclerView);
         mRetrofit = new Retrofit2(mCourseAdapter, mFragId, mPosition);
         mRetrofit.connect();
-        mRecyclerView.setAdapter(mCourseAdapter);
+        AlphaInAnimationAdapter scaleInAnimationAdapter = new AlphaInAnimationAdapter(mCourseAdapter);
+        scaleInAnimationAdapter.setDuration(350);
+        mRecyclerView.setAdapter(scaleInAnimationAdapter);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         mSearch=(SearchView) view.findViewById(R.id.search_course);
@@ -64,6 +62,7 @@ public class TrainingListFragment extends Fragment {
                 return true;
             }
 
+
             @Override
             public boolean onQueryTextChange(String newText) {
                 temp =mCourseAdapter.getmListofCourses();
@@ -75,7 +74,6 @@ public class TrainingListFragment extends Fragment {
             @Override
             public boolean onClose() {
                 refreshItems();
-
                 return true;
             }
         });
@@ -83,18 +81,14 @@ public class TrainingListFragment extends Fragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
                 refreshItems();
             }
         });
-
-
     }
 
     public void filter(String text, List<JSONCourses> list){
-         final List<JSONCourses> temp = new ArrayList<>();
+        final List<JSONCourses> temp = new ArrayList<>();
         for(JSONCourses d: list) {
-
             switch (mFragId){
 
                 case"Location":

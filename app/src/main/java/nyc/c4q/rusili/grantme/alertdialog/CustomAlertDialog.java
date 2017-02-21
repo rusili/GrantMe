@@ -17,7 +17,7 @@ public class CustomAlertDialog {
                 .setIcon(null)
                 .setView(null)
                 .setTitle("Exiting App")
-                .setMessage("Are you sure you want to close this app?")
+                .setMessage("Are you sure you want to close Genie?")
                 .setPositiveButton("Exit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick (DialogInterface dialog, int which) {

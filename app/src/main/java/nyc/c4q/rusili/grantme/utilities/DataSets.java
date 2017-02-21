@@ -31,6 +31,11 @@ public class DataSets {
         pictureMap.put("Finance", R.drawable.finance);
         pictureMap.put("Building Services", R.drawable.buildingservices);
         pictureMap.put("Other", R.drawable.otherindustries);
+        pictureMap.put("Less than 500", R.drawable.durationbg);
+        pictureMap.put("501 - 1000 hours", R.drawable.durationbg1);
+        pictureMap.put("1001 - 1500 hours", R.drawable.durationbg2);
+        pictureMap.put("1501 - 2000 hours", R.drawable.durationbg3);
+        pictureMap.put("2000+ hours", R.drawable.durationbg4);
     }
 
     public void initMainLists () {

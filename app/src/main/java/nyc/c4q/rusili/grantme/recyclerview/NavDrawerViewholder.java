@@ -33,7 +33,7 @@ public class NavDrawerViewholder extends RecyclerView.ViewHolder {
                     case "FAQ":
                         faqInfo();
                         break;
-                    case "E-mail":
+                    case "Email":
                         emailInfo();
                         break;
                 }

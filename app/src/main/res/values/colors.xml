@@ -5,8 +5,5 @@
     <color name="colorPrimaryDark">#43a047</color>
     <color name="colorSecondary">#4caf50</color>
     <color name="colorAccent">#ffc400</color>
-    <color name="textPrimary">#FF000000</color>
-    <color name="textSecondary">#8C000000</color>
-    <color name="textHint">#59000000</color>
     <color name="whitePrimary">#ffffffff</color>
 </resources>

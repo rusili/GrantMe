@@ -17,7 +17,6 @@
 
         <!-- Logo -->
         <ImageView
-            android:id="@+id/fragment_login_image_logo"
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
@@ -85,7 +84,7 @@
                 android:scaleY=".5"
                 android:src="@drawable/userlogo"
                 android:tint="#999999"
-                android:id="@+id/imageView2">
+                >
             </ImageView>
         </LinearLayout>
 

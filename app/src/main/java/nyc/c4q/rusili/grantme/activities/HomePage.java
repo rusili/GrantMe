@@ -19,7 +19,6 @@ import com.eftimoff.viewpagertransformers.TabletTransformer;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.alertdialog.CustomAlertDialog;
-import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentEnding;
 import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 import nyc.c4q.rusili.grantme.recyclerview.NavDrawerAdapter;
@@ -77,12 +76,6 @@ public class HomePage extends AppCompatActivity implements Listener {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.genielampcopy); // your drawable
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createEnding();
-            }
-        });
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mTabLayout.addTab(mTabLayout.newTab().setText("Location"));
@@ -144,23 +137,13 @@ public class HomePage extends AppCompatActivity implements Listener {
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         Fragment currentFragment2 = getSupportFragmentManager().findFragmentById(R.id.content_container);
 
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawers();
         } else if (currentFragment == null && currentFragment2 == null) {
             setExitDialog();
         } else {
             super.onBackPressed();
         }
-    }
-
-    private void createEnding(){
-        FragmentEnding fragmentEnding = new FragmentEnding();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_left)
-                .replace(R.id.content_container, fragmentEnding)
-                .addToBackStack(null)
-                .commit();
     }
 
     private void setExitDialog () {

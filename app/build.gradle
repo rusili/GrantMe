@@ -31,6 +31,26 @@ dependencies {
     //viewpager animations
     compile 'com.eftimoff:android-viewpager-transformers:1.0.1@aar'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //shimmer
     compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
 

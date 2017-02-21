@@ -11,17 +11,14 @@ import nyc.c4q.rusili.grantme.fragments.startscreen.FragmentCreateAccount;
 import nyc.c4q.rusili.grantme.fragments.startscreen.FragmentLogin;
 import nyc.c4q.rusili.grantme.fragments.startscreen.FragmentSplash;
 import nyc.c4q.rusili.grantme.utilities.FragmentBuilder;
-import nyc.c4q.rusili.grantme.utilities.SoundEffects;
 
 public class ActivityStart extends AppCompatActivity {
     private FragmentBuilder fragmentBuilder;
-    private SoundEffects soundEffects;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        soundEffects = new SoundEffects(getWindow().getDecorView().getRootView());
 
         createSplashFragment();
     }
@@ -62,7 +59,6 @@ public class ActivityStart extends AppCompatActivity {
     }
 
     public void onClickSplashtoLogin (View view) {
-        soundEffects.set();
         createLoginFragment();
     }
 

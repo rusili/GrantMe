@@ -14,72 +14,106 @@
         android:background="#ffffffff"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/course_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textColor="@color/textPrimary"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/borough"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:textColor="@color/textSecondary"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/web_site"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoLink="web"
-            android:padding="16dp"
-            android:textSize="14sp" />
-
-        <RatingBar
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content" />
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/neighborhood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/borough"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/web_site"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:textSize="17sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            >
+
+            <RatingBar
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                style="?android:attr/ratingBarStyleSmall"
+                />
+
+            <ImageButton
+                android:id="@+id/addtocalendar"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:onClick="saveToCalendar"
+                android:src="@drawable/ic_event_available_black_24dp"
+                android:layout_marginLeft="170dp"
+                android:tint="#212121"
+                android:layout_gravity="center_vertical"
+                />
 
             <ImageButton
                 android:id="@+id/savefavorite"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="#00FFFFFF"
                 android:scaleType="centerInside"
                 android:src="@drawable/genielamp"
-                android:tint="@color/colorSecondary" />
-
-            <ImageButton
-                android:id="@+id/addtocalendar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/savefavorite"
-                android:layout_margin="10dp"
+                android:tint="@color/colorSecondary"
                 android:background="#00FFFFFF"
-                android:onClick="saveToCalendar"
-                android:paddingTop="5dp"
-                android:src="@drawable/ic_event_available_black_24dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="4dp"
+                />
 
-            <ImageButton
-                android:id="@+id/expand_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@color/whitePrimary"
-                android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
+
         </LinearLayout>
 
+        <ImageButton
+            android:id="@+id/expand_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/whitePrimary"
+            android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
 
         <LinearLayout
             android:id="@+id/expanding_layout"
@@ -88,6 +122,7 @@
             android:background="@drawable/description_bg"
             android:orientation="vertical"
             android:stateListAnimator="@animator/desc_selection"
+            android:padding="15dp"
             android:visibility="gone">
 
             <TextView

@@ -55,17 +55,11 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.android.support:design:25.1.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
 
     //custom tabs
     compile 'com.android.support:customtabs:25.1.1'
 
     //round imageview
     compile 'de.hdodenhof:circleimageview:2.1.0'
-
-    //status bar tint
-    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-
-
 }
 apply plugin: 'com.google.gms.google-services'

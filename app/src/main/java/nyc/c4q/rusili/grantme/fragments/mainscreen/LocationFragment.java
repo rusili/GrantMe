@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.activities.LocationAdapter;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
@@ -52,7 +53,9 @@ public class LocationFragment extends Fragment {
         recyclerView = (RecyclerView) itemView.findViewById(R.id.location_rv);
         recyclerView.getItemAnimator().setChangeDuration(700);
         locationAdapter = new LocationAdapter(mListener, mCoursesList, mFragId);
-        recyclerView.setAdapter(locationAdapter);
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(locationAdapter);
+        alphaAdapter.setDuration(350);
+        recyclerView.setAdapter(alphaAdapter);
         gridLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 

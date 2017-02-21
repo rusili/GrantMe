@@ -6,13 +6,13 @@
               android:onClick="onClickSplashtoLogin"
     >
 
-    <ImageView
-        android:id="@+id/fragmentstart_splash_logo"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/genielogofull"
-        android:scaleX=".5"
-        android:scaleY=".5"
-        />
+        <ImageView
+            android:id="@+id/fragmentstart_splash_logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/genielogofull"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            />
 
 </LinearLayout>

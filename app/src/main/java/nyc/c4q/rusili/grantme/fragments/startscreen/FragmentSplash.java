@@ -29,7 +29,6 @@ public class FragmentSplash extends Fragment {
 
         final AnimatorSet fadeInUp = (AnimatorSet) AnimatorInflater.loadAnimator(mView.getContext(),
                 R.animator.animator_fade_in_up);
-
         fadeInUp.setTarget(genieLogoFull);
         fadeInUp.start();
     }

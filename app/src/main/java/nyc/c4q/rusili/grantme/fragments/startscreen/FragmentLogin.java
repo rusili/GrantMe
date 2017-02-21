@@ -84,12 +84,12 @@ public class FragmentLogin extends Fragment {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (task.isSuccessful()) {
                             customToast.show(mView, "Signed In");
-                            fromStarttoMain();
                             ProgressDialog progressDialog = new ProgressDialog(mView.getContext());
                             progressDialog.setMessage("Loading..");
                             progressDialog.setIndeterminate(false);
                             progressDialog.setCancelable(true);
                             progressDialog.show();
+                            fromStarttoMain();
                         } else {
                             customToast.show(mView, "Invalid credentials");
                         }

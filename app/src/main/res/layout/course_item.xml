@@ -16,7 +16,6 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-
         <TextView
             android:id="@+id/course_name"
             android:layout_width="wrap_content"
@@ -34,25 +33,23 @@
             android:autoLink="web" />
 
         <ImageButton
-            android:id="@+id/savefavorite"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:background="#00FFFFFF"
-            android:src="@android:drawable/btn_radio" />
-
-        <ImageButton
             android:id="@+id/addtocalendar"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:onClick="saveToCalendar"
             android:src="@drawable/ic_event_available_black_24dp" />
-            android:layout_height="50dp"
+
+        <ImageButton
+            android:id="@+id/savefavorite"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:scaleType="centerInside"
             android:src="@drawable/genielamp"
             android:tint="@color/colorSecondary"
             android:background="#00FFFFFF"
             />
+
         <RatingBar
             android:layout_width="80dp"
             android:layout_height="wrap_content"
@@ -65,34 +62,6 @@
             android:layout_height="wrap_content"
             android:background="@color/whitePrimary"
             android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/description_bg"
-            android:stateListAnimator="@animator/desc_selection"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/phone_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autoLink="phone"
-            android:background="@drawable/description_bg"
-            android:stateListAnimator="@animator/desc_selection"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/adress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:autoLink="map"
-            android:background="@drawable/description_bg"
-            android:stateListAnimator="@animator/desc_selection"
-            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/expanding_layout"

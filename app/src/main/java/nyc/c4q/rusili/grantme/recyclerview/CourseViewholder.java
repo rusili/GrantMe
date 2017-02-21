@@ -38,9 +38,12 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     private TextView mAddress;
     private TextView mContactPerson;
     private TextView mNeighborhood;
+    private ImageButton mShareCourse;
+    private View mView;
 
     public CourseViewholder (View itemView) {
         super(itemView);
+        mView=itemView;
         mNeighborhood = (TextView) itemView.findViewById(R.id.neighborhood);
         mCourseName = (TextView) itemView.findViewById(R.id.course_name);
         mDescription = (TextView) itemView.findViewById(R.id.description);
@@ -53,6 +56,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mLinearLayout = (LinearLayout) itemView.findViewById(R.id.expanding_layout);
         mAddress = (TextView) itemView.findViewById(R.id.address);
         mContactPerson = (TextView) itemView.findViewById(R.id.contact_person);
+        mShareCourse=(ImageButton) itemView.findViewById(R.id.sharecourse);
     }
 
     public void bind (final JSONCourses course) {
@@ -85,6 +89,26 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
             public void onClick (View view) {
                 saveToCalendar(view);
 
+            }
+        });
+
+        mShareCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent shareIntent = new Intent();
+
+
+                shareIntent.setAction(Intent.ACTION_SEND);
+
+
+                shareIntent.setType("text/plain");
+
+
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, course.getCourseName() + " "+ course.getWebsite());
+
+
+                mView.getContext().startActivity(Intent.createChooser(shareIntent, "Share course using"));
             }
         });
 
@@ -129,4 +153,5 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
                 .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
         view.getContext().startActivity(intent);
     }
+
 }

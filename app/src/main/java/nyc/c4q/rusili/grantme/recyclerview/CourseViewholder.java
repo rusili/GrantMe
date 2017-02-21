@@ -36,9 +36,11 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     private LinearLayout mLinearLayout;
     private TextView mAddress;
     private TextView mContactPerson;
+    private TextView mNeighborhood;
 
     public CourseViewholder (View itemView) {
         super(itemView);
+        mNeighborhood = (TextView) itemView.findViewById(R.id.neighborhood);
         mCourseName = (TextView) itemView.findViewById(R.id.course_name);
         mDescription = (TextView) itemView.findViewById(R.id.description);
         mWebSite = (TextView) itemView.findViewById(R.id.web_site);
@@ -55,6 +57,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     public void bind (final JSONCourses course) {
         mCourseName.setText(course.getCourseName());
         mWebSite.setText(course.getWebsite());
+        mNeighborhood.setText(course.getNeighborhood() + ", ");
         mBorough.setText(course.getBorough());
         String formattedNumber = PhoneNumberUtils.formatNumber(course.getPhone1());
         mPhoneNumber.setText("Phone Number: " + formattedNumber);

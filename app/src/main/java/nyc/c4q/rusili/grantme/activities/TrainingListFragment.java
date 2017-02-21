@@ -55,6 +55,7 @@ public class TrainingListFragment extends Fragment {
         mSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             List <JSONCourses> temp = new ArrayList <JSONCourses>();
+
             @Override
             public boolean onQueryTextSubmit (String query) {
                 temp = mCourseAdapter.getmListofCourses();

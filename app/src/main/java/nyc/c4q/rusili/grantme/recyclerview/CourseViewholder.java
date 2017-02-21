@@ -1,5 +1,7 @@
 package nyc.c4q.rusili.grantme.recyclerview;
 
+import android.content.Intent;
+import android.provider.CalendarContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.PhoneNumberUtils;
@@ -12,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 import nyc.c4q.rusili.grantme.toasts.CustomToast;
@@ -22,6 +26,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
 
     private CustomToast customToast;
     private final ImageButton expandBtn;
+    private final ImageButton addToCalendar;
     private TextView mDescription;
     private TextView mCourseName;
     private TextView mWebSite;
@@ -41,6 +46,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         expandBtn = (ImageButton) itemView.findViewById(R.id.expand_btn);
         imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
         mPhoneNumber=(TextView) itemView.findViewById(R.id.phone_number);
+        addToCalendar = (ImageButton) itemView.findViewById(R.id.addtocalendar);
         mLinearLayout= (LinearLayout) itemView.findViewById(R.id.expanding_layout);
         mAddress=(TextView) itemView.findViewById(R.id.address);
         mContactPerson=(TextView) itemView.findViewById(R.id.contact_person);
@@ -62,6 +68,13 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
                 saveToFavorites(course);
                 imageButtonSaveFavorite.setColorFilter(ContextCompat.getColor(itemView.getContext(), R.color.colorAccent));
                 customToast.show(itemView, "Saved as favorite");
+            }
+        });
+        addToCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveToCalendar(view);
+
             }
         });
 
@@ -91,5 +104,22 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
 
     public TextView getmPhoneNumber() {
         return mPhoneNumber;
+    }
+
+    public void saveToCalendar(View view){
+
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(2017, 3, 19, 7, 30);
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(2017, 3, 19, 8, 30);
+        Intent intent = new Intent(Intent.ACTION_INSERT)
+                .setData(CalendarContract.Events.CONTENT_URI)
+                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
+                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
+                .putExtra(CalendarContract.Events.TITLE, "Classes Start")
+                .putExtra(CalendarContract.Events.DESCRIPTION, "Make sure grant application is completed")
+                .putExtra(CalendarContract.Events.EVENT_LOCATION, "Workforce")
+                .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+        view.getContext().startActivity(intent);
     }
 }

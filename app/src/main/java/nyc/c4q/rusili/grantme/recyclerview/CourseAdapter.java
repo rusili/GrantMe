@@ -85,4 +85,6 @@ public class CourseAdapter extends RecyclerView.Adapter {
         return mListofCourses;
     }
 
+
+
 }

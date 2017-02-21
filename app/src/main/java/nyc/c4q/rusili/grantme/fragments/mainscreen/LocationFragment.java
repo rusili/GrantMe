@@ -20,36 +20,32 @@ import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.activities.LocationAdapter;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 
-/**
- * Created by Millochka on 2/18/17.
- */
 public class LocationFragment extends Fragment {
-
-    private List<String> mCoursesList;
+    private List <String> mCoursesList;
     GridLayoutManager gridLayoutManager;
     LocationAdapter locationAdapter;
     private RecyclerView recyclerView;
     private Listener mListener;
     private String mFragId;
 
-    public void setmFragId(String mFragId) {
+    public void setmFragId (String mFragId) {
         this.mFragId = mFragId;
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate (@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    public LocationFragment() {
+    public LocationFragment () {
     }
 
-    public void setmCoursesList(List<String> mCoursesList) {
+    public void setmCoursesList (List <String> mCoursesList) {
         this.mCoursesList = mCoursesList;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.setHasOptionsMenu(true);
         View itemView = inflater.inflate(R.layout.location_layout, container, false);
 
@@ -63,19 +59,18 @@ public class LocationFragment extends Fragment {
         return itemView;
     }
 
-
-    public void setmListener(Listener listener) {
+    public void setmListener (Listener listener) {
         this.mListener = listener;
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_main, menu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected (MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.action_list_to_grid) {
@@ -92,10 +87,8 @@ public class LocationFragment extends Fragment {
             }
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 }
 
 

@@ -28,14 +28,14 @@ public class HomePage extends AppCompatActivity implements Listener {
     private FragmentBuilder fragmentBuilder;
     private TabLayout mTabLayout;
     private RecyclerView mDrawerRecyclerView;
-    private ArrayAdapter<String> mAdapter;
+    private ArrayAdapter <String> mAdapter;
     private DrawerLayout mDrawerLayout;
     public ProgressDialog progressDialog;
 
     @Override
     protected void onResume () {
         super.onResume();
-        if (progressDialog!=null) {
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
     }
@@ -68,12 +68,8 @@ public class HomePage extends AppCompatActivity implements Listener {
         mDrawerRecyclerView.setAdapter(navDrawerAdapter);
     }
 
-
-
-
-
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
+    protected void onPostCreate (Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -93,16 +89,16 @@ public class HomePage extends AppCompatActivity implements Listener {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+            public void onTabSelected (TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+            public void onTabUnselected (TabLayout.Tab tab) {
             }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+            public void onTabReselected (TabLayout.Tab tab) {
             }
         });
 
@@ -111,7 +107,7 @@ public class HomePage extends AppCompatActivity implements Listener {
 
 
     @Override
-    public void showTrainings(final int position, final String fragId) {
+    public void showTrainings (final int position, final String fragId) {
         TrainingListFragment trainingListFragment = new TrainingListFragment();
         trainingListFragment.setmFragId(fragId);
         trainingListFragment.setmPosition(position);

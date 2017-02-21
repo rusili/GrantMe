@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class User {
 
     public String email;
-    public HashMap<String, JSONCourses> favorites = new HashMap <>();
+    public HashMap <String, JSONCourses> favorites = new HashMap <>();
     public String password;
     public String username;
 
@@ -32,5 +32,7 @@ public class User {
         return password;
     }
 
-    public HashMap <String, JSONCourses> getJsonCourses () { return favorites; }
+    public HashMap <String, JSONCourses> getJsonCourses () {
+        return favorites;
+    }
 }

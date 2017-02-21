@@ -13,13 +13,13 @@ import nyc.c4q.rusili.grantme.utilities.DataSets;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     DataSets dataLists = new DataSets();
-    private final List<String> boroughs;
-    private final List<String> fields;
-    private final List<String> duration;
+    private final List <String> boroughs;
+    private final List <String> fields;
+    private final List <String> duration;
     int mNumOfTabs;
     Listener mListener;
 
-    public PagerAdapter(FragmentManager fm, int NumOfTabs, Listener listener) {
+    public PagerAdapter (FragmentManager fm, int NumOfTabs, Listener listener) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
         this.mListener = listener;
@@ -31,9 +31,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
 
     @Override
-    public Fragment getItem(int position) {
-
-
+    public Fragment getItem (int position) {
         switch (position) {
             case 0:
                 LocationFragment tab1 = new LocationFragment();
@@ -57,12 +55,10 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             default:
                 return null;
         }
-
     }
 
     @Override
-    public int getCount() {
+    public int getCount () {
         return mNumOfTabs;
     }
-
 }

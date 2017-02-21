@@ -37,7 +37,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     private TextView mAddress;
     private TextView mContactPerson;
 
-    public CourseViewholder(View itemView) {
+    public CourseViewholder (View itemView) {
         super(itemView);
         mCourseName = (TextView) itemView.findViewById(R.id.course_name);
         mDescription = (TextView) itemView.findViewById(R.id.description);
@@ -45,14 +45,14 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mBorough = (TextView) itemView.findViewById(R.id.borough);
         expandBtn = (ImageButton) itemView.findViewById(R.id.expand_btn);
         imageButtonSaveFavorite = (ImageButton) itemView.findViewById(R.id.savefavorite);
-        mPhoneNumber=(TextView) itemView.findViewById(R.id.phone_number);
+        mPhoneNumber = (TextView) itemView.findViewById(R.id.phone_number);
         addToCalendar = (ImageButton) itemView.findViewById(R.id.addtocalendar);
-        mLinearLayout= (LinearLayout) itemView.findViewById(R.id.expanding_layout);
-        mAddress=(TextView) itemView.findViewById(R.id.address);
-        mContactPerson=(TextView) itemView.findViewById(R.id.contact_person);
+        mLinearLayout = (LinearLayout) itemView.findViewById(R.id.expanding_layout);
+        mAddress = (TextView) itemView.findViewById(R.id.address);
+        mContactPerson = (TextView) itemView.findViewById(R.id.contact_person);
     }
 
-    public void bind(final JSONCourses course) {
+    public void bind (final JSONCourses course) {
         mCourseName.setText(course.getCourseName());
         mWebSite.setText(course.getWebsite());
         mBorough.setText(course.getBorough());
@@ -60,11 +60,11 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         mPhoneNumber.setText("Phone Number: " + formattedNumber);
         mDescription.setText(course.getCoursedescription());
 
-        mAddress.setText(course.getAddress1()+","+course.getCity()+",NY");
-        mContactPerson.setText("Contact Person: " + course.getContactFirstname() +" "+course.getContactLastname());
+        mAddress.setText(course.getAddress1() + "," + course.getCity() + ",NY");
+        mContactPerson.setText("Contact Person: " + course.getContactFirstname() + " " + course.getContactLastname());
         imageButtonSaveFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick (View v) {
                 saveToFavorites(course);
                 imageButtonSaveFavorite.setColorFilter(ContextCompat.getColor(itemView.getContext(), R.color.colorAccent));
                 customToast.show(itemView, "Saved as favorite");
@@ -72,7 +72,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
         });
         addToCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick (View view) {
                 saveToCalendar(view);
 
             }
@@ -80,7 +80,7 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
 
     }
 
-    private void saveToFavorites(JSONCourses course) {
+    private void saveToFavorites (JSONCourses course) {
         DatabaseReference ref = mDatabase.child("users")
                 .child(mAuth.getCurrentUser().getUid())
                 .child("favorites");
@@ -88,26 +88,23 @@ public class CourseViewholder extends RecyclerView.ViewHolder {
     }
 
 
-
-    public ImageButton getExpandBtn() {
+    public ImageButton getExpandBtn () {
         return expandBtn;
     }
 
-
-    public LinearLayout getmLinearLayout() {
+    public LinearLayout getmLinearLayout () {
         return mLinearLayout;
     }
 
-    public TextView getmDescription() {
+    public TextView getmDescription () {
         return mDescription;
     }
 
-    public TextView getmPhoneNumber() {
+    public TextView getmPhoneNumber () {
         return mPhoneNumber;
     }
 
-    public void saveToCalendar(View view){
-
+    public void saveToCalendar (View view) {
         Calendar beginTime = Calendar.getInstance();
         beginTime.set(2017, 3, 19, 7, 30);
         Calendar endTime = Calendar.getInstance();

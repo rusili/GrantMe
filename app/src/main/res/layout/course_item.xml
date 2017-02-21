@@ -20,56 +20,55 @@
             android:id="@+id/course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
             android:padding="16dp"
-            android:textColor="@color/textPrimary"/>
+            android:textColor="@color/textPrimary"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/borough"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
             android:padding="16dp"
-            android:textColor="@color/textSecondary"/>
+            android:textColor="@color/textSecondary"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/web_site"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
-            android:textSize="14sp"
-            android:padding="16dp"/>
+            android:padding="16dp"
+            android:textSize="14sp" />
 
         <RatingBar
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            style="?android:attr/ratingBarStyleSmall" />
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/savefavorite"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/genielamp"
-                android:scaleType="centerInside"
-                android:tint="@color/colorSecondary"
                 android:background="#00FFFFFF"
-                />
+                android:scaleType="centerInside"
+                android:src="@drawable/genielamp"
+                android:tint="@color/colorSecondary" />
 
             <ImageButton
                 android:id="@+id/addtocalendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/savefavorite"
-                android:paddingTop="5dp"
                 android:layout_margin="10dp"
                 android:background="#00FFFFFF"
                 android:onClick="saveToCalendar"
+                android:paddingTop="5dp"
                 android:src="@drawable/ic_event_available_black_24dp" />
 
             <ImageButton
@@ -80,7 +79,6 @@
                 android:background="@color/whitePrimary"
                 android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
         </LinearLayout>
-
 
 
         <LinearLayout
@@ -103,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:autoLink="phone" />
+
             <TextView
                 android:id="@+id/contact_person"
                 android:layout_width="wrap_content"

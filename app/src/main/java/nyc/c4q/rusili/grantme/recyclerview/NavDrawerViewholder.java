@@ -26,7 +26,7 @@ public class NavDrawerViewholder extends RecyclerView.ViewHolder {
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-                switch (text){
+                switch (text) {
                     case "Grant Information":
                         grantInfo();
                         break;
@@ -42,10 +42,10 @@ public class NavDrawerViewholder extends RecyclerView.ViewHolder {
 
     }
 
-    private void emailInfo() {
+    private void emailInfo () {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
+        i.putExtra(Intent.EXTRA_EMAIL, new String[] {"recipient@example.com"});
         i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
         i.putExtra(Intent.EXTRA_TEXT, "body of email");
         try {
@@ -56,7 +56,7 @@ public class NavDrawerViewholder extends RecyclerView.ViewHolder {
 
     }
 
-    private void grantInfo() {
+    private void grantInfo () {
         createLoadingSpinner();
 
         String url = "http://mtprawvwsbswtp.nyc.gov/popups/ITG.aspx";
@@ -69,7 +69,7 @@ public class NavDrawerViewholder extends RecyclerView.ViewHolder {
     }
 
 
-    private void faqInfo() {
+    private void faqInfo () {
         createLoadingSpinner();
 
         String url = "http://www.nyc.gov/html/sbs/wf1/downloads/pdf/WhatIsAnITG_FAQ2.pdf";
@@ -81,7 +81,7 @@ public class NavDrawerViewholder extends RecyclerView.ViewHolder {
         customTabsIntent.launchUrl(itemView.getContext(), Uri.parse(url));
     }
 
-    private void createLoadingSpinner(){
+    private void createLoadingSpinner () {
         progressDialog.setMessage("Loading..");
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(true);

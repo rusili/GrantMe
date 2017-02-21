@@ -14,18 +14,17 @@ import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.network.pojo.JSONCourses;
 
 public class CourseAdapter extends RecyclerView.Adapter {
-    List<JSONCourses> mListofCourses = new ArrayList<>();
+    List <JSONCourses> mListofCourses = new ArrayList <>();
     private int mExpandedPostion = -1;
     private RecyclerView mRecyclerView;
     private boolean showFavorites;
 
-
-    public CourseAdapter(boolean b) {
+    public CourseAdapter (boolean b) {
         showFavorites = b;
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View mView = inflater.inflate(R.layout.course_item, parent, false);
         CourseViewholder viewHolder = new CourseViewholder(mView);
@@ -37,7 +36,7 @@ public class CourseAdapter extends RecyclerView.Adapter {
 
     @Override
     @Nullable
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder (RecyclerView.ViewHolder holder, final int position) {
         final CourseViewholder courseViewholder = (CourseViewholder) holder;
         JSONCourses item = mListofCourses.get(position);
         courseViewholder.bind(item);
@@ -45,11 +44,11 @@ public class CourseAdapter extends RecyclerView.Adapter {
         final boolean isExpanded = position == mExpandedPostion;
         courseViewholder.getmDescription().setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         courseViewholder.getmPhoneNumber().setVisibility(isExpanded ? View.VISIBLE : View.GONE);
-        courseViewholder.getmLinearLayout().setVisibility(isExpanded?View.VISIBLE:View.GONE);
+        courseViewholder.getmLinearLayout().setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         courseViewholder.itemView.setActivated(isExpanded);
         courseViewholder.getExpandBtn().setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick (View view) {
                 mExpandedPostion = isExpanded ? -1 : position;
                 TransitionManager.beginDelayedTransition(mRecyclerView);
                 notifyDataSetChanged();
@@ -60,31 +59,25 @@ public class CourseAdapter extends RecyclerView.Adapter {
                 }
             }
         });
-
-
     }
 
     @Override
     @Nullable
-    public int getItemCount() {
+    public int getItemCount () {
         return mListofCourses.size();
     }
 
-    public void setListofCourses(List<JSONCourses> listofCourses) {
+    public void setListofCourses (List <JSONCourses> listofCourses) {
         this.mListofCourses = listofCourses;
         this.notifyDataSetChanged();
     }
 
 
-    public void setRV(RecyclerView recyclerView) {
+    public void setRV (RecyclerView recyclerView) {
         this.mRecyclerView = recyclerView;
-
     }
 
-    public List<JSONCourses> getmListofCourses() {
+    public List <JSONCourses> getmListofCourses () {
         return mListofCourses;
     }
-
-
-
 }

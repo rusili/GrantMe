@@ -17,10 +17,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/genielogofull"
+            android:src="@drawable/genielamp"
             android:scaleY="2"
             android:scaleX="2"
-            android:tint="@color/colorPrimary"
+            android:tint="@color/colorPrimaryDark"
             />
 
         <ImageView

@@ -28,7 +28,7 @@ public class NavDrawerAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder (RecyclerView.ViewHolder holder, int position) {
         NavDrawerViewholder navDrawerViewholder = (NavDrawerViewholder) holder;
         String text = null;
-        switch (position){
+        switch (position) {
             case 0:
                 text = "Grant Information";
                 break;

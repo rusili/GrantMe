@@ -92,7 +92,7 @@ public class FragmentProfile extends Fragment {
                 User user = dataSnapshot.getValue(User.class);
                 textViewUsername.setText(user.getUsername());
                 textViewEmail.setText(user.getEmail());
-                jsonCoursesList = new ArrayList<JSONCourses>(user.getJsonCourses().values());
+                jsonCoursesList = new ArrayList <JSONCourses>(user.getJsonCourses().values());
 
                 CourseAdapter profileFavoritesAdapter = new CourseAdapter(false);
                 profileFavoritesAdapter.setListofCourses(jsonCoursesList);

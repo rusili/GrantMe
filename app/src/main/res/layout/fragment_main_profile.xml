@@ -9,18 +9,17 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="45"
+        android:layout_height="210dp"
         android:background="@color/colorSecondary"
         >
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/genielogofull"
+            android:src="@drawable/genielamp2"
             android:scaleY="2"
             android:scaleX="2"
-            android:tint="@color/colorPrimary"
+            android:tint="@color/colorPrimaryDark"
             />
 
         <ImageView
@@ -46,22 +45,22 @@
                 android:onClick="onClickProfilePic"
                 />
 
-            <TextView
-                android:id="@+id/fragment_profile_email"
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:elevation="10dp"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textColor="#f9f9f9"
-                />
 
             <TextView
                 android:id="@+id/fragment_profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#f9f9f9"
+                />
+
+            <TextView
+                android:id="@+id/fragment_profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:elevation="10dp"
                 android:textSize="13sp"
-                android:layout_marginBottom="10dp"
                 android:textColor="#f9f9f9"
                 />
 
@@ -87,6 +86,7 @@
                     android:gravity="center"
                     android:text="@string/fragment_profile_navigation1"
                     android:textColor="#f9f9f9"
+                    android:textStyle="bold"
                     />
                 <TextView
                     android:id="@+id/fragment_profile_navigation2"
@@ -180,8 +180,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fragment_profile_recyclerview_favorites"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="55"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
         >
     </android.support.v7.widget.RecyclerView>

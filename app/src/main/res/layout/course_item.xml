@@ -37,9 +37,17 @@
             android:autoLink="web" />
 
         <ImageButton
-            android:id="@+id/savefavorite"
+            android:id="@+id/addtocalendar"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:onClick="saveToCalendar"
+            android:src="@drawable/ic_event_available_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/savefavorite"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:scaleType="centerInside"
             android:src="@drawable/genielamp"
             android:tint="@color/colorSecondary"

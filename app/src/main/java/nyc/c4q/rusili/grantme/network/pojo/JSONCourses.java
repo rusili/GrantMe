@@ -6,46 +6,46 @@ public class JSONCourses {
     private String address1;
     private String borough;
     private String city;
-    @SerializedName("contact_firstname")
+    @SerializedName ("contact_firstname")
     private String contactFirstname;
-    @SerializedName("contact_lastname")
+    @SerializedName ("contact_lastname")
     private String contactLastname;
-    @SerializedName("cost_includes")
+    @SerializedName ("cost_includes")
     private String costIncludes;
-    @SerializedName("cost_total")
+    @SerializedName ("cost_total")
     private String costTotal;
-    @SerializedName("course_name")
+    @SerializedName ("course_name")
     private String courseName;
     private String coursedescription;
-    @SerializedName("delivery_method")
+    @SerializedName ("delivery_method")
     private String deliveryMethod;
     private String duration;
-    @SerializedName("duration_unit")
+    @SerializedName ("duration_unit")
     private String durationUnit;
     private String fax;
-    @SerializedName("financial_aid_services")
+    @SerializedName ("financial_aid_services")
     private String financialAidServices;
-    @SerializedName("instructor_credentials")
+    @SerializedName ("instructor_credentials")
     private String instructorCredentials;
-    @SerializedName("is_hra")
+    @SerializedName ("is_hra")
     private String isHra;
-    @SerializedName("is_sbs")
+    @SerializedName ("is_sbs")
     private String isSbs;
-    @SerializedName("job_placement_services")
+    @SerializedName ("job_placement_services")
     private String jobPlacementServices;
     private String keywords;
-    @SerializedName("max_class_size")
+    @SerializedName ("max_class_size")
     private String maxClassSize;
     private String neighborhood;
     private String numhours;
-    @SerializedName("organization_name")
+    @SerializedName ("organization_name")
     private String organizationName;
     private String phone1;
     private String prerequisites;
     private String schedule;
     private String state;
     private String website;
-    @SerializedName("zip_code")
+    @SerializedName ("zip_code")
     private String zipCode;
 
     public String getAddress1 () {
@@ -60,23 +60,23 @@ public class JSONCourses {
         return city;
     }
 
-    public String getContactFirstname() {
+    public String getContactFirstname () {
         return contactFirstname;
     }
 
-    public String getContactLastname() {
+    public String getContactLastname () {
         return contactLastname;
     }
 
-    public String getCostIncludes() {
+    public String getCostIncludes () {
         return costIncludes;
     }
 
-    public String getCostTotal() {
+    public String getCostTotal () {
         return costTotal;
     }
 
-    public String getCourseName() {
+    public String getCourseName () {
         return courseName;
     }
 
@@ -84,7 +84,7 @@ public class JSONCourses {
         return coursedescription;
     }
 
-    public String getDeliveryMethod() {
+    public String getDeliveryMethod () {
         return deliveryMethod;
     }
 
@@ -92,7 +92,7 @@ public class JSONCourses {
         return duration;
     }
 
-    public String getDurationUnit() {
+    public String getDurationUnit () {
         return durationUnit;
     }
 
@@ -100,23 +100,23 @@ public class JSONCourses {
         return fax;
     }
 
-    public String getFinancialAidServices() {
+    public String getFinancialAidServices () {
         return financialAidServices;
     }
 
-    public String getInstructorCredentials() {
+    public String getInstructorCredentials () {
         return instructorCredentials;
     }
 
-    public String getIsHra() {
+    public String getIsHra () {
         return isHra;
     }
 
-    public String getIsSbs() {
+    public String getIsSbs () {
         return isSbs;
     }
 
-    public String getJobPlacementServices() {
+    public String getJobPlacementServices () {
         return jobPlacementServices;
     }
 
@@ -124,7 +124,7 @@ public class JSONCourses {
         return keywords;
     }
 
-    public String getMaxClassSize() {
+    public String getMaxClassSize () {
         return maxClassSize;
     }
 
@@ -136,7 +136,7 @@ public class JSONCourses {
         return numhours;
     }
 
-    public String getOrganizationName() {
+    public String getOrganizationName () {
         return organizationName;
     }
 
@@ -160,7 +160,7 @@ public class JSONCourses {
         return website;
     }
 
-    public String getZipCode() {
+    public String getZipCode () {
         return zipCode;
     }
 }

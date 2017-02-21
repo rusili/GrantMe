@@ -11,20 +11,20 @@ import java.util.Map;
 
 public class CourseFilter {
 
-    private List<JSONCourses> mCourseList = new ArrayList<>();
+    private List <JSONCourses> mCourseList = new ArrayList <>();
     private final String LOCATION_TAB = "Location";
     private final String FIELD_TAB = "Field";
     private final String DURATION_TAB = "Duration";
     private Map <String, String> fieldKeys = new HashMap <>();
     private List <JSONCourses> fieldOtherList = new ArrayList <>();
 
-    public CourseFilter(List<JSONCourses> courseList) {
+    public CourseFilter (List <JSONCourses> courseList) {
         this.mCourseList = courseList;
         initHashMap();
     }
 
 
-    public List<JSONCourses> filterList(final int position, final String fragId) {
+    public List <JSONCourses> filterList (final int position, final String fragId) {
         switch (fragId) {
             case LOCATION_TAB:
                 return boroughList(position);
@@ -37,9 +37,9 @@ public class CourseFilter {
     }
 
 
-    public List<JSONCourses> boroughList(final int position) {
+    public List <JSONCourses> boroughList (final int position) {
         String borough = "";
-        List<JSONCourses> output = new ArrayList<>();
+        List <JSONCourses> output = new ArrayList <>();
 
         switch (position) {
             case 0:
@@ -62,7 +62,7 @@ public class CourseFilter {
                 break;
         }
         for (JSONCourses item : this.mCourseList) {
-            if (item.getBorough() != null&&!borough.equalsIgnoreCase("All")) {
+            if (item.getBorough() != null && !borough.equalsIgnoreCase("All")) {
                 if (item.getBorough().equalsIgnoreCase(borough)) {
                     output.add(item);
                 }
@@ -86,7 +86,7 @@ public class CourseFilter {
                 field = "Legal";
                 break;
             case 3:
-                field = "Finance";
+                field = "finance";
                 break;
             case 4:
                 field = "Building Services";
@@ -97,7 +97,7 @@ public class CourseFilter {
                 break;
         }
         for (JSONCourses item : this.mCourseList) {
-            if (item.getKeywords() != null &&!field.equals("Other")) {
+            if (item.getKeywords() != null && !field.equals("Other")) {
                 if (item.getKeywords().equalsIgnoreCase(fieldKeys.get(field))) {
                     output.add(item);
                 }
@@ -105,14 +105,14 @@ public class CourseFilter {
                 fieldOtherList.add(item);
             }
         }
-        if(field.equalsIgnoreCase("Other")){
+        if (field.equalsIgnoreCase("Other")) {
             return fieldOtherList;
         }
         return output;
     }
 
-    public List<JSONCourses> durationList(int position) {
-        List<JSONCourses> output = new ArrayList<>();
+    public List <JSONCourses> durationList (int position) {
+        List <JSONCourses> output = new ArrayList <>();
         for (JSONCourses item : this.mCourseList) {
             if (item.getBorough() != null) {
                 if (item.getDuration().contains("80")) {
@@ -123,7 +123,7 @@ public class CourseFilter {
         return output;
     }
 
-    public void initHashMap() {
+    public void initHashMap () {
         fieldKeys.put("Medical", "Health  home  attendant  Medical  NCLEX  RN  Emergency  EMS  EMT  clinical  clinic  transcription  Nurse  phlebotomy  EKG  Dentist  doctor  practitioner  physician  hygien  Can  LPN  HHA  PCA  care  aide  orderly  nursing");
         fieldKeys.put("Maintenance", "ground  commercial  fire  safety  clean  maintenance  residential  sprinkler  environment ");
         fieldKeys.put("Legal", "paralegal  law  legal  mediat  lawyer  judge  court  case");

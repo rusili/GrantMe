@@ -27,18 +27,18 @@ public class TrainingListFragment extends Fragment {
     private int mPosition;
     private RecyclerView mRecyclerView;
     private Retrofit2 mRetrofit;
-    List<JSONCourses> mListofCourses = new ArrayList<>();
+    List <JSONCourses> mListofCourses = new ArrayList <>();
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private SearchView mSearch;
     private CourseAdapter mCourseAdapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View itemView = inflater.inflate(R.layout.courses_list, container, false);
         return itemView;
     }
 
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated (View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -47,32 +47,32 @@ public class TrainingListFragment extends Fragment {
         mRetrofit = new Retrofit2(mCourseAdapter, mFragId, mPosition);
         mRetrofit.connect();
         AlphaInAnimationAdapter scaleInAnimationAdapter = new AlphaInAnimationAdapter(mCourseAdapter);
-        scaleInAnimationAdapter.setDuration(250);
+        scaleInAnimationAdapter.setDuration(350);
         mRecyclerView.setAdapter(scaleInAnimationAdapter);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        mSearch=(SearchView) view.findViewById(R.id.search_course);
+        mSearch = (SearchView) view.findViewById(R.id.search_course);
         mSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-            List<JSONCourses> temp = new ArrayList<JSONCourses>();
+            List <JSONCourses> temp = new ArrayList <JSONCourses>();
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                temp =mCourseAdapter.getmListofCourses();
+            public boolean onQueryTextSubmit (String query) {
+                temp = mCourseAdapter.getmListofCourses();
                 filter(query, temp);
                 return true;
             }
 
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                temp =mCourseAdapter.getmListofCourses();
+            public boolean onQueryTextChange (String newText) {
+                temp = mCourseAdapter.getmListofCourses();
                 filter(newText, temp);
                 return true;
             }
         });
         mSearch.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
-            public boolean onClose() {
+            public boolean onClose () {
                 refreshItems();
                 return true;
             }
@@ -80,63 +80,54 @@ public class TrainingListFragment extends Fragment {
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh() {
+            public void onRefresh () {
                 refreshItems();
             }
         });
     }
 
-    public void filter(String text, List<JSONCourses> list){
-        final List<JSONCourses> temp = new ArrayList<>();
-        for(JSONCourses d: list) {
-            switch (mFragId){
+    public void filter (String text, List <JSONCourses> list) {
+        final List <JSONCourses> temp = new ArrayList <>();
+        for (JSONCourses d : list) {
+            switch (mFragId) {
 
-                case"Location":
+                case "Location":
                     if (d.getKeywords() != null) {
                         if (d.getKeywords().toLowerCase().contains(text.toLowerCase())) {
                             temp.add(d);
                         }
                     }
 
-                break;
-                case"Field":
+                    break;
+                case "Field":
 
                     if (d.getBorough() != null) {
                         if (d.getBorough().toLowerCase().contains(text.toLowerCase())) {
                             temp.add(d);
                         }
                     }
-
-                break;
-
+                    break;
             }
-
-
         }
-
         mCourseAdapter.setListofCourses(temp);
         mCourseAdapter.notifyDataSetChanged();
     }
 
-    public void refreshItems() {
+    public void refreshItems () {
         mRetrofit.connect();
         mCourseAdapter.notifyDataSetChanged();
         onItemsLoadComplete();
-
     }
 
-    public void onItemsLoadComplete() {
-
+    public void onItemsLoadComplete () {
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
-    public void setmFragId(String fragId) {
+    public void setmFragId (String fragId) {
         this.mFragId = fragId;
     }
 
-    public void setmPosition(final int mPosition) {
+    public void setmPosition (final int mPosition) {
         this.mPosition = mPosition;
     }
-
-
 }

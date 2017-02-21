@@ -22,34 +22,31 @@ public class Retrofit2 {
     private int mPosition;
     private String mFragId;
 
-    public Retrofit2(CourseAdapter adapter, final String fragId, final int position) {
+    public Retrofit2 (CourseAdapter adapter, final String fragId, final int position) {
         this.mCourseAdapter = adapter;
         this.mFragId = fragId;
         this.mPosition = position;
-
-
     }
 
-    public void connect(){
+    public void connect () {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://data.cityofnewyork.us/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         Retrofit2Service service = retrofit.create(Retrofit2Service.class);
-        Call<List<JSONCourses>> getStuff = service.getCourses();
-        getStuff.enqueue(new Callback<List<JSONCourses>>() {
+        Call <List <JSONCourses>> getStuff = service.getCourses();
+        getStuff.enqueue(new Callback <List <JSONCourses>>() {
             @Override
-            public void onResponse(Call<List<JSONCourses>> call, Response<List<JSONCourses>> response) {
+            public void onResponse (Call <List <JSONCourses>> call, Response <List <JSONCourses>> response) {
                 if (response.isSuccessful()) {
 
-                    List<JSONCourses> jsonCourses = response.body();
+                    List <JSONCourses> jsonCourses = response.body();
 
                     CourseFilter courseFilter = new CourseFilter(jsonCourses);
 
                     mCourseAdapter.setListofCourses(courseFilter.filterList(mPosition, mFragId));
                     Log.d("It's working", jsonCourses.get(2).getCourseName());
-
                 }
             }
 
@@ -61,12 +58,9 @@ public class Retrofit2 {
         });
     }
 
-
-    public List<JSONCourses> borougthList(List<JSONCourses> inputList, int viewId) {
-
+    public List <JSONCourses> borougthList (List <JSONCourses> inputList, int viewId) {
         String borough = "";
-        List<JSONCourses> output = new ArrayList<>();
-
+        List <JSONCourses> output = new ArrayList <>();
 
 //        switch (viewId){
 //            case R.id.brooklyn:
@@ -80,8 +74,6 @@ public class Retrofit2 {
 //                borough="Bronx";
 //            break;
 //        }
-
-
         for (JSONCourses item : inputList) {
             if (item.getBorough() != null) {
                 if (item.getBorough().equalsIgnoreCase(borough)) {

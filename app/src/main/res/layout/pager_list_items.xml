@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_margin="4dp"
-    android:background="@color/colorSecondary">
+    android:background="#FFFFFFFF">
 
 
     <ImageView
@@ -14,7 +14,8 @@
         android:layout_height="match_parent"
         android:scaleType="center"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        />
 
     <TextView
         android:id="@+id/tile_tv"

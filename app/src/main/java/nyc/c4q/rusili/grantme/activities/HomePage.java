@@ -1,9 +1,10 @@
 package nyc.c4q.rusili.grantme.activities;
 
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.eftimoff.viewpagertransformers.TabletTransformer;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nyc.c4q.rusili.grantme.R;
 import nyc.c4q.rusili.grantme.alertdialog.CustomAlertDialog;
+import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentEnding;
 import nyc.c4q.rusili.grantme.fragments.mainscreen.FragmentProfile;
 import nyc.c4q.rusili.grantme.network.pojo.Listener;
 import nyc.c4q.rusili.grantme.recyclerview.NavDrawerAdapter;
@@ -28,14 +30,14 @@ public class HomePage extends AppCompatActivity implements Listener {
     private FragmentBuilder fragmentBuilder;
     private TabLayout mTabLayout;
     private RecyclerView mDrawerRecyclerView;
-    private ArrayAdapter<String> mAdapter;
+    private ArrayAdapter <String> mAdapter;
     private DrawerLayout mDrawerLayout;
     public ProgressDialog progressDialog;
 
     @Override
     protected void onResume () {
         super.onResume();
-        if (progressDialog!=null) {
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
     }
@@ -50,12 +52,12 @@ public class HomePage extends AppCompatActivity implements Listener {
     }
 
     private void initializeViews () {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         CircleImageView circleImageView = (CircleImageView) findViewById(R.id.profile_pic);
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 createProfileFragment();
-                mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
                 mDrawerLayout.closeDrawers();
             }
         });
@@ -68,15 +70,19 @@ public class HomePage extends AppCompatActivity implements Listener {
         mDrawerRecyclerView.setAdapter(navDrawerAdapter);
     }
 
-
-
-
-
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
+    protected void onPostCreate (Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        setTitle("");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.genielampcopy); // your drawable
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createEnding();
+            }
+        });
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mTabLayout.addTab(mTabLayout.newTab().setText("Location"));
@@ -93,25 +99,23 @@ public class HomePage extends AppCompatActivity implements Listener {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+            public void onTabSelected (TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+            public void onTabUnselected (TabLayout.Tab tab) {
             }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+            public void onTabReselected (TabLayout.Tab tab) {
             }
         });
-
-
     }
 
 
     @Override
-    public void showTrainings(final int position, final String fragId) {
+    public void showTrainings (final int position, final String fragId) {
         TrainingListFragment trainingListFragment = new TrainingListFragment();
         trainingListFragment.setmFragId(fragId);
         trainingListFragment.setmPosition(position);
@@ -123,7 +127,6 @@ public class HomePage extends AppCompatActivity implements Listener {
                 .addToBackStack(null)
                 .commit();
     }
-
 
 
     private void createProfileFragment () {
@@ -138,12 +141,26 @@ public class HomePage extends AppCompatActivity implements Listener {
 
     @Override
     public void onBackPressed () {
-        Fragment currentFragment = getFragmentManager().findFragmentById(R.id.activity_start_layout_parent);
-        if (currentFragment == null) {
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        Fragment currentFragment2 = getSupportFragmentManager().findFragmentById(R.id.content_container);
+
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            mDrawerLayout.closeDrawers();
+        } else if (currentFragment == null && currentFragment2 == null) {
             setExitDialog();
         } else {
             super.onBackPressed();
         }
+    }
+
+    private void createEnding(){
+        FragmentEnding fragmentEnding = new FragmentEnding();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_left)
+                .replace(R.id.content_container, fragmentEnding)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void setExitDialog () {

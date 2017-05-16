@@ -4,6 +4,13 @@ Genie was conceived and completed during a C4Q hackathon allowing users to  
 
 Users are able to create a new profile and log on to view all of the educational and vocational programs within the five boroughs. They were then able to narrow down their search by filtering by borough or vocation, or even do a direct search. Once they find a program they like, they would be able to save it to their favortes to be viewed later.
 
+### API/Libraries:
+  * NYC Open Data
+  * Firebase Authentication, Database, and Storage
+  * Retrofit
+  * RecyclerView
+  * Animations
+
 ### Credits
   * Jose
   * Lily
